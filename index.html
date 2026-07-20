@@ -1,34 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Disneyland Speedrun</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Disneyland Speedrun</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="topBar">
+  <div id="topBar">
+    <div id="title">Disneyland Speedrun</div>
+    <div id="clock">8:00 AM</div>
+    <div id="rides">Rides: 0 / 0</div>
+  </div>
 
-    <div id="title">
-        Disneyland Speedrun
-    </div>
+  <canvas id="gameCanvas"></canvas>
 
-    <div id="clock">
-        8:00 AM
-    </div>
-
-    <div id="rides">
-        Rides: 0 / 0
-    </div>
-
-</div>
-
-<canvas id="gameCanvas"></canvas>
-
-<script src="js/player.js"></script>
-<script src="js/game.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/game.js"></script>
 
 </body>
 </html>
