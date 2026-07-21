@@ -47,23 +47,30 @@ function startRide(id){
   updateQueueUI();
 }
 
-
 function updateQueueUI(){
-  let panel=document.getElementById("queue");
+  let panel=document.getElementById("queuePanel");
   if(!panel)return;
   if(!queue.ride){
     panel.innerText="No queue";
     return;
   }
-
   let ride=rides[queue.ride];
-  panel.innerText=
-    "Queue: "+
+  let start=parkTime.current+queue.remaining;
+  let end=start+ride.duration;
+  panel.innerHTML=
+    "<b>Currently Queued:</b><br>"+
     ride.name+
-    " ("+
+    "<br><br>"+
+    "Wait Remaining: "+
     queue.remaining+
-    " min)";
+    " min<br>"+
+    "Ride Starts: "+
+    formatTime(start)+
+    "<br>"+
+    "Ride Ends: "+
+    formatTime(end);
 }
+
 setInterval(()=>{
 
   if(queue.ride){
