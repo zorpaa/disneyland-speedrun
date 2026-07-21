@@ -27,6 +27,10 @@ function drawParkMap() {
   );
   ctx.fillStyle="blue";
   ctx.fillRect(10,10,50,50);
+  ctx.fillStyle="red";
+ctx.beginPath();
+ctx.arc(nodes.entrance.x,nodes.entrance.y,20,0,Math.PI*2);
+ctx.fill();
 
   drawConnections();
 
