@@ -118,7 +118,8 @@ canvas.addEventListener(
 
 function handleMapClick(event) {
 
-  const rect = canvas.getBoundingClientRect();
+  const rect =
+    canvas.getBoundingClientRect();
 
 
   const mouseX =
@@ -134,10 +135,11 @@ function handleMapClick(event) {
     const node = nodes[id];
 
 
-    const distance = Math.sqrt(
-      (mouseX - node.x) ** 2 +
-      (mouseY - node.y) ** 2
-    );
+    const distance =
+      Math.sqrt(
+        (mouseX - node.x) ** 2 +
+        (mouseY - node.y) ** 2
+      );
 
 
     if (distance < 25) {
@@ -156,35 +158,33 @@ function handleMapClick(event) {
 
 function selectNode(id) {
 
-  const destination = nodes[id];
+  if (player.moving) {
+    return;
+  }
 
 
-  console.log(
-    "Selected:",
-    destination.name
-  );
-
-
-  const route = findPath(
-    player.currentNode,
-    id
-  );
+  const route =
+    findPath(
+      player.currentNode,
+      id
+    );
 
 
   console.log(route);
 
 
-  if (destination.type === "ride") {
-
-    completeRide(id);
-
-  }
+  player.destination = id;
 
 
-  player.currentNode = id;
+  player.startMovement(
+    route.path
+  );
 
-  player.x = destination.x;
 
-  player.y = destination.y;
+  // Walking time based on graph distance
+
+  advanceTime(
+    route.distance
+  );
 
 }
