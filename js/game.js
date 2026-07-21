@@ -100,7 +100,9 @@ function loop() {
 // Start Game
 // ====================
 
-player.x = nodes.entrance.x;
-player.y = nodes.entrance.y;
+player.x = nodes[player.currentNode].x;
+player.y = nodes[player.currentNode].y;
+
+updateRideCounter();
 
 loop();
