@@ -296,7 +296,7 @@ peterPan:{
   x:750,
   y:280,
   connections:[
-    {node:"fantasylandHub"}
+    {node:"fantasylandWest"}
   ]
 },
 
@@ -309,7 +309,7 @@ alice:{
   x:750,
   y:350,
   connections:[
-    {node:"fantasylandHub"}
+    {node:"fantasylandEast"}
   ]
 },
 
@@ -322,7 +322,7 @@ mrToad:{
   x:750,
   y:420,
   connections:[
-    {node:"fantasylandHub"}
+    {node:"fantasylandWest"}
   ]
 },
 };
