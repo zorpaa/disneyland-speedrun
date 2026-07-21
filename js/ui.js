@@ -45,7 +45,6 @@ function drawNodes(){
 
     ctx.beginPath();
     ctx.arc(node.x,node.y,20,0,Math.PI*2);
-
     ctx.fillStyle=landColors[node.land]||"#999";
     ctx.fill();
 
@@ -59,12 +58,13 @@ function drawNodes(){
     }
 
     if(node.type==="ride"||node.showLabel){
-  ctx.fillStyle="black";
-  ctx.font="12px Arial";
-  ctx.textAlign="center";
-  ctx.fillText(node.name,node.x,node.y-30);
-  ctx.textAlign="left";
-}
+      ctx.fillStyle="black";
+      ctx.font="12px Arial";
+      ctx.textAlign="center";
+      ctx.fillText(node.name,node.x,node.y-30);
+      ctx.textAlign="left";
+    }
+  }
 }
 
 function drawPlayer(){
