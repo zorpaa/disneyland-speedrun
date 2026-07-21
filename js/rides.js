@@ -1,74 +1,50 @@
-// ====================
 // Ride Database
-// ====================
 
+const rides={
 
-const rides = {
+spaceMountain:{
+  name:"Space Mountain",
+  maxWait:90,
+  popularity:1.20,
+  duration:5,
+  currentWait:5,
+  completed:false
+},
 
+matterhorn:{
+  name:"Matterhorn Bobsleds",
+  maxWait:60,
+  popularity:0.85,
+  duration:4,
+  currentWait:5,
+  completed:false
+},
 
-  spaceMountain: {
+indianaJones:{
+  name:"Indiana Jones Adventure",
+  maxWait:90,
+  popularity:1.15,
+  duration:5,
+  currentWait:5,
+  completed:false
+},
 
-    name: "Space Mountain",
+bigThunder:{
+  name:"Big Thunder Mountain",
+  maxWait:70,
+  popularity:0.95,
+  duration:4,
+  currentWait:5,
+  completed:false
+},
 
-    wait: 45,
-
-    duration: 5,
-
-    completed: false
-
-  },
-
-
-  matterhorn: {
-
-    name: "Matterhorn Bobsleds",
-
-    wait: 30,
-
-    duration: 4,
-
-    completed: false
-
-  },
-
-
-  indianaJones: {
-
-    name: "Indiana Jones Adventure",
-
-    wait: 50,
-
-    duration: 5,
-
-    completed: false
-
-  },
-
-
-  bigThunder: {
-
-    name: "Big Thunder Mountain",
-
-    wait: 40,
-
-    duration: 4,
-
-    completed: false
-
-  },
-
-
-  riseResistance: {
-
-    name: "Rise of the Resistance",
-
-    wait: 70,
-
-    duration: 18,
-
-    completed: false
-
-  }
-
+riseResistance:{
+  name:"Rise of the Resistance",
+  maxWait:120,
+  popularity:1.35,
+  duration:18,
+  currentWait:10,
+  completed:false
+}
 
 };
