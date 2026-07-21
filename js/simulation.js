@@ -2,6 +2,7 @@
 // Simulation System
 // ====================
 
+
 function advanceTime(minutes) {
 
   player.time += minutes;
@@ -9,7 +10,11 @@ function advanceTime(minutes) {
 }
 
 
-// Called when player reaches destination
+
+// ====================
+// Arrival Handling
+// ====================
+
 
 function arriveAtDestination() {
 
@@ -18,21 +23,19 @@ function arriveAtDestination() {
   }
 
 
-  const node =
-    nodes[player.destination];
+  const destination =
+    player.destination;
 
 
   console.log(
     "Arrived:",
-    node.name
+    nodes[destination].name
   );
 
 
-  if (node.type === "ride") {
+  if (nodes[destination].type === "ride") {
 
-    completeRide(
-      player.destination
-    );
+    completeRide(destination);
 
   }
 
@@ -41,6 +44,11 @@ function arriveAtDestination() {
 
 }
 
+
+
+// ====================
+// Ride Completion
+// ====================
 
 
 function completeRide(id) {
@@ -53,14 +61,15 @@ function completeRide(id) {
   }
 
 
-  // Queue entry happens now
-  // Must be before closing
 
+  // Queue entry happens now.
+  // As long as this happens before closing,
+  // the ride is allowed to finish.
 
   if (player.time >= park.closeTime) {
 
     console.log(
-      "Park closed. Cannot enter queue."
+      "Park is closed."
     );
 
     return;
@@ -68,10 +77,16 @@ function completeRide(id) {
   }
 
 
+
   advanceTime(
-    ride.wait +
+    ride.wait
+  );
+
+
+  advanceTime(
     ride.duration
   );
+
 
 
   ride.completed = true;
@@ -80,13 +95,15 @@ function completeRide(id) {
   player.completed.push(id);
 
 
+
   updateRideCounter();
 
 
+
   console.log(
-    ride.name,
-    "completed"
+    ride.name + " completed!"
   );
+
 
 
   if (checkWin()) {
@@ -98,22 +115,10 @@ function completeRide(id) {
 }
 
 
-  ride.completed = true;
 
-
-  player.completed.push(id);
-
-
-  updateRideCounter();
-
-
-  console.log(
-    ride.name,
-    "completed"
-  );
-
-}
-
+// ====================
+// Ride Counter
+// ====================
 
 
 function updateRideCounter() {
@@ -123,6 +128,9 @@ function updateRideCounter() {
 
 
   document.getElementById("rides").innerText =
-    `Rides: ${player.completed.length} / ${total}`;
+    "Rides: " +
+    player.completed.length +
+    " / " +
+    total;
 
 }
