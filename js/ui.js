@@ -83,14 +83,14 @@ function drawNodes(){
       ctx.arc(
         pos.x,
         pos.y,
-        60*camera.zoom,
+        40*camera.zoom,
         0,
         Math.PI*2
       );
     }else{
       ctx.moveTo(
         pos.x,
-        pos.y-(60*camera.zoom)
+        pos.y-(40*camera.zoom)
       );
       ctx.lineTo(
         pos.x+(40*camera.zoom),
@@ -433,7 +433,7 @@ function handleHover(e){
   for(let id in nodes){
     let n=nodes[id];
 
-    if(Math.hypot(x-n.x,y-n.y)<25){
+    if(Math.hypot(x-n.x,y-n.y)<45){
       hoveredNode=id;
 
       if(n.type==="ride"&&!selectedNode)
