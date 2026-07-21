@@ -257,8 +257,6 @@ const nodes = {
     connections: [
       { node: "galaxysEdge" }
     ]
-  }
-
 },
 
 peterPan:{
