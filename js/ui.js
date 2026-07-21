@@ -38,15 +38,22 @@ function drawParkMap(){
 function drawConnections(){
   ctx.strokeStyle="#888";
   ctx.lineWidth=3;
+
   for(let id in nodes){
     let node=nodes[id];
     if(!node.connections)continue;
+
+    let pos=worldToScreen(node.x,node.y);
+
     for(let c of node.connections){
       let t=nodes[c.node];
       if(!t)continue;
+
+      let target=worldToScreen(t.x,t.y);
+
       ctx.beginPath();
       ctx.moveTo(pos.x,pos.y);
-      ctx.lineTo(t.x,t.y);
+      ctx.lineTo(target.x,target.y);
       ctx.stroke();
     }
   }
@@ -55,60 +62,77 @@ function drawConnections(){
 function drawNodes(){
   for(let id in nodes){
     let node=nodes[id];
+    let pos=worldToScreen(node.x,node.y);
 
     ctx.beginPath();
 
     if(node.type==="ride"){
-      let pos=worldToScreen(pos.x,pos.y);
-      ctx.arc(pos.x,pos.y,20*camera.zoom,0,Math.PI*2);
+      ctx.arc(
+        pos.x,
+        pos.y,
+        20*camera.zoom,
+        0,
+        Math.PI*2
+      );
     }else{
-      ctx.moveTo(pos.x,pos.y-20);
-      ctx.lineTo(pos.x+20,pos.y);
-      ctx.lineTo(pos.x,pos.y+20);
-      ctx.lineTo(pos.x-20,pos.y);
+      ctx.moveTo(pos.x,pos.y-(20*camera.zoom));
+      ctx.lineTo(pos.x+(20*camera.zoom),pos.y);
+      ctx.lineTo(pos.x,pos.y+(20*camera.zoom));
+      ctx.lineTo(pos.x-(20*camera.zoom),pos.y);
       ctx.closePath();
     }
 
     if(node.type==="ride"&&rides[id]?.completed){
-  ctx.fillStyle="#999";
-}else{
-  ctx.fillStyle=landColors[node.land]||"#999";
-}
+      ctx.fillStyle="#999";
+    }else{
+      ctx.fillStyle=landColors[node.land]||"#999";
+    }
 
-ctx.fill();
+    ctx.fill();
 
     if(hoveredNode===id){
+
       ctx.strokeStyle="white";
       ctx.lineWidth=4;
 
       ctx.beginPath();
 
       if(node.type==="ride"){
-        ctx.arc(pos.x,pos.y,27,0,Math.PI*2);
+        ctx.arc(
+          pos.x,
+          pos.y,
+          27*camera.zoom,
+          0,
+          Math.PI*2
+        );
       }else{
-        ctx.moveTo(pos.x,pos.y-27);
-        ctx.lineTo(pos.x+27,pos.y);
-        ctx.lineTo(pos.x,pos.y+27);
-        ctx.lineTo(pos.x-27,pos.y);
+        ctx.moveTo(pos.x,pos.y-(27*camera.zoom));
+        ctx.lineTo(pos.x+(27*camera.zoom),pos.y);
+        ctx.lineTo(pos.x,pos.y+(27*camera.zoom));
+        ctx.lineTo(pos.x-(27*camera.zoom),pos.y);
         ctx.closePath();
       }
 
-      if(node.type==="ride"&&rides[id]?.completed){
-  ctx.fillStyle="black";
-  ctx.font="16px Arial";
-  ctx.textAlign="center";
-  ctx.fillText("✓",pos.x,pos.y+6);
-  ctx.textAlign="left";
-}
-      
       ctx.stroke();
+    }
+
+    if(node.type==="ride"&&rides[id]?.completed){
+      ctx.fillStyle="black";
+      ctx.font=(16*camera.zoom)+"px Arial";
+      ctx.textAlign="center";
+      ctx.fillText("✓",pos.x,pos.y+(6*camera.zoom));
+      ctx.textAlign="left";
     }
 
     if(node.showLabel){
       ctx.fillStyle="black";
-      ctx.font="12px Arial";
+      ctx.font=(12*camera.zoom)+"px Arial";
       ctx.textAlign="center";
-      ctx.fillText(node.name,pos.x,pos.y-35);
+      ctx.fillText(
+        node.name,
+        pos.x,
+        pos.y-(35*camera.zoom)
+      );
       ctx.textAlign="left";
     }
   }
@@ -234,11 +258,18 @@ function drawRoute(){
 
   ctx.strokeStyle="#2196f3";
   ctx.lineWidth=5;
+
   ctx.beginPath();
 
   activeRoute.forEach((id,i)=>{
-    let n=nodes[id];
-    i?ctx.lineTo(n.x,n.y):ctx.moveTo(n.x,n.y);
+    let node=nodes[id];
+    let pos=worldToScreen(node.x,node.y);
+
+    if(i===0){
+      ctx.moveTo(pos.x,pos.y);
+    }else{
+      ctx.lineTo(pos.x,pos.y);
+    }
   });
 
   ctx.stroke();
