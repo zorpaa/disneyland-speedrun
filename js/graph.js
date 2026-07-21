@@ -295,7 +295,7 @@ const nodes = {
     type:"ride",
     land:"Fantasyland",
     x:860,
-    y:280,
+    y:250,
     connections:[
       {node:"fantasylandWest"}
     ]
