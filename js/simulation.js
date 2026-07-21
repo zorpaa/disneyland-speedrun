@@ -6,6 +6,7 @@ function advanceTime(minutes){
   updateRideWaits();
   updateClock();
 }
+
 function arriveAtDestination(){
   if(!player.destination)return;
   const destination=player.destination;
@@ -14,11 +15,13 @@ function arriveAtDestination(){
   if(nodes[destination].type==="ride"){
     completeRide(destination);
   }
+
   player.destination=null;
   player.path=[];
   player.pathIndex=0;
   player.moving=false;
 }
+
 function completeRide(id){
   const ride=rides[id];
   if(!ride||ride.completed)return;
@@ -68,6 +71,7 @@ function checkWin(){
 
 function victory(){
   alert("Congratulations! You completed all rides!");
+  
 }
 function updateHUD(){
   let loc=document.getElementById("location");
