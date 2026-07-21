@@ -157,7 +157,7 @@ function showNodeInfo(id,selected=false){
     id
   );
 
-  let walkTime=route.distance;
+  let walkTime=getWalkingTime(route.path);
 
   let total=
     walkTime+
