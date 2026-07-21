@@ -31,7 +31,7 @@ function drawConnections() {
 
       ctx.lineTo(
         target.x,
-        target.y
+        target.y,
       );
 
       ctx.stroke();
