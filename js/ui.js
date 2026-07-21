@@ -148,6 +148,24 @@ function drawPlayer(){
 
 canvas.addEventListener("click",handleMapClick);
 canvas.addEventListener("mousemove",handleHover);
+canvas.addEventListener("wheel",handleZoom);
+
+function handleZoom(event){
+  event.preventDefault();
+  let zoomAmount=0.1;
+  if(event.deltaY<0){
+    camera.zoom+=zoomAmount;
+  }else{
+    camera.zoom-=zoomAmount;
+  }
+  if(camera.zoom<0.5){
+    camera.zoom=0.5;
+  }
+  if(camera.zoom>3){
+    camera.zoom=3;
+  }
+  drawParkMap();
+}
 
 function handleMapClick(e){
   let r=canvas.getBoundingClientRect();
