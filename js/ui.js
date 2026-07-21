@@ -169,7 +169,17 @@ function showNodeInfo(id,selected=false){
   id
 ).distance;
 
-let walkTime=walkDistance;
+let walkTime=findPath(
+  player.currentNode,
+  id
+).distance;
+
+let total=
+  walkTime+
+  ride.currentWait+
+  ride.duration;
+
+let finish=parkTime.current+total;
 
 let total=
   walkTime+
