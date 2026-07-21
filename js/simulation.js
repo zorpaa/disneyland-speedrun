@@ -100,3 +100,14 @@ function checkWin(){
 function victory(){
   alert("Congratulations! You completed all rides!");
 }
+function updateHUD(){
+
+  let loc=document.getElementById("location");
+  let status=document.getElementById("status");
+
+  if(loc)
+    loc.innerText="Location: "+nodes[player.currentNode].name;
+
+  if(status)
+    status.innerText=parkIsClosed()?"Park Closed":"Park Open";
+}
