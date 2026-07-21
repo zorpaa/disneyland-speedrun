@@ -93,15 +93,15 @@ function drawNodes(){
         pos.y-(60*camera.zoom)
       );
       ctx.lineTo(
-        pos.x+(60*camera.zoom),
+        pos.x+(40*camera.zoom),
         pos.y
       );
       ctx.lineTo(
         pos.x,
-        pos.y+(60*camera.zoom)
+        pos.y+(40*camera.zoom)
       );
       ctx.lineTo(
-        pos.x-(60*camera.zoom),
+        pos.x-(40*camera.zoom),
         pos.y
       );
       ctx.closePath();
@@ -122,25 +122,25 @@ function drawNodes(){
         ctx.arc(
           pos.x,
           pos.y,
-          75*camera.zoom,
+          55*camera.zoom,
           0,
           Math.PI*2
         );
       }else{
         ctx.moveTo(
           pos.x,
-          pos.y-(75*camera.zoom)
+          pos.y-(55*camera.zoom)
         );
         ctx.lineTo(
-          pos.x+(75*camera.zoom),
+          pos.x+(55*camera.zoom),
           pos.y
         );
         ctx.lineTo(
           pos.x,
-          pos.y+(75*camera.zoom)
+          pos.y+(55*camera.zoom)
         );
         ctx.lineTo(
-          pos.x-(75*camera.zoom),
+          pos.x-(55*camera.zoom),
           pos.y
         );
         ctx.closePath();
@@ -185,7 +185,7 @@ function drawPlayer(){
   ctx.arc(
     pos.x,
     pos.y,
-    10*camera.zoom,
+    20*camera.zoom,
     0,
     Math.PI*2
   );
@@ -352,7 +352,7 @@ function handleMapClick(e){
 
   for(let id in nodes){
     let n=nodes[id];
-    if(Math.hypot(x-n.x,y-n.y)<75){
+    if(Math.hypot(x-n.x,y-n.y)<45){
       selectedNode=null;
       n.type==="ride"?showNodeInfo(id,true):selectNode(id);
       break;
