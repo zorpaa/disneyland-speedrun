@@ -220,8 +220,10 @@ function handleMapClick(e){
 }
   
   let r=canvas.getBoundingClientRect();
-  let x=(e.clientX-r.left)*(canvas.width/r.width);
-  let y=(e.clientY-r.top)*(canvas.height/r.height);
+  let screenX=(e.clientX-r.left)*(canvas.width/r.width);
+  let screenY=(e.clientY-r.top)*(canvas.height/r.height);
+  let x=screenX/camera.zoom+camera.x;
+  let y=screenY/camera.zoom+camera.y;
 
   for(let id in nodes){
     let n=nodes[id];
