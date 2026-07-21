@@ -50,3 +50,18 @@ canvas{
   border:3px solid #333;
   border-radius:8px;
 }
+#topBar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 20px;
+  height:60px;
+  background:#003b73;
+  color:white;
+  font-weight:bold;
+}
+
+#location,
+#status{
+  font-size:16px;
+}
