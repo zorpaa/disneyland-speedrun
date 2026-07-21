@@ -1,5 +1,6 @@
 const canvas=document.getElementById("gameCanvas");
 const ctx=canvas.getContext("2d");
+let hoveredNode=null;
 
 function drawParkMap(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -38,10 +39,18 @@ function drawNodes(){
 
     ctx.beginPath();
     ctx.arc(node.x,node.y,20,0,Math.PI*2);
-
     ctx.fillStyle=node.type==="ride"?"#ffcc00":"#4caf50";
     ctx.fill();
+    if(hoveredNode===id){
 
+  ctx.strokeStyle="white";
+  ctx.lineWidth=4;
+
+  ctx.beginPath();
+  ctx.arc(node.x,node.y,27,0,Math.PI*2);
+  ctx.stroke();
+
+}
     ctx.fillStyle="black";
     ctx.font="12px Arial";
     ctx.fillText(node.name,node.x-30,node.y-25);
@@ -140,27 +149,22 @@ function showNodeInfo(id){
 }
 
 function handleHover(event){
-
   const rect=canvas.getBoundingClientRect();
-
   const mouseX=(event.clientX-rect.left)*(canvas.width/rect.width);
   const mouseY=(event.clientY-rect.top)*(canvas.height/rect.height);
-
   for(let id in nodes){
-
     let node=nodes[id];
-
     let distance=Math.sqrt(
       (mouseX-node.x)**2+
       (mouseY-node.y)**2
     );
-
     if(distance<25){
+      hoveredNode=id;
       showNodeInfo(id);
       return;
     }
   }
-
+  hoveredNode=null;
   let panel=document.getElementById("ridePanel");
   if(panel)panel.style.display="none";
 }
