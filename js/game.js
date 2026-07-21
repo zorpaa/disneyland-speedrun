@@ -1,3 +1,7 @@
+// ====================
+// Game Setup
+// ====================
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -5,10 +9,20 @@ resize();
 
 window.addEventListener("resize", resize);
 
+
+// ====================
+// Canvas
+// ====================
+
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight - 60;
 }
+
+
+// ====================
+// Time System
+// ====================
 
 function formatTime(minutes) {
   const hours = Math.floor(minutes / 60);
@@ -25,31 +39,16 @@ function formatTime(minutes) {
   return `${display}:${String(mins).padStart(2, "0")} ${suffix}`;
 }
 
+
 function updateClock() {
   document.getElementById("clock").innerText =
     formatTime(player.time);
 }
 
-function drawGrid() {
-  const size = 50;
 
-  ctx.strokeStyle = "#cfe7b3";
-  ctx.lineWidth = 1;
-
-  for (let x = 0; x < canvas.width; x += size) {
-    ctx.beginPath();
-    ctx.moveTo(x, 0);
-    ctx.lineTo(x, canvas.height);
-    ctx.stroke();
-  }
-
-  for (let y = 0; y < canvas.height; y += size) {
-    ctx.beginPath();
-    ctx.moveTo(0, y);
-    ctx.lineTo(canvas.width, y);
-    ctx.stroke();
-  }
-}
+// ====================
+// Rendering
+// ====================
 
 function drawPlayer() {
   ctx.beginPath();
@@ -63,12 +62,11 @@ function drawPlayer() {
   );
 
   ctx.fillStyle = "#ff4444";
-
   ctx.fill();
 }
 
-function draw() {
 
+function draw() {
   ctx.clearRect(
     0,
     0,
@@ -77,18 +75,18 @@ function draw() {
   );
 
   drawParkMap();
-
-  drawPlayer();
-
-}
-
-  drawGrid();
   drawPlayer();
 }
+
+
+// ====================
+// Game Loop
+// ====================
 
 function update() {
   updateClock();
 }
+
 
 function loop() {
   update();
@@ -96,6 +94,11 @@ function loop() {
 
   requestAnimationFrame(loop);
 }
+
+
+// ====================
+// Start Game
+// ====================
 
 player.x = nodes.entrance.x;
 player.y = nodes.entrance.y;
