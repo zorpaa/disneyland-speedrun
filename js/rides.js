@@ -78,3 +78,4 @@ submarine:{
   duration:12,
   completed:false
 },
+};
