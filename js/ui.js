@@ -9,18 +9,14 @@ function drawParkMap(){
 }
 
 function drawConnections(){
-
   ctx.strokeStyle="#888";
   ctx.lineWidth=3;
 
   for(let id in nodes){
-
     let node=nodes[id];
-
     if(!node.connections)continue;
 
     for(let connection of node.connections){
-
       let target=nodes[connection.node];
 
       if(!target){
@@ -37,9 +33,7 @@ function drawConnections(){
 }
 
 function drawNodes(){
-
   for(let id in nodes){
-
     let node=nodes[id];
 
     ctx.beginPath();
@@ -55,14 +49,11 @@ function drawNodes(){
 }
 
 function drawPlayer(){
-
   ctx.beginPath();
   ctx.arc(player.x,player.y,10,0,Math.PI*2);
-
   ctx.fillStyle="red";
   ctx.fill();
 }
-
 
 canvas.addEventListener("click",handleMapClick);
 
@@ -74,7 +65,6 @@ function handleMapClick(event){
   const mouseY=(event.clientY-rect.top)*(canvas.height/rect.height);
 
   for(let id in nodes){
-
     let node=nodes[id];
 
     let distance=Math.sqrt(
@@ -96,8 +86,9 @@ function selectNode(id){
   if(player.moving){
     console.log("Player currently moving");
     return;
-    showNodeInfo(id);
   }
+
+  showNodeInfo(id);
 
   let route=findPath(
     player.currentNode,
@@ -119,6 +110,7 @@ function selectNode(id){
 
   player.startMovement(route.path);
 }
+
 function showNodeInfo(id){
 
   let panel=document.getElementById("ridePanel");
