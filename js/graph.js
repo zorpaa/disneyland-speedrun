@@ -11,6 +11,7 @@ const nodes = {
     land: "Entrance",
     x: 100,
     y: 350,
+    showLabel:true,
     connections: [
       { node: "mainStreet" }
     ]
@@ -24,6 +25,7 @@ const nodes = {
     land: "Main Street",
     x: 250,
     y: 350,
+    showLabel:true,
     connections: [
       { node: "entrance" },
       { node: "hub" }
@@ -38,6 +40,7 @@ const nodes = {
     land: "Hub",
     x: 400,
     y: 350,
+    showLabel:true,
     connections: [
       { node: "mainStreet" },
       { node: "tomorrowland" },
@@ -56,6 +59,7 @@ const nodes = {
     land:"Tomorrowland",
     x:550,
     y:200,
+    showLabel:true,
     connections:[
       {node:"hub"},
       {node:"spaceMountain"},
@@ -74,6 +78,7 @@ const nodes = {
     land: "Fantasyland",
     x: 550,
     y: 350,
+    showLabel:true,
     connections: [
       { node: "hub" },
       { node: "fantasylandHub" }
@@ -102,6 +107,7 @@ fantasylandWest:{
   land:"Fantasyland",
   x:700,
   y:300,
+  showLabel:true,
   connections:[
     {node:"fantasylandHub"},
     {node:"peterPan"},
@@ -118,6 +124,7 @@ fantasylandEast:{
   land:"Fantasyland",
   x:700,
   y:400,
+  showLabel:true,
   connections:[
     {node:"fantasylandHub"},
     {node:"alice"},
@@ -132,6 +139,7 @@ fantasylandEast:{
     land: "Adventureland",
     x: 550,
     y: 500,
+    showLabel:true,
     connections: [
       { node: "hub" },
       { node: "indianaJones" }
@@ -146,6 +154,7 @@ fantasylandEast:{
     land: "Frontierland",
     x: 700,
     y: 500,
+    showLabel:true,
     connections: [
       { node: "hub" },
       { node: "bigThunder" }
@@ -160,6 +169,7 @@ fantasylandEast:{
     land: "Galaxy's Edge",
     x: 700,
     y: 250,
+    showLabel:true,
     connections: [
       { node: "hub" },
       { node: "riseResistance" }
