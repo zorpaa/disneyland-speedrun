@@ -3,6 +3,16 @@ const ctx=canvas.getContext("2d");
 let hoveredNode=null;
 let activeRoute=[];
 let selectedNode=null;
+const landColors={
+  "Entrance":"#555",
+  "Main Street":"#f2c94c",
+  "Hub":"#777",
+  "Tomorrowland":"#4da6ff",
+  "Fantasyland":"#ff99cc",
+  "Adventureland":"#66cc66",
+  "Frontierland":"#cc9966",
+  "Galaxy's Edge":"#9966ff"
+};
 
 function drawParkMap(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
