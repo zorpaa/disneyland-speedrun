@@ -1,80 +1,19 @@
-// ====================
-// Park Rules
-// ====================
+// Park Setup
 
-const park = {
-
-  openTime: 8 * 60,
-
-  closeTime: 24 * 60,
-
-
-  isOpen() {
-
-    return player.time < this.closeTime;
-
-  },
-
-
-  remainingTime() {
-
-    return this.closeTime - player.time;
-
-  }
-
+const park={
+  name:"Disneyland",
+  open:"8:00 AM",
+  close:"12:00 AM"
 };
-
-
-
-function checkParkStatus() {
-
-
-  if (
-    player.time >= park.closeTime &&
-    !checkWin()
-  ) {
-
-    gameOver();
-
+function startPark(){
+  parkTime.current=parkTime.open;
+  updateClock();
+  updateRideCounter();
+}
+function checkPark(){
+  if(parkIsClosed()){
+    alert("Park is closed!");
+    return false;
   }
-
-}
-
-
-
-function checkWin() {
-
-  return (
-    player.completed.length ===
-    Object.keys(rides).length
-  );
-
-}
-
-
-
-function gameOver() {
-
-  alert(
-    "Park Closed!\n\n" +
-    "Rides Completed: " +
-    player.completed.length +
-    "/" +
-    Object.keys(rides).length
-  );
-
-
-}
-
-
-
-function victory() {
-
-  alert(
-    "DISNEYLAND SPEEDRUN COMPLETE!\n\n" +
-    "Finished at: " +
-    formatTime(player.time)
-  );
-
-
+  return true;
 }
