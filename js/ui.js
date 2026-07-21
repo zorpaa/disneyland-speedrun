@@ -132,6 +132,7 @@ function showNodeInfo(id){
     "<b>"+ride.name+"</b><br>"+
     "Wait: "+ride.wait+" min<br>"+
     "Ride: "+ride.duration+" min<br>"+
+    "Total: "+(ride.wait+ride.duration)+" min<br>"+
     (ride.completed?"Completed":"Available");
 }
 function handleHover(event){
