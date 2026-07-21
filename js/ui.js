@@ -178,6 +178,23 @@ function loadParkMap(){
   };
 }
 
+function showMapCoordinates(event){
+  let rect=canvas.getBoundingClientRect();
+  let screenX=(event.clientX-rect.left)*(canvas.width/rect.width);
+  let screenY=(event.clientY-rect.top)*(canvas.height/rect.height);
+  let worldX=Math.round(
+    screenX/camera.zoom+camera.x
+  );
+  let worldY=Math.round(
+    screenY/camera.zoom+camera.y
+  );
+  console.log(
+    "Map Coordinates:",
+    worldX,
+    worldY
+  );
+}
+
 canvas.addEventListener("click",handleMapClick);
 canvas.addEventListener("mousemove",handleHover);
 canvas.addEventListener("wheel",handleZoom);
@@ -185,6 +202,7 @@ canvas.addEventListener("mousedown",startDrag);
 canvas.addEventListener("mouseup",endDrag);
 canvas.addEventListener("mouseleave",endDrag);
 canvas.addEventListener("mousemove",dragCamera);
+canvas.addEventListener("click",showMapCoordinates);
 
 const parkMap={
   image:null,
