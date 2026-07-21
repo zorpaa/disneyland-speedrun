@@ -173,7 +173,7 @@ function showNodeInfo(id,selected=false){
     "Walk: "+walkTime+" min<br><br>"+
     "Total: "+total+" min<br>"+
     "Done: "+formatTime(finish)+"<br><br>"+
-    "<button onclick="selectNode('"+id+"')">Go To Ride</button>";
+    <button onclick="selectNode('"+id+"')">Go To Ride</button>;
 }
 function handleHover(event){
   const rect=canvas.getBoundingClientRect();
