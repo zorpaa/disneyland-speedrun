@@ -53,7 +53,22 @@ class Player {
 
 
     const nextNode =
-      nodes[this.path[this.pathIndex]];
+  nodes[this.path[this.pathIndex]];
+
+
+if (!nextNode) {
+
+  console.error(
+    "Missing node:",
+    this.path[this.pathIndex]
+  );
+
+
+  this.moving = false;
+
+  return;
+
+}
 
 
     const dx = nextNode.x - this.x;
