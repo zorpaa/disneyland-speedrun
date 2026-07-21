@@ -109,11 +109,12 @@ fantasylandWest:{
   y:300,
   showLabel:true,
   connections:[
-    {node:"fantasylandHub"},
-    {node:"peterPan"},
-    {node:"mrToad"},
-    {node:"fantasylandEast"}
-  ]
+  {node:"fantasylandHub"},
+  {node:"peterPan"},
+  {node:"mrToad"},
+  {node:"pinocchio"},
+  {node:"fantasylandEast"}
+]
 },
 
 
