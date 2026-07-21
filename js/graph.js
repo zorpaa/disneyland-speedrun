@@ -282,7 +282,7 @@ fantasylandEast:{
     type: "ride",
     land: "Frontierland",
     x: 800,
-    y: 500,
+    y: 400,
     connections: [
       { node: "frontierland" }
     ]
