@@ -122,7 +122,8 @@ function selectNode(id){
   player.startMovement(route.path);
 }
 
-function showNodeInfo(id){
+function showNodeInfo(id,selected=false){
+
   let panel=document.getElementById("ridePanel");
   let node=nodes[id];
   if(!panel||!node)return;
@@ -130,15 +131,28 @@ function showNodeInfo(id){
     panel.style.display="none";
     return;
   }
+
   let ride=rides[id];
+  panel.style.display="block";
+  if(!selected){
+    panel.innerHTML=
+      "<b>"+ride.name+"</b><br><br>"+
+      "Wait: "+ride.currentWait+" min<br>"+
+      "Ride: "+ride.duration+" min";
+    return;
+  }
+
   let route=findPath(
     player.currentNode,
     id
   );
+
   let walkTime=route.distance;
-  let total=walkTime+ride.currentWait+ride.duration;
+  let total=walkTime+
+    ride.currentWait+
+    ride.duration;
+
   let finish=parkTime.current+total;
-  panel.style.display="block";
   panel.innerHTML=
     "<b>"+ride.name+"</b><br><br>"+
     "Wait: "+ride.currentWait+" min<br>"+
