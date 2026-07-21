@@ -295,6 +295,7 @@ mrToad:{
   connections:[
     {node:"fantasylandHub"}
   ]
+},
 };
 
 function checkNodeCollisions(){
