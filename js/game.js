@@ -97,7 +97,7 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-player.x = 120;
-player.y = 120;
+player.x = nodes.entrance.x;
+player.y = nodes.entrance.y;
 
 loop();
