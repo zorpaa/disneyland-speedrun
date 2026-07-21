@@ -149,22 +149,56 @@ function drawPlayer(){
 canvas.addEventListener("click",handleMapClick);
 canvas.addEventListener("mousemove",handleHover);
 canvas.addEventListener("wheel",handleZoom);
+canvas.addEventListener("mousedown",startDrag);
+canvas.addEventListener("mouseup",endDrag);
+canvas.addEventListener("mouseleave",endDrag);
+canvas.addEventListener("mousemove",dragCamera);
+
+let dragging=false;
+let dragStartX=0;
+let dragStartY=0;
+let cameraStartX=0;
+let cameraStartY=0;
 
 function handleZoom(event){
   event.preventDefault();
+  let rect=canvas.getBoundingClientRect();
+  let mouseX=(event.clientX-rect.left)*(canvas.width/rect.width);
+  let mouseY=(event.clientY-rect.top)*(canvas.height/rect.height);
+  let worldX=mouseX/camera.zoom+camera.x;
+  let worldY=mouseY/camera.zoom+camera.y;
   let zoomAmount=0.1;
   if(event.deltaY<0){
     camera.zoom+=zoomAmount;
   }else{
     camera.zoom-=zoomAmount;
   }
-  if(camera.zoom<0.5){
+  if(camera.zoom<0.5)
     camera.zoom=0.5;
-  }
-  if(camera.zoom>3){
+  if(camera.zoom>3)
     camera.zoom=3;
-  }
+  camera.x=worldX-(mouseX/camera.zoom);
+  camera.y=worldY-(mouseY/camera.zoom);
   drawParkMap();
+}
+
+function startDrag(event){
+  dragging=true;
+  dragStartX=event.clientX;
+  dragStartY=event.clientY;
+  cameraStartX=camera.x;
+  cameraStartY=camera.y;
+}
+function dragCamera(event){
+  if(!dragging)return;
+  let dx=(event.clientX-dragStartX)/camera.zoom;
+  let dy=(event.clientY-dragStartY)/camera.zoom;
+  camera.x=cameraStartX-dx;
+  camera.y=cameraStartY-dy;
+  drawParkMap();
+}
+function endDrag(){
+  dragging=false;
 }
 
 function handleMapClick(e){
