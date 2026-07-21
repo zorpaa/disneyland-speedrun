@@ -97,13 +97,14 @@ function drawNodes(){
       ctx.closePath();
     }
 
-    if(node.type==="ride"&&rides[id]?.completed){
-      ctx.fillStyle="#999";
+    if(node.type==="ride"){
+      ctx.fillStyle="#00e5ff";
     }else{
-      ctx.fillStyle=landColors[node.land]||"#999";
+    ctx.fillStyle=landColors[node.land]||"#999";
     }
 
-    ctx.fill();
+    ctx.shadowColor = "white";
+    ctx.shadowBlur = 8;
 
     if(hoveredNode===id){
 
@@ -178,6 +179,14 @@ function drawBackground(){
     parkMap.height*camera.zoom
   );
 
+  ctx.fillStyle = "rgba(255,255,255,0.45)";
+ctx.fillRect(
+  0,
+  0,
+  canvas.width,
+  canvas.height
+);
+  
 }
 
 function loadParkMap(){
