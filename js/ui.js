@@ -156,7 +156,7 @@ function drawBackground(){
   if(!parkMap.loaded)return;
   let pos=worldToScreen(
     parkMap.x,
-    parkMap.y
+    parkMap.y-parkMap.height
   );
 
   ctx.drawImage(
