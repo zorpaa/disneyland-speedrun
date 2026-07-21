@@ -35,11 +35,7 @@ function startRide(id){
   let ride=rides[id];
   if(!ride)return;
   queue.riding=true;
-  console.log(
-    "Riding:",
-    ride.name
-  );
-  advanceTime(ride.duration);
+  console.log("Riding:",ride.name);
   completeRide(id);
   queue.ride=null;
   queue.riding=false;
