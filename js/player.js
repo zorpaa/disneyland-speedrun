@@ -1,5 +1,11 @@
+// ====================
+// Player
+// ====================
+
 class Player {
+
   constructor() {
+
     this.currentNode = "entrance";
 
     this.x = 0;
@@ -10,7 +16,15 @@ class Player {
     this.completed = [];
 
     this.time = 8 * 60;
+
+
+    this.targetPath = [];
+
+    this.moving = false;
+
   }
+
 }
+
 
 const player = new Player();
