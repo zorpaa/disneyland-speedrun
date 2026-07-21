@@ -90,9 +90,8 @@ const nodes = {
   connections:[
     {node:"fantasyland"},
     {node:"matterhorn"},
-    {node:"peterPan"},
-    {node:"alice"},
-    {node:"mrToad"}
+    {node:"fantasylandWest"},
+    {node:"fantasylandEast"}
   ]
 },
 
