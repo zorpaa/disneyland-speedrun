@@ -45,9 +45,6 @@ function completeRide(id){
     victory();
   }
 
-}
-
-
 function allRidesComplete(){
   for(let id in rides){
     if(!rides[id].completed)return false;
