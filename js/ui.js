@@ -81,6 +81,7 @@ function handleMapClick(event){
       (mouseY-node.y)**2
     );
     if(distance<25){
+      selectedNode=null;
       if(node.type==="ride"){
         showNodeInfo(id,true);
       }else{
@@ -195,10 +196,12 @@ function handleHover(event){
   }
   hoveredNode=null;
 
-  if(!selectedNode){
-    let panel=document.getElementById("ridePanel");
-    if(panel)panel.style.display="none";
-  }
+if(selectedNode){
+  return;
+}
+
+let panel=document.getElementById("ridePanel");
+if(panel)panel.style.display="none";
 }
 
 function drawRoute(){
