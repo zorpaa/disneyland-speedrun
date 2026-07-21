@@ -4,10 +4,8 @@
   padding: 0;
 }
 
-body {
-  overflow: hidden;
-  background: #74b9ff;
-  font-family: Arial, Helvetica, sans-serif;
+body{
+  background:linear-gradient(#87ceeb,#5fa8d3);
 }
 
 #topBar {
