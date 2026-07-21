@@ -47,15 +47,19 @@ const nodes = {
   },
 
 
-  tomorrowland: {
-    id: "tomorrowland",
-    name: "Tomorrowland",
-    type: "junction",
-    x: 550,
-    y: 200,
-    connections: [
-      { node: "hub" },
-      { node: "spaceMountain" }
+  tomorrowland:{
+    id:"tomorrowland",
+    name:"Tomorrowland",
+    type:"junction",
+    x:550,
+    y:200,
+    connections:[
+      {node:"hub"},
+      {node:"spaceMountain"},
+      {node:"starTours"},
+      {node:"buzzLightyear"},
+      {node:"autopia"},
+      {node:"submarine"}
     ]
   },
 
@@ -128,6 +132,52 @@ const nodes = {
     ]
   },
 
+  starTours:{
+  id:"starTours",
+  name:"Star Tours",
+  type:"ride",
+  x:700,
+  y:100,
+  connections:[
+    {node:"tomorrowland"}
+  ]
+},
+
+
+buzzLightyear:{
+  id:"buzzLightyear",
+  name:"Buzz Lightyear Astro Blasters",
+  type:"ride",
+  x:700,
+  y:180,
+  connections:[
+    {node:"tomorrowland"}
+  ]
+},
+
+
+autopia:{
+  id:"autopia",
+  name:"Autopia",
+  type:"ride",
+  x:700,
+  y:260,
+  connections:[
+    {node:"tomorrowland"}
+  ]
+},
+
+
+submarine:{
+  id:"submarine",
+  name:"Finding Nemo Submarine Voyage",
+  type:"ride",
+  x:800,
+  y:100,
+  connections:[
+    {node:"tomorrowland"}
+  ]
+},
 
   matterhorn: {
     id: "matterhorn",
