@@ -25,9 +25,16 @@ function arriveAtDestination(){
 function completeRide(id){
   const ride=rides[id];
   if(!ride||ride.completed)return;
-  if(parkIsClosed()){
-    console.log("Entered queue before closing.");
+  advanceTime(ride.duration);
+  ride.completed=true;
+  player.completed.push(id);
+  updateRideCounter();
+  console.log(ride.name+" completed!");
+  if(checkWin()){
+    victory();
   }
+}
+
   advanceTime(ride.currentWait);
   advanceTime(ride.duration);
   ride.completed=true;
