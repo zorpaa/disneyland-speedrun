@@ -79,6 +79,7 @@ function drawNodes(){
     let node=nodes[id];
     let pos=worldToScreen(node.x,node.y);
     ctx.beginPath();
+    // Node shape
     if(node.type==="ride"){
       ctx.arc(
         pos.x,
@@ -106,14 +107,17 @@ function drawNodes(){
       );
       ctx.closePath();
     }
+    // Colors
     if(node.type==="ride"){
       ctx.fillStyle="#00e5ff";
     }else{
       ctx.fillStyle=landColors[node.land]||"#999";
     }
+    // Glow
     ctx.shadowColor="white";
     ctx.shadowBlur=8;
     ctx.fill();
+    // Hover outline
     if(hoveredNode===id){
       ctx.strokeStyle="white";
       ctx.lineWidth=4;
@@ -147,44 +151,42 @@ function drawNodes(){
       }
       ctx.stroke();
     }
+    // Completed ride checkmark
     if(node.type==="ride"&&rides[id]?.completed){
       ctx.fillStyle="black";
-      ctx.font=(16*camera.zoom)+"px Arial";
+      ctx.font=(20*camera.zoom)+"px Arial";
       ctx.textAlign="center";
       ctx.fillText(
         "✓",
         pos.x,
-        pos.y+(6*camera.zoom)
+        pos.y+(7*camera.zoom)
       );
       ctx.textAlign="left";
     }
+    // Labels
     if(node.showLabel){
-
-  // text outline
-  ctx.font="bold "+(14*camera.zoom)+"px Arial";
-  ctx.textAlign="center";
-
-  ctx.strokeStyle="white";
-  ctx.lineWidth=4*camera.zoom;
-
-  ctx.strokeText(
-    node.name,
-    pos.x,
-    pos.y-(45*camera.zoom)
-  );
-
-  // actual text
-  ctx.fillStyle="black";
-
-  ctx.fillText(
-    node.name,
-    pos.x,
-    pos.y-(45*camera.zoom)
-  );
-
-  ctx.textAlign="left";
-
-}
+      ctx.font="bold "+(14*camera.zoom)+"px Arial";
+      ctx.textAlign="center";
+      // White border
+      ctx.strokeStyle="white";
+      ctx.lineWidth=4*camera.zoom;
+      ctx.strokeText(
+        node.name,
+        pos.x,
+        pos.y-(55*camera.zoom)
+      );
+      // Black text
+      ctx.fillStyle="black";
+      ctx.fillText(
+        node.name,
+        pos.x,
+        pos.y-(55*camera.zoom)
+      );
+      ctx.textAlign="left";
+    }
+    // Reset effects
+    ctx.shadowBlur=0;
+  }
 }
 
 function drawPlayer(){
