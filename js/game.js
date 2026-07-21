@@ -12,10 +12,7 @@ function update(){
 }
 
 function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  drawConnections();
-  drawNodes();
-  drawPlayer();
+  drawParkMap();
 }
 
 function loop(){
