@@ -41,23 +41,26 @@ function drawConnections(){
 
 function drawNodes(){
   for(let id in nodes){
-    let n=nodes[id];
+    let node=nodes[id];
+
     ctx.beginPath();
-    ctx.arc(n.x,n.y,20,0,Math.PI*2);
+    ctx.arc(node.x,node.y,20,0,Math.PI*2);
+
     ctx.fillStyle=landColors[node.land]||"#999";
     ctx.fill();
 
     if(hoveredNode===id){
       ctx.strokeStyle="white";
       ctx.lineWidth=4;
+
       ctx.beginPath();
-      ctx.arc(n.x,n.y,27,0,Math.PI*2);
+      ctx.arc(node.x,node.y,27,0,Math.PI*2);
       ctx.stroke();
     }
 
     ctx.fillStyle="black";
     ctx.font="12px Arial";
-    ctx.fillText(n.name,n.x-30,n.y-25);
+    ctx.fillText(node.name,node.x-30,node.y-25);
   }
 }
 
