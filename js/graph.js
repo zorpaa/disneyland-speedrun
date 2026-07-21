@@ -216,7 +216,7 @@ const nodes = {
     x: 650,
     y: 350,
     connections: [
-      { node: "fantasylandhub" }
+      { node: "fantasylandHub" }
     ]
   },
 
