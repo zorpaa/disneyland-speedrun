@@ -36,13 +36,8 @@ body {
 }
 
 canvas {
-  position: absolute;
-
-  top: 60px;
-  left: 0;
-
-  width: 100vw;
-  height: calc(100vh - 60px);
-
-  background: #dff3c8;
+  position:absolute;
+  top:60px;
+  left:0;
+  background:#dff3c8;
 }
