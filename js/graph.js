@@ -67,19 +67,21 @@ const nodes = {
   },
 
 
-  fantasyland: {
-    id: "fantasyland",
-    name: "Fantasyland",
-    type: "junction",
-    land: "Fantasyland",
-    x: 550,
-    y: 350,
-    connections: [
-      { node: "hub" },
-      { node: "matterhorn" }
-    ]
-  },
-
+  fantasylandHub:{
+  id:"fantasylandHub",
+  name:"Fantasyland Hub",
+  type:"junction",
+  land:"Fantasyland",
+  x:650,
+  y:350,
+  connections:[
+    {node:"fantasyland"},
+    {node:"matterhorn"},
+    {node:"peterPan"},
+    {node:"alice"},
+    {node:"mrToad"}
+  ]
+},
 
   adventureland: {
     id: "adventureland",
