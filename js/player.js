@@ -70,3 +70,16 @@ function arriveAtDestination(){
     startRide(node.id);
   }
 }
+
+function getWalkingTime(path){
+  let distance=0;
+  for(let i=0;i<path.length-1;i++){
+    let a=nodes[path[i]];
+    let b=nodes[path[i+1]];
+    distance+=Math.sqrt(
+      (b.x-a.x)**2+
+      (b.y-a.y)**2
+    );
+  }
+  return Math.ceil(distance/(player.speed*60));
+}
