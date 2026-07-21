@@ -57,7 +57,7 @@ function drawNodes(){
       ctx.stroke();
     }
 
-    if(node.type==="ride"||node.showLabel){
+    if(node.showLabel){
       ctx.fillStyle="black";
       ctx.font="12px Arial";
       ctx.textAlign="center";
