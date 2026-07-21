@@ -88,7 +88,6 @@ function drawNodes(){
   0,
   Math.PI*2
 );
-    }else{
 ctx.moveTo(pos.x,pos.y-(60*camera.zoom));
 ctx.lineTo(pos.x+(60*camera.zoom),pos.y);
 ctx.lineTo(pos.x,pos.y+(60*camera.zoom));
