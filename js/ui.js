@@ -162,6 +162,13 @@ function handleMapClick(event) {
 function selectNode(id) {
 
   if (player.moving) {
+    console.log("Currently walking");
+    return;
+  }
+
+
+  if (player.destination) {
+    console.log("Processing destination");
     return;
   }
 
