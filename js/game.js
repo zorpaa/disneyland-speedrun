@@ -86,6 +86,8 @@ function update() {
 
   updateClock();
 
+  checkParkStatus();
+
 }
 
 
