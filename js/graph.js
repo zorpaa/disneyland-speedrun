@@ -2,189 +2,177 @@
 // Disneyland Node Graph
 // ====================
 
+
 const nodes = {
 
   entrance: {
     id: "entrance",
-    name: "Park Entrance",
+    name: "Main Entrance",
     type: "junction",
     x: 100,
-    y: 300,
-
+    y: 350,
     connections: [
-      { node: "mainStreet", time: 2 }
+      { node: "mainStreet" }
     ]
   },
+
 
   mainStreet: {
     id: "mainStreet",
     name: "Main Street USA",
     type: "junction",
     x: 250,
-    y: 300,
-
+    y: 350,
     connections: [
-      { node: "entrance", time: 2 },
-      { node: "hub", time: 3 }
+      { node: "entrance" },
+      { node: "hub" }
     ]
   },
+
 
   hub: {
     id: "hub",
     name: "Central Hub",
     type: "junction",
-    x: 450,
-    y: 300,
-
+    x: 400,
+    y: 350,
     connections: [
-      { node: "mainStreet", time: 3 },
-      { node: "fantasyland", time: 2 },
-      { node: "tomorrowland", time: 3 },
-      { node: "adventureland", time: 3 },
-      { node: "frontierland", time: 3 }
+      { node: "mainStreet" },
+      { node: "tomorrowland" },
+      { node: "fantasyland" },
+      { node: "adventureland" },
+      { node: "frontierland" },
+      { node: "galaxysEdge" }
     ]
   },
 
-  fantasyland: {
-    id: "fantasyland",
-    name: "Fantasyland",
-    type: "land",
-    x: 600,
-    y: 150,
-
-    connections: [
-      { node: "hub", time: 2 },
-      { node: "peterPan", time: 1 },
-      { node: "matterhorn", time: 3 }
-    ]
-  },
 
   tomorrowland: {
     id: "tomorrowland",
     name: "Tomorrowland",
-    type: "land",
-    x: 650,
-    y: 450,
-
+    type: "junction",
+    x: 550,
+    y: 200,
     connections: [
-      { node: "hub", time: 3 },
-      { node: "spaceMountain", time: 2 }
+      { node: "hub" },
+      { node: "spaceMountain" }
     ]
   },
+
+
+  fantasyland: {
+    id: "fantasyland",
+    name: "Fantasyland",
+    type: "junction",
+    x: 550,
+    y: 350,
+    connections: [
+      { node: "hub" },
+      { node: "matterhorn" }
+    ]
+  },
+
 
   adventureland: {
     id: "adventureland",
     name: "Adventureland",
-    type: "land",
-    x: 250,
+    type: "junction",
+    x: 550,
     y: 500,
-
     connections: [
-      { node: "hub", time: 3 },
-      { node: "indianaJones", time: 2 }
+      { node: "hub" },
+      { node: "indianaJones" }
     ]
   },
+
 
   frontierland: {
     id: "frontierland",
     name: "Frontierland",
-    type: "land",
-    x: 450,
-    y: 550,
-
+    type: "junction",
+    x: 700,
+    y: 500,
     connections: [
-      { node: "hub", time: 3 },
-      { node: "bigThunder", time: 2 }
+      { node: "hub" },
+      { node: "bigThunder" }
     ]
   },
+
 
   galaxysEdge: {
     id: "galaxysEdge",
     name: "Galaxy's Edge",
-    type: "land",
-    x: 650,
-    y: 650,
-
+    type: "junction",
+    x: 700,
+    y: 250,
     connections: [
-      { node: "frontierland", time: 3 },
-      { node: "rise", time: 2 }
+      { node: "hub" },
+      { node: "riseResistance" }
     ]
   },
 
 
   // ====================
-  // Ride Nodes
+  // Rides
   // ====================
 
-  peterPan: {
-    id: "peterPan",
-    name: "Peter Pan's Flight",
-    type: "ride",
-    x: 750,
-    y: 100,
-
-    connections: [
-      { node: "fantasyland", time: 1 }
-    ]
-  },
-
-  matterhorn: {
-    id: "matterhorn",
-    name: "Matterhorn Bobsleds",
-    type: "ride",
-    x: 850,
-    y: 180,
-
-    connections: [
-      { node: "fantasyland", time: 3 }
-    ]
-  },
 
   spaceMountain: {
     id: "spaceMountain",
     name: "Space Mountain",
     type: "ride",
-    x: 850,
-    y: 450,
-
+    x: 650,
+    y: 150,
     connections: [
-      { node: "tomorrowland", time: 2 }
+      { node: "tomorrowland" }
     ]
   },
+
+
+  matterhorn: {
+    id: "matterhorn",
+    name: "Matterhorn Bobsleds",
+    type: "ride",
+    x: 650,
+    y: 350,
+    connections: [
+      { node: "fantasyland" }
+    ]
+  },
+
 
   indianaJones: {
     id: "indianaJones",
     name: "Indiana Jones Adventure",
     type: "ride",
-    x: 100,
+    x: 650,
     y: 550,
-
     connections: [
-      { node: "adventureland", time: 2 }
+      { node: "adventureland" }
     ]
   },
+
 
   bigThunder: {
     id: "bigThunder",
     name: "Big Thunder Mountain",
     type: "ride",
-    x: 550,
-    y: 650,
-
+    x: 800,
+    y: 500,
     connections: [
-      { node: "frontierland", time: 2 }
+      { node: "frontierland" }
     ]
   },
 
-  rise: {
-    id: "rise",
+
+  riseResistance: {
+    id: "riseResistance",
     name: "Rise of the Resistance",
     type: "ride",
     x: 850,
-    y: 700,
-
+    y: 250,
     connections: [
-      { node: "galaxysEdge", time: 2 }
+      { node: "galaxysEdge" }
     ]
   }
 
