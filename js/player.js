@@ -164,8 +164,12 @@ class Player {
 
 
 
-      this.currentNode =
-        nextNodeID;
+      this.currentNode = nextNodeID;
+
+console.log(
+  "Reached node:",
+  this.currentNode
+);
 
 
 
