@@ -2,7 +2,6 @@
 // Simulation System
 // ====================
 
-
 function advanceTime(minutes) {
 
   player.time += minutes;
@@ -10,11 +9,9 @@ function advanceTime(minutes) {
 }
 
 
-
 // ====================
 // Arrival Handling
 // ====================
-
 
 function arriveAtDestination() {
 
@@ -23,8 +20,7 @@ function arriveAtDestination() {
   }
 
 
-  const destination =
-    player.destination;
+  const destination = player.destination;
 
 
   console.log(
@@ -54,33 +50,9 @@ function arriveAtDestination() {
 }
 
 
-  const destination =
-    player.destination;
-
-
-  console.log(
-    "Arrived:",
-    nodes[destination].name
-  );
-
-
-  if (nodes[destination].type === "ride") {
-
-    completeRide(destination);
-
-  }
-
-
-  player.destination = null;
-
-}
-
-
-
 // ====================
 // Ride Completion
 // ====================
-
 
 function completeRide(id) {
 
@@ -92,21 +64,15 @@ function completeRide(id) {
   }
 
 
-
-  // Queue entry happens now.
-  // As long as this happens before closing,
-  // the ride is allowed to finish.
-
   if (player.time >= park.closeTime) {
 
     console.log(
-      "Park is closed."
+      "Park is closed. Cannot enter queue."
     );
 
     return;
 
   }
-
 
 
   advanceTime(
@@ -119,22 +85,18 @@ function completeRide(id) {
   );
 
 
-
   ride.completed = true;
 
 
   player.completed.push(id);
 
 
-
   updateRideCounter();
-
 
 
   console.log(
     ride.name + " completed!"
   );
-
 
 
   if (checkWin()) {
@@ -146,11 +108,9 @@ function completeRide(id) {
 }
 
 
-
 // ====================
 // Ride Counter
 // ====================
-
 
 function updateRideCounter() {
 
