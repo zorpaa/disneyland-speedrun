@@ -142,7 +142,6 @@ function showNodeInfo(id,selected=false){
 
   let ride=rides[id];
   if(!ride)return;
-  let total=ride.currentWait+ride.duration;
 
   panel.style.display="block";
 
@@ -165,10 +164,19 @@ function showNodeInfo(id,selected=false){
 
   let walkTime=getWalkingTime(route.path);
 
-  let total=
-    walkTime+
-    ride.currentWait+
-    ride.duration;
+  let route=findPath(
+  player.currentNode,
+  id
+);
+
+let walkTime=route.distance;
+
+let total=
+  walkTime+
+  ride.currentWait+
+  ride.duration;
+
+let finish=parkTime.current+total;
 
   let finish=parkTime.current+total;
 
