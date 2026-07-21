@@ -56,6 +56,7 @@ function drawPlayer(){
 }
 
 canvas.addEventListener("click",handleMapClick);
+canvas.addEventListener("mousemove",handleHover);
 
 function handleMapClick(event){
 
@@ -132,4 +133,29 @@ function showNodeInfo(id){
     "Wait: "+ride.wait+" min<br>"+
     "Ride: "+ride.duration+" min<br>"+
     (ride.completed?"Completed":"Available");
+}
+function handleHover(event){
+
+  const rect=canvas.getBoundingClientRect();
+
+  const mouseX=(event.clientX-rect.left)*(canvas.width/rect.width);
+  const mouseY=(event.clientY-rect.top)*(canvas.height/rect.height);
+
+  for(let id in nodes){
+
+    let node=nodes[id];
+
+    let distance=Math.sqrt(
+      (mouseX-node.x)**2+
+      (mouseY-node.y)**2
+    );
+
+    if(distance<25){
+      showNodeInfo(id);
+      return;
+    }
+  }
+
+  let panel=document.getElementById("ridePanel");
+  if(panel)panel.style.display="none";
 }
