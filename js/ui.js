@@ -55,8 +55,13 @@ function drawNodes(){
       ctx.closePath();
     }
 
-    ctx.fillStyle=landColors[node.land]||"#999";
-    ctx.fill();
+    if(node.type==="ride"&&rides[id]?.completed){
+  ctx.fillStyle="#999";
+}else{
+  ctx.fillStyle=landColors[node.land]||"#999";
+}
+
+ctx.fill();
 
     if(hoveredNode===id){
       ctx.strokeStyle="white";
@@ -74,6 +79,14 @@ function drawNodes(){
         ctx.closePath();
       }
 
+      if(node.type==="ride"&&rides[id]?.completed){
+  ctx.fillStyle="black";
+  ctx.font="16px Arial";
+  ctx.textAlign="center";
+  ctx.fillText("✓",node.x,node.y+6);
+  ctx.textAlign="left";
+}
+      
       ctx.stroke();
     }
 
