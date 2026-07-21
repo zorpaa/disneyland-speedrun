@@ -78,41 +78,46 @@ function drawNodes(){
   for(let id in nodes){
     let node=nodes[id];
     let pos=worldToScreen(node.x,node.y);
-
     ctx.beginPath();
-
-    ctx.arc(
-  pos.x,
-  pos.y,
-  60*camera.zoom,
-  0,
-  Math.PI*2
-);
-ctx.moveTo(pos.x,pos.y-(60*camera.zoom));
-ctx.lineTo(pos.x+(60*camera.zoom),pos.y);
-ctx.lineTo(pos.x,pos.y+(60*camera.zoom));
-ctx.lineTo(pos.x-(60*camera.zoom),pos.y);
+    if(node.type==="ride"){
+      ctx.arc(
+        pos.x,
+        pos.y,
+        60*camera.zoom,
+        0,
+        Math.PI*2
+      );
+    }else{
+      ctx.moveTo(
+        pos.x,
+        pos.y-(60*camera.zoom)
+      );
+      ctx.lineTo(
+        pos.x+(60*camera.zoom),
+        pos.y
+      );
+      ctx.lineTo(
+        pos.x,
+        pos.y+(60*camera.zoom)
+      );
+      ctx.lineTo(
+        pos.x-(60*camera.zoom),
+        pos.y
+      );
       ctx.closePath();
     }
-
     if(node.type==="ride"){
       ctx.fillStyle="#00e5ff";
     }else{
-    ctx.fillStyle=landColors[node.land]||"#999";
+      ctx.fillStyle=landColors[node.land]||"#999";
     }
-
-    ctx.shadowColor = "white";
-    ctx.shadowBlur = 8;
-
+    ctx.shadowColor="white";
+    ctx.shadowBlur=8;
     ctx.fill();
-
     if(hoveredNode===id){
-
       ctx.strokeStyle="white";
       ctx.lineWidth=4;
-
       ctx.beginPath();
-
       if(node.type==="ride"){
         ctx.arc(
           pos.x,
@@ -122,24 +127,37 @@ ctx.lineTo(pos.x-(60*camera.zoom),pos.y);
           Math.PI*2
         );
       }else{
-        ctx.moveTo(pos.x,pos.y-(75*camera.zoom));
-        ctx.lineTo(pos.x+(75*camera.zoom),pos.y);
-        ctx.lineTo(pos.x,pos.y+(75*camera.zoom));
-        ctx.lineTo(pos.x-(75*camera.zoom),pos.y);
+        ctx.moveTo(
+          pos.x,
+          pos.y-(75*camera.zoom)
+        );
+        ctx.lineTo(
+          pos.x+(75*camera.zoom),
+          pos.y
+        );
+        ctx.lineTo(
+          pos.x,
+          pos.y+(75*camera.zoom)
+        );
+        ctx.lineTo(
+          pos.x-(75*camera.zoom),
+          pos.y
+        );
         ctx.closePath();
       }
-
       ctx.stroke();
     }
-
     if(node.type==="ride"&&rides[id]?.completed){
       ctx.fillStyle="black";
       ctx.font=(16*camera.zoom)+"px Arial";
       ctx.textAlign="center";
-      ctx.fillText("✓",pos.x,pos.y+(6*camera.zoom));
+      ctx.fillText(
+        "✓",
+        pos.x,
+        pos.y+(6*camera.zoom)
+      );
       ctx.textAlign="left";
     }
-
     if(node.showLabel){
       ctx.fillStyle="black";
       ctx.font=(12*camera.zoom)+"px Arial";
@@ -151,14 +169,8 @@ ctx.lineTo(pos.x-(60*camera.zoom),pos.y);
       );
       ctx.textAlign="left";
     }
-  }
-
-function drawPlayer(){
-  ctx.beginPath();
-  let pos=worldToScreen(player.x,player.y);
-  ctx.arc(pos.x,pos.y,10*camera.zoom,0,Math.PI*2);
-  ctx.fillStyle="red";
-  ctx.fill();
+    ctx.shadowBlur=0;
+  } // end for loop
 }
 
 function drawBackground(){
