@@ -28,6 +28,7 @@ function completeRide(id){
   advanceTime(ride.duration);
   ride.completed=true;
   player.completed.push(id);
+  player.state="idle";
   updateRideCounter();
   console.log(ride.name+" completed!");
   if(checkWin()){
