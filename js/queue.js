@@ -62,3 +62,10 @@ function updateQueueUI(){
     queue.remaining+
     " min)";
 }
+setInterval(()=>{
+
+  if(queue.ride){
+    updateQueue();
+  }
+
+},1000);
