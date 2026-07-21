@@ -152,7 +152,6 @@ ctx.lineTo(pos.x-(60*camera.zoom),pos.y);
       ctx.textAlign="left";
     }
   }
-}
 
 function drawPlayer(){
   ctx.beginPath();
