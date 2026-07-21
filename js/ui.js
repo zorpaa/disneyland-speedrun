@@ -191,8 +191,8 @@ const parkMap={
   loaded:false,
   x:0,
   y:0,
-  width:1000,
-  height:700
+  width:3000,
+  height:3000
 };
 
 function zoomIn(){
