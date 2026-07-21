@@ -5,7 +5,9 @@
 }
 
 body{
-  background:linear-gradient(#87ceeb,#5fa8d3);
+  margin:0;
+  background:#7ec8f5;
+  font-family:Arial,sans-serif;
 }
 
 #topBar {
