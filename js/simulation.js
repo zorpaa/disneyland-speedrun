@@ -33,6 +33,37 @@ function arriveAtDestination() {
   );
 
 
+  player.currentNode = destination;
+
+
+  if (nodes[destination].type === "ride") {
+
+    completeRide(destination);
+
+  }
+
+
+  player.destination = null;
+
+  player.path = [];
+
+  player.pathIndex = 0;
+
+  player.moving = false;
+
+}
+
+
+  const destination =
+    player.destination;
+
+
+  console.log(
+    "Arrived:",
+    nodes[destination].name
+  );
+
+
   if (nodes[destination].type === "ride") {
 
     completeRide(destination);
