@@ -13,27 +13,21 @@ function getCrowdLevel(){
   return 0.20;               // 9:00-close
 }
 
-
 function calculateWait(ride){
   let crowd=getCrowdLevel();
-
   let wait=
     ride.maxWait*
     crowd*
     ride.popularity;
-
   let variation=Math.floor(Math.random()*5)-2;
-
   wait+=variation;
-
+  wait=Math.min(wait,ride.maxWait);
   return Math.max(0,Math.round(wait));
 }
-
 
 function updateRideWaits(){
   for(let id in rides){
     let ride=rides[id];
-
     if(!ride.completed){
       ride.currentWait=calculateWait(ride);
     }
