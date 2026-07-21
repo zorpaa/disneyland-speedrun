@@ -95,6 +95,36 @@ const nodes = {
   ]
 },
 
+fantasylandWest:{
+  id:"fantasylandWest",
+  name:"Fantasyland West",
+  type:"junction",
+  land:"Fantasyland",
+  x:700,
+  y:300,
+  connections:[
+    {node:"fantasylandHub"},
+    {node:"peterPan"},
+    {node:"mrToad"},
+    {node:"fantasylandEast"}
+  ]
+},
+
+
+fantasylandEast:{
+  id:"fantasylandEast",
+  name:"Fantasyland East",
+  type:"junction",
+  land:"Fantasyland",
+  x:700,
+  y:400,
+  connections:[
+    {node:"fantasylandHub"},
+    {node:"alice"},
+    {node:"fantasylandWest"}
+  ]
+},
+  
   adventureland: {
     id: "adventureland",
     name: "Adventureland",
