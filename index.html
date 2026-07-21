@@ -7,35 +7,58 @@
 </head>
 
 <body>
-
 <div id="menu">
 
-<h1>Disneyland Speedrun</h1>
+  <h1>Disneyland Speedrun</h1>
 
-<div class="option">
-<label>Park</label>
-<select id="park">
-<option>Disneyland</option>
-</select>
-</div>
+  <div id="version">v0.3 Alpha</div>
 
-<div class="option">
-<label>Crowd Level</label>
-<select id="crowd">
-<option value=".75">Quiet</option>
-<option value="1" selected>Average</option>
-<option value="1.25">Busy</option>
-<option value="1.5">Holiday</option>
-</select>
-</div>
+  <hr>
 
-<button id="startGame">
-Start Run
-</button>
+  <div class="option">
+    <label>Park</label>
+    <select id="park">
+      <option>Disneyland</option>
+    </select>
+  </div>
+
+  <div class="option">
+    <label>Crowd Level</label>
+    <select id="crowd">
+      <option value=".75">Quiet</option>
+      <option value="1" selected>Average</option>
+      <option value="1.25">Busy</option>
+      <option value="1.5">Holiday</option>
+    </select>
+  </div>
+
+  <div class="option">
+    <label>Difficulty</label>
+    <select disabled>
+      <option>Coming Soon</option>
+    </select>
+  </div>
+
+  <div class="option">
+    <label>Starting Time</label>
+    <select disabled>
+      <option>8:00 AM</option>
+    </select>
+  </div>
+
+  <hr>
+
+  <div id="forecast">
+    Today's Forecast<br><br>
+    Average Crowd Day
+  </div>
+
+  <button id="startGame">
+    Start Run
+  </button>
 
 </div>
 
 <script src="js/menu.js"></script>
-
 </body>
 </html>
