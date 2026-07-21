@@ -47,26 +47,89 @@ class Player {
 
   update() {
 
-    if (!this.moving) {
-      return;
-    }
+  if (!this.moving) {
+    return;
+  }
 
 
-    const nextNode =
-  nodes[this.path[this.pathIndex]];
+  // Check if path is complete
+
+  if (
+    this.pathIndex >= this.path.length
+  ) {
+
+    this.moving = false;
+
+    arriveAtDestination();
+
+    return;
+
+  }
 
 
-if (!nextNode) {
-
-  console.error(
-    "Missing node:",
-    this.path[this.pathIndex]
-  );
+  const nextNode =
+    nodes[this.path[this.pathIndex]];
 
 
-  this.moving = false;
+  if (!nextNode) {
 
-  return;
+    console.error(
+      "Missing node:",
+      this.path[this.pathIndex]
+    );
+
+
+    this.moving = false;
+
+    return;
+
+  }
+
+
+  const dx =
+    nextNode.x - this.x;
+
+  const dy =
+    nextNode.y - this.y;
+
+
+  const distance =
+    Math.sqrt(
+      dx * dx +
+      dy * dy
+    );
+
+
+  if (
+    distance <
+    this.speed / 60
+  ) {
+
+    this.x = nextNode.x;
+
+    this.y = nextNode.y;
+
+
+    this.currentNode =
+      this.path[this.pathIndex];
+
+
+    this.pathIndex++;
+
+
+    return;
+
+  }
+
+
+  this.x +=
+    (dx / distance) *
+    (this.speed / 60);
+
+
+  this.y +=
+    (dy / distance) *
+    (this.speed / 60);
 
 }
 
