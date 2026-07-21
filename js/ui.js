@@ -6,6 +6,7 @@ let activeRoute=[];
 function drawParkMap(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   drawConnections();
+  drawRoute();
   drawNodes();
   drawPlayer();
 }
