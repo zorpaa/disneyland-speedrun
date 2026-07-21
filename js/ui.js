@@ -2,6 +2,7 @@ const canvas=document.getElementById("gameCanvas");
 const ctx=canvas.getContext("2d");
 let hoveredNode=null;
 let activeRoute=[];
+let selectedNode=null;
 
 function drawParkMap(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -124,21 +125,31 @@ function showNodeInfo(id,selected=false){
 
   let panel=document.getElementById("ridePanel");
   let node=nodes[id];
+
   if(!panel||!node)return;
+
   if(node.type!=="ride"){
-    panel.style.display="none";
+    if(selected){
+      panel.style.display="none";
+    }
     return;
   }
 
   let ride=rides[id];
+
   panel.style.display="block";
+
   if(!selected){
+
     panel.innerHTML=
       "<b>"+ride.name+"</b><br><br>"+
       "Wait: "+ride.currentWait+" min<br>"+
       "Ride: "+ride.duration+" min";
+
     return;
   }
+
+  selectedNode=id;
 
   let route=findPath(
     player.currentNode,
@@ -146,11 +157,14 @@ function showNodeInfo(id,selected=false){
   );
 
   let walkTime=route.distance;
-  let total=walkTime+
+
+  let total=
+    walkTime+
     ride.currentWait+
     ride.duration;
 
   let finish=parkTime.current+total;
+
   panel.innerHTML=
     "<b>"+ride.name+"</b><br><br>"+
     "Wait: "+ride.currentWait+" min<br>"+
@@ -160,7 +174,6 @@ function showNodeInfo(id,selected=false){
     "Done: "+formatTime(finish)+"<br><br>"+
     "<button onclick=\"selectNode('"+id+"')\">Go To Ride</button>";
 }
-
 function handleHover(event){
   const rect=canvas.getBoundingClientRect();
   const mouseX=(event.clientX-rect.left)*(canvas.width/rect.width);
@@ -173,11 +186,18 @@ function handleHover(event){
     );
     if(distance<25){
       hoveredNode=id;
-      showNodeInfo(id,false);
+      if(!selectedNode){
+        showNodeInfo(id,false);
+      }
       return;
     }
   }
   hoveredNode=null;
+
+  if(!selectedNode){
+    let panel=document.getElementById("ridePanel");
+    if(panel)panel.style.display="none";
+  }
 }
 
 function drawRoute(){
