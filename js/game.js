@@ -1,6 +1,9 @@
 // Main Game Loop
 
 function startGame(){
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight-60;
+  
   startPark();
   updateClock();
   updateRideCounter();
