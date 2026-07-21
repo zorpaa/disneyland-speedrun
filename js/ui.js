@@ -81,19 +81,18 @@ function drawNodes(){
 
     ctx.beginPath();
 
-    if(node.type==="ride"){
-      ctx.arc(
-        pos.x,
-        pos.y,
-        20*camera.zoom,
-        0,
-        Math.PI*2
-      );
+    ctx.arc(
+  pos.x,
+  pos.y,
+  60*camera.zoom,
+  0,
+  Math.PI*2
+);
     }else{
-      ctx.moveTo(pos.x,pos.y-(20*camera.zoom));
-      ctx.lineTo(pos.x+(20*camera.zoom),pos.y);
-      ctx.lineTo(pos.x,pos.y+(20*camera.zoom));
-      ctx.lineTo(pos.x-(20*camera.zoom),pos.y);
+ctx.moveTo(pos.x,pos.y-(60*camera.zoom));
+ctx.lineTo(pos.x+(60*camera.zoom),pos.y);
+ctx.lineTo(pos.x,pos.y+(60*camera.zoom));
+ctx.lineTo(pos.x-(60*camera.zoom),pos.y);
       ctx.closePath();
     }
 
@@ -119,15 +118,15 @@ function drawNodes(){
         ctx.arc(
           pos.x,
           pos.y,
-          27*camera.zoom,
+          75*camera.zoom,
           0,
           Math.PI*2
         );
       }else{
-        ctx.moveTo(pos.x,pos.y-(27*camera.zoom));
-        ctx.lineTo(pos.x+(27*camera.zoom),pos.y);
-        ctx.lineTo(pos.x,pos.y+(27*camera.zoom));
-        ctx.lineTo(pos.x-(27*camera.zoom),pos.y);
+        ctx.moveTo(pos.x,pos.y-(75*camera.zoom));
+        ctx.lineTo(pos.x+(75*camera.zoom),pos.y);
+        ctx.lineTo(pos.x,pos.y+(75*camera.zoom));
+        ctx.lineTo(pos.x-(75*camera.zoom),pos.y);
         ctx.closePath();
       }
 
@@ -319,7 +318,7 @@ function handleMapClick(e){
 
   for(let id in nodes){
     let n=nodes[id];
-    if(Math.hypot(x-n.x,y-n.y)<25){
+    if(Math.hypot(x-n.x,y-n.y)<75){
       selectedNode=null;
       n.type==="ride"?showNodeInfo(id,true):selectNode(id);
       break;
