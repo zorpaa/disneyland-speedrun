@@ -70,8 +70,8 @@ function handleMapClick(event){
 
   const rect=canvas.getBoundingClientRect();
 
-  const mouseX=event.clientX-rect.left;
-  const mouseY=event.clientY-rect.top;
+  const mouseX=(event.clientX-rect.left)*(canvas.width/rect.width);
+  const mouseY=(event.clientY-rect.top)*(canvas.height/rect.height);
 
   for(let id in nodes){
 
