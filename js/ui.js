@@ -44,7 +44,7 @@ function drawNodes(){
     let n=nodes[id];
     ctx.beginPath();
     ctx.arc(n.x,n.y,20,0,Math.PI*2);
-    ctx.fillStyle=n.type==="ride"?"#ffcc00":"#4caf50";
+    ctx.fillStyle=landColors[node.land]||"#999";
     ctx.fill();
 
     if(hoveredNode===id){
