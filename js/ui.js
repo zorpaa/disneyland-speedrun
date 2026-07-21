@@ -15,22 +15,15 @@ function drawParkMap(){
 function drawConnections(){
   ctx.strokeStyle="#888";
   ctx.lineWidth=3;
-
   for(let id in nodes){
     let node=nodes[id];
     if(!node.connections)continue;
-
-    for(let connection of node.connections){
-      let target=nodes[connection.node];
-
-      if(!target){
-        console.error("Missing connection target:",connection.node);
-        continue;
-      }
-
+    for(let c of node.connections){
+      let t=nodes[c.node];
+      if(!t)continue;
       ctx.beginPath();
       ctx.moveTo(node.x,node.y);
-      ctx.lineTo(target.x,target.y);
+      ctx.lineTo(t.x,t.y);
       ctx.stroke();
     }
   }
@@ -38,25 +31,23 @@ function drawConnections(){
 
 function drawNodes(){
   for(let id in nodes){
-    let node=nodes[id];
-
+    let n=nodes[id];
     ctx.beginPath();
-    ctx.arc(node.x,node.y,20,0,Math.PI*2);
-    ctx.fillStyle=node.type==="ride"?"#ffcc00":"#4caf50";
+    ctx.arc(n.x,n.y,20,0,Math.PI*2);
+    ctx.fillStyle=n.type==="ride"?"#ffcc00":"#4caf50";
     ctx.fill();
+
     if(hoveredNode===id){
+      ctx.strokeStyle="white";
+      ctx.lineWidth=4;
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,27,0,Math.PI*2);
+      ctx.stroke();
+    }
 
-  ctx.strokeStyle="white";
-  ctx.lineWidth=4;
-
-  ctx.beginPath();
-  ctx.arc(node.x,node.y,27,0,Math.PI*2);
-  ctx.stroke();
-
-}
     ctx.fillStyle="black";
     ctx.font="12px Arial";
-    ctx.fillText(node.name,node.x-30,node.y-25);
+    ctx.fillText(n.name,n.x-30,n.y-25);
   }
 }
 
@@ -70,123 +61,71 @@ function drawPlayer(){
 canvas.addEventListener("click",handleMapClick);
 canvas.addEventListener("mousemove",handleHover);
 
-function handleMapClick(event){
-  const rect=canvas.getBoundingClientRect();
-  const mouseX=(event.clientX-rect.left)*(canvas.width/rect.width);
-  const mouseY=(event.clientY-rect.top)*(canvas.width/rect.width);
+function handleMapClick(e){
+  let r=canvas.getBoundingClientRect();
+  let x=(e.clientX-r.left)*(canvas.width/r.width);
+  let y=(e.clientY-r.top)*(canvas.height/r.height);
+
   for(let id in nodes){
-    let node=nodes[id];
-    let distance=Math.sqrt(
-      (mouseX-node.x)**2+
-      (mouseY-node.y)**2
-    );
-    if(distance<25){
+    let n=nodes[id];
+    if(Math.hypot(x-n.x,y-n.y)<25){
       selectedNode=null;
-      if(node.type==="ride"){
-        showNodeInfo(id,true);
-      }else{
-        selectNode(id);
-      }
+      n.type==="ride"?showNodeInfo(id,true):selectNode(id);
       break;
     }
   }
 }
 
 function selectNode(id){
-
-  console.log("Selected node:",id);
-
   if(player.state!=="idle"){
     console.log("Player unavailable:",player.state);
     return;
   }
+
   selectedNode=null;
 
   let panel=document.getElementById("ridePanel");
   if(panel)panel.style.display="none";
-  showNodeInfo(id);
-  let route=findPath(
-    player.currentNode,
-    id
-  );
 
-  console.log("Route:",route);
-  if(!route||!route.path){
-    console.error("No valid route");
-    return;
-  }
+  let route=findPath(player.currentNode,id);
+
+  if(!route.path)return;
 
   player.destination=id;
 
-  if(route.distance>0){
+  if(route.distance>0)
     advanceTime(route.distance);
-  }
 
   activeRoute=route.path;
   player.startMovement(route.path);
 }
 
 function showNodeInfo(id,selected=false){
-
   let panel=document.getElementById("ridePanel");
   let node=nodes[id];
-
-  if(!panel||!node)return;
-
-  if(node.type!=="ride"){
-    if(selected){
-      panel.style.display="none";
-    }
-    return;
-  }
-
   let ride=rides[id];
-  if(!ride)return;
+
+  if(!panel||!node||!ride)return;
 
   panel.style.display="block";
 
   if(!selected){
-
     panel.innerHTML=
-      "<b>"+ride.name+"</b><br><br>"+
-      "Wait: "+ride.currentWait+" min<br>"+
-      "Ride: "+ride.duration+" min";
-
+    "<b>"+ride.name+"</b><br><br>"+
+    "Wait: "+ride.currentWait+" min<br>"+
+    "Ride: "+ride.duration+" min";
     return;
   }
 
   selectedNode=id;
 
-  let route=findPath(
-    player.currentNode,
-    id
-  );
+  let route=findPath(player.currentNode,id);
+  let walkTime=route.distance;
 
-  let walkTime=getWalkingTime(route.path);
-
-  let walkDistance=findPath(
-  player.currentNode,
-  id
-).distance;
-
-let walkTime=findPath(
-  player.currentNode,
-  id
-).distance;
-
-let total=
-  walkTime+
-  ride.currentWait+
-  ride.duration;
-
-let finish=parkTime.current+total;
-
-let total=
-  walkTime+
-  ride.currentWait+
-  ride.duration;
-
-let finish=parkTime.current+total;
+  let total=
+    walkTime+
+    ride.currentWait+
+    ride.duration;
 
   let finish=parkTime.current+total;
 
@@ -199,49 +138,44 @@ let finish=parkTime.current+total;
     "Done: "+formatTime(finish)+"<br><br>"+
     "<button onclick=\"selectNode('"+id+"')\">Go To Ride</button>";
 }
-function handleHover(event){
-  const rect=canvas.getBoundingClientRect();
-  const mouseX=(event.clientX-rect.left)*(canvas.width/rect.width);
-  const mouseY=(event.clientY-rect.top)*(canvas.height/rect.height);
+
+function handleHover(e){
+  let r=canvas.getBoundingClientRect();
+  let x=(e.clientX-r.left)*(canvas.width/r.width);
+  let y=(e.clientY-r.top)*(canvas.height/r.height);
+
   for(let id in nodes){
-    let node=nodes[id];
-    let distance=Math.sqrt(
-      (mouseX-node.x)**2+
-      (mouseY-node.y)**2
-    );
-    if(distance<25){
+    let n=nodes[id];
+
+    if(Math.hypot(x-n.x,y-n.y)<25){
       hoveredNode=id;
-      if(node.type==="ride"&&!selectedNode){
-      showNodeInfo(id,false);
-      }
+
+      if(n.type==="ride"&&!selectedNode)
+        showNodeInfo(id,false);
+
       return;
     }
   }
+
   hoveredNode=null;
 
-if(selectedNode){
-  return;
-}
+  if(selectedNode)return;
 
-let panel=document.getElementById("ridePanel");
-if(panel)panel.style.display="none";
+  let panel=document.getElementById("ridePanel");
+  if(panel)panel.style.display="none";
 }
 
 function drawRoute(){
-
   if(activeRoute.length<2)return;
 
   ctx.strokeStyle="#2196f3";
   ctx.lineWidth=5;
   ctx.beginPath();
 
-  for(let i=0;i<activeRoute.length;i++){
-    let node=nodes[activeRoute[i]];
-    if(i===0)
-      ctx.moveTo(node.x,node.y);
-    else
-      ctx.lineTo(node.x,node.y);
-  }
+  activeRoute.forEach((id,i)=>{
+    let n=nodes[id];
+    i?ctx.lineTo(n.x,n.y):ctx.moveTo(n.x,n.y);
+  });
 
   ctx.stroke();
 }
