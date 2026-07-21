@@ -69,12 +69,12 @@ function checkParkStatus(){
 }
 function updateRideCounter(){
 
-  const counter=document.getElementById("rideCounter");
+  let counter=document.getElementById("rideCounter");
 
   if(!counter)return;
 
-  let completed=player.completed.length;
   let total=Object.keys(rides).length;
+  let completed=player.completed.length;
 
   counter.innerText=
     "Rides: "+completed+" / "+total;
