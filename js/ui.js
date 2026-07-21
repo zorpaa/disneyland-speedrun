@@ -195,6 +195,11 @@ function selectNode(id) {
 
   player.destination = id;
 
+console.log(
+  "Destination set:",
+  player.destination
+);
+
   console.log(
   "Starting route:",
   route.path
