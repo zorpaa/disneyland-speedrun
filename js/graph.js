@@ -184,7 +184,7 @@ const nodes = {
     y: 700,
 
     connections: [
-      { node: "galaxyEdge", time: 2 }
+      { node: "galaxysEdge", time: 2 }
     ]
   }
 
