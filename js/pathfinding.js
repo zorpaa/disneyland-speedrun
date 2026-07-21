@@ -1,100 +1,128 @@
-// ====================
-// Disneyland Pathfinding
-// ====================
+function findPath(start, goal) {
 
-// Finds the shortest path between two nodes
-// Returns:
-// {
-//   path: ["hub", "fantasyland", "peterPan"],
-//   distance: 3
-// }
+  if (start === goal) {
 
-function findPath(start, target) {
+    return {
+      path: [start],
+      distance: 0
+    };
+
+  }
+
+
+  const queue = [start];
+
+  const visited = {};
+
+  const previous = {};
 
   const distances = {};
-  const previous = {};
-  const unvisited = new Set();
 
-  // Initialize nodes
-  for (const node in nodes) {
-    distances[node] = Infinity;
-    previous[node] = null;
-    unvisited.add(node);
-  }
+
+  visited[start] = true;
 
   distances[start] = 0;
 
 
-  while (unvisited.size > 0) {
 
-    // Find closest unvisited node
-    let current = null;
+  while (queue.length > 0) {
 
-    for (const node of unvisited) {
 
-      if (
-        current === null ||
-        distances[node] < distances[current]
-      ) {
-        current = node;
+    const current =
+      queue.shift();
+
+
+    const node =
+      nodes[current];
+
+
+    if (!node) {
+      continue;
+    }
+
+
+
+    for (const connection of node.connections) {
+
+
+      const next =
+        connection.node;
+
+
+
+      if (!visited[next]) {
+
+
+        visited[next] = true;
+
+
+        previous[next] = current;
+
+
+        distances[next] =
+          distances[current] + 1;
+
+
+
+        queue.push(next);
+
+
       }
 
-    }
-
-
-    // Stop if unreachable
-    if (current === null) {
-      break;
-    }
-
-
-    // Stop once target is reached
-    if (current === target) {
-      break;
-    }
-
-
-    unvisited.delete(current);
-
-
-    // Check connected nodes
-    for (const connection of nodes[current].connections) {
-
-      const distance =
-        distances[current] + connection.time;
-
-
-      if (distance < distances[connection.node]) {
-
-        distances[connection.node] = distance;
-
-        previous[connection.node] = current;
-
-      }
 
     }
+
 
   }
 
 
-  // Rebuild path
+
+  if (!visited[goal]) {
+
+
+    console.error(
+      "No path found:",
+      start,
+      "to",
+      goal
+    );
+
+
+    return {
+      path: [],
+      distance: Infinity
+    };
+
+  }
+
+
+
   const path = [];
 
-  let current = target;
+
+  let current = goal;
 
 
-  while (current !== null) {
+  while (current) {
+
 
     path.unshift(current);
 
-    current = previous[current];
+
+    current =
+      previous[current];
+
 
   }
 
 
+
   return {
+
     path: path,
-    distance: distances[target]
+
+    distance: distances[goal]
+
   };
 
 }
