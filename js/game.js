@@ -84,7 +84,11 @@ function draw() {
 // ====================
 
 function update() {
+
+  player.update();
+
   updateClock();
+
 }
 
 
