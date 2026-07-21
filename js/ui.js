@@ -187,6 +187,7 @@ function showMapCoordinates(event){
   );
   let worldY=Math.round(
     screenY/camera.zoom+camera.y
+    +parkMap.height
   );
   console.log(
     "Map Coordinates:",
