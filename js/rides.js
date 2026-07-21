@@ -1,5 +1,5 @@
 // Ride Database
-
+const crowdMultiplier=Number(sessionStorage.getItem("crowdMultiplier"))||1;
 const rides={
 
 spaceMountain:{
