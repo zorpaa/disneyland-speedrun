@@ -1,50 +1,106 @@
 // ====================
-// Map Rendering
+// UI System
 // ====================
 
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
+
+const canvas =
+  document.getElementById("gameCanvas");
+
+
+const ctx =
+  canvas.getContext("2d");
+
+
+
+// ====================
+// Draw Everything
+// ====================
+
+
+function drawParkMap() {
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+
+  drawConnections();
+
+  drawNodes();
+
+  drawPlayer();
+
+}
+
+
+
+// ====================
+// Draw Connections
+// ====================
 
 
 function drawConnections() {
 
+
   ctx.strokeStyle = "#888";
+
   ctx.lineWidth = 3;
+
 
 
   for (const id in nodes) {
 
+
     const node = nodes[id];
+
+
+    if (!node.connections) {
+      continue;
+    }
+
 
 
     for (const connection of node.connections) {
 
-      const target = nodes[connection.node];
-      
+
+      const target =
+        nodes[connection.node];
+
+
+
       if (!target) {
 
-  console.error(
-    "Missing connection target:",
-    connection.node
-  );
+        console.error(
+          "Missing connection target:",
+          connection.node
+        );
 
-  continue;
+        continue;
 
-}
+      }
+
+
 
       ctx.beginPath();
+
 
       ctx.moveTo(
         node.x,
         node.y
       );
 
+
       ctx.lineTo(
         target.x,
-        target.y,
+        target.y
       );
 
+
       ctx.stroke();
+
 
     }
 
@@ -54,54 +110,62 @@ function drawConnections() {
 
 
 
+// ====================
+// Draw Nodes
+// ====================
+
+
 function drawNodes() {
+
 
   for (const id in nodes) {
 
-    const node = nodes[id];
 
-
-    let color = "#4caf50";
-
-
-    if (node.type === "ride") {
-      color = "#e91e63";
-    }
-
-
-    if (node.type === "junction") {
-      color = "#2196f3";
-    }
+    const node =
+      nodes[id];
 
 
     ctx.beginPath();
 
+
     ctx.arc(
       node.x,
       node.y,
-      18,
+      20,
       0,
       Math.PI * 2
     );
 
 
-    ctx.fillStyle = color;
+    if (node.type === "ride") {
+
+      ctx.fillStyle = "#ffcc00";
+
+    }
+
+    else {
+
+      ctx.fillStyle = "#4caf50";
+
+    }
+
 
     ctx.fill();
 
 
-    ctx.fillStyle = "#000";
 
-    ctx.font = "14px Arial";
+    ctx.fillStyle = "black";
 
-    ctx.textAlign = "center";
+    ctx.font =
+      "12px Arial";
 
 
     ctx.fillText(
       node.name,
-      node.x,
+      node.x - 30,
       node.y - 25
     );
+
 
   }
 
@@ -109,18 +173,40 @@ function drawNodes() {
 
 
 
-function drawParkMap() {
+// ====================
+// Draw Player
+// ====================
 
-  drawConnections();
 
-  drawNodes();
+function drawPlayer() {
+
+
+  ctx.beginPath();
+
+
+  ctx.arc(
+    player.x,
+    player.y,
+    10,
+    0,
+    Math.PI * 2
+  );
+
+
+  ctx.fillStyle =
+    "red";
+
+
+  ctx.fill();
 
 }
 
 
+
 // ====================
-// Mouse Input
+// Mouse Controls
 // ====================
+
 
 canvas.addEventListener(
   "click",
@@ -131,12 +217,15 @@ canvas.addEventListener(
 
 function handleMapClick(event) {
 
+
   const rect =
     canvas.getBoundingClientRect();
 
 
+
   const mouseX =
     event.clientX - rect.left;
+
 
   const mouseY =
     event.clientY - rect.top;
@@ -145,7 +234,10 @@ function handleMapClick(event) {
 
   for (const id in nodes) {
 
-    const node = nodes[id];
+
+    const node =
+      nodes[id];
+
 
 
     const distance =
@@ -155,9 +247,12 @@ function handleMapClick(event) {
       );
 
 
+
     if (distance < 25) {
 
+
       selectNode(id);
+
 
       break;
 
@@ -169,18 +264,31 @@ function handleMapClick(event) {
 
 
 
+// ====================
+// Node Selection
+// ====================
+
+
 function selectNode(id) {
 
+
+  console.log(
+    "Selected node:",
+    id
+  );
+
+
+
   if (player.moving) {
-    console.log("Currently walking");
+
+    console.log(
+      "Player currently moving"
+    );
+
     return;
+
   }
 
-
-  if (player.destination) {
-    console.log("Processing destination");
-    return;
-  }
 
 
   const route =
@@ -190,30 +298,42 @@ function selectNode(id) {
     );
 
 
-  console.log(route);
-
-
-  player.destination = id;
-
-console.log(
-  "Destination set:",
-  player.destination
-);
 
   console.log(
-  "Starting route:",
-  route.path
-);
+    "Route:",
+    route
+  );
+
+
+
+  if (!route || !route.path) {
+
+
+    console.error(
+      "No valid route"
+    );
+
+
+    return;
+
+  }
+
+
+
+  player.destination =
+    id;
+
+
 
   player.startMovement(
     route.path
   );
 
 
-  // Walking time based on graph distance
 
   advanceTime(
     route.distance
   );
+
 
 }
