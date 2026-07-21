@@ -93,3 +93,10 @@ function updateRideCounter(){
     Object.keys(rides).length;
 
 }
+function checkWin(){
+  return allRidesComplete();
+}
+
+function victory(){
+  alert("Congratulations! You completed all rides!");
+}
