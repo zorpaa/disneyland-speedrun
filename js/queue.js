@@ -58,6 +58,20 @@ function updateQueueUI(){
   let start=parkTime.current+queue.remaining;
   let end=start+ride.duration;
   panel.innerHTML=
+  "<b>Currently Queued</b><br><br>"+
+  ride.name+
+  "<br><br>"+
+  "Your Wait: "+
+  queue.remaining+
+  " min<br>"+
+  "Current Posted Wait: "+
+  ride.currentWait+
+  " min<br><br>"+
+  "Ride Starts: "+
+  formatTime(start)+
+  "<br>"+
+  "Ride Ends: "+
+  formatTime(end);
     "<b>Currently Queued:</b><br>"+
     ride.name+
     "<br><br>"+
