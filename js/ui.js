@@ -44,7 +44,17 @@ function drawNodes(){
     let node=nodes[id];
 
     ctx.beginPath();
-    ctx.arc(node.x,node.y,20,0,Math.PI*2);
+
+    if(node.type==="ride"){
+      ctx.arc(node.x,node.y,20,0,Math.PI*2);
+    }else{
+      ctx.moveTo(node.x,node.y-20);
+      ctx.lineTo(node.x+20,node.y);
+      ctx.lineTo(node.x,node.y+20);
+      ctx.lineTo(node.x-20,node.y);
+      ctx.closePath();
+    }
+
     ctx.fillStyle=landColors[node.land]||"#999";
     ctx.fill();
 
@@ -53,7 +63,17 @@ function drawNodes(){
       ctx.lineWidth=4;
 
       ctx.beginPath();
-      ctx.arc(node.x,node.y,27,0,Math.PI*2);
+
+      if(node.type==="ride"){
+        ctx.arc(node.x,node.y,27,0,Math.PI*2);
+      }else{
+        ctx.moveTo(node.x,node.y-27);
+        ctx.lineTo(node.x+27,node.y);
+        ctx.lineTo(node.x,node.y+27);
+        ctx.lineTo(node.x-27,node.y);
+        ctx.closePath();
+      }
+
       ctx.stroke();
     }
 
@@ -61,7 +81,7 @@ function drawNodes(){
       ctx.fillStyle="black";
       ctx.font="12px Arial";
       ctx.textAlign="center";
-      ctx.fillText(node.name,node.x,node.y-30);
+      ctx.fillText(node.name,node.x,node.y-35);
       ctx.textAlign="left";
     }
   }
