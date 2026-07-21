@@ -5,49 +5,49 @@
 const nodes = {
 
   entrance: {
-    id: "entrance",
-    name: "Main Entrance",
-    type: "junction",
-    land: "Entrance",
-    x: 100,
-    y: 350,
+    id:"entrance",
+    name:"Main Entrance",
+    type:"junction",
+    land:"Entrance",
+    x:100,
+    y:350,
     showLabel:true,
-    connections: [
-      { node: "mainStreet" }
+    connections:[
+      {node:"mainStreet"}
     ]
   },
 
 
-  mainStreet: {
-    id: "mainStreet",
-    name: "Main Street USA",
-    type: "junction",
-    land: "Main Street",
-    x: 250,
-    y: 350,
+  mainStreet:{
+    id:"mainStreet",
+    name:"Main Street USA",
+    type:"junction",
+    land:"Main Street",
+    x:250,
+    y:350,
     showLabel:true,
-    connections: [
-      { node: "entrance" },
-      { node: "hub" }
+    connections:[
+      {node:"entrance"},
+      {node:"hub"}
     ]
   },
 
 
-  hub: {
-    id: "hub",
-    name: "Central Hub",
-    type: "junction",
-    land: "Hub",
-    x: 400,
-    y: 350,
+  hub:{
+    id:"hub",
+    name:"Central Hub",
+    type:"junction",
+    land:"Hub",
+    x:400,
+    y:350,
     showLabel:true,
-    connections: [
-      { node: "mainStreet" },
-      { node: "tomorrowland" },
-      { node: "fantasyland" },
-      { node: "adventureland" },
-      { node: "frontierland" },
-      { node: "galaxysEdge" }
+    connections:[
+      {node:"mainStreet"},
+      {node:"tomorrowland"},
+      {node:"fantasyland"},
+      {node:"adventureland"},
+      {node:"frontierland"},
+      {node:"galaxysEdge"}
     ]
   },
 
@@ -71,129 +71,129 @@ const nodes = {
   },
 
 
-  fantasyland: {
-    id: "fantasyland",
-    name: "Fantasyland",
-    type: "junction",
-    land: "Fantasyland",
-    x: 550,
-    y: 350,
+  fantasyland:{
+    id:"fantasyland",
+    name:"Fantasyland",
+    type:"junction",
+    land:"Fantasyland",
+    x:550,
+    y:350,
     showLabel:true,
-    connections: [
-      { node: "hub" },
-      { node: "fantasylandHub" }
+    connections:[
+      {node:"hub"},
+      {node:"fantasylandHub"}
     ]
   },
+
 
   fantasylandHub:{
-  id:"fantasylandHub",
-  name:"Fantasyland Hub",
-  type:"junction",
-  land:"Fantasyland",
-  x:650,
-  y:350,
-  connections:[
-    {node:"fantasyland"},
-    {node:"matterhorn"},
-    {node:"fantasylandWest"},
-    {node:"fantasylandEast"}
-  ]
-},
-
-fantasylandWest:{
-  id:"fantasylandWest",
-  name:"Fantasyland West",
-  type:"junction",
-  land:"Fantasyland",
-  x:700,
-  y:300,
-  showLabel:true,
-  connections:[
-  {node:"fantasylandHub"},
-  {node:"peterPan"},
-  {node:"mrToad"},
-  {node:"pinocchio"},
-  {node:"fantasylandEast"}
-]
-},
-
-
-fantasylandEast:{
-  id:"fantasylandEast",
-  name:"Fantasyland East",
-  type:"junction",
-  land:"Fantasyland",
-  x:700,
-  y:400,
-  showLabel:true,
-  connections:[
-  {node:"fantasylandHub"},
-  {node:"alice"},
-  {node:"smallWorld"},
-  {node:"dumbo"},
-  {node:"fantasylandWest"}
-]
-},
-  
-  adventureland: {
-    id: "adventureland",
-    name: "Adventureland",
-    type: "junction",
-    land: "Adventureland",
-    x: 550,
-    y: 500,
+    id:"fantasylandHub",
+    name:"Fantasyland Hub",
+    type:"junction",
+    land:"Fantasyland",
+    x:650,
+    y:350,
     showLabel:true,
-    connections: [
-      { node: "hub" },
-      { node: "indianaJones" }
+    connections:[
+      {node:"fantasyland"},
+      {node:"matterhorn"},
+      {node:"fantasylandWest"},
+      {node:"fantasylandEast"}
     ]
   },
 
 
-  frontierland: {
-    id: "frontierland",
-    name: "Frontierland",
-    type: "junction",
-    land: "Frontierland",
-    x: 700,
-    y: 500,
-    showLabel:true,
-    connections: [
-      { node: "hub" },
-      { node: "bigThunder" }
+  fantasylandWest:{
+    id:"fantasylandWest",
+    name:"Fantasyland West",
+    type:"junction",
+    land:"Fantasyland",
+    x:700,
+    y:300,
+    connections:[
+      {node:"fantasylandHub"},
+      {node:"peterPan"},
+      {node:"mrToad"},
+      {node:"pinocchio"},
+      {node:"fantasylandEast"}
     ]
   },
 
 
-  galaxysEdge: {
-    id: "galaxysEdge",
-    name: "Galaxy's Edge",
-    type: "junction",
-    land: "Galaxy's Edge",
-    x: 700,
-    y: 250,
-    showLabel:true,
-    connections: [
-      { node: "hub" },
-      { node: "riseResistance" }
+  fantasylandEast:{
+    id:"fantasylandEast",
+    name:"Fantasyland East",
+    type:"junction",
+    land:"Fantasyland",
+    x:700,
+    y:400,
+    connections:[
+      {node:"fantasylandHub"},
+      {node:"alice"},
+      {node:"smallWorld"},
+      {node:"dumbo"},
+      {node:"fantasylandWest"}
     ]
   },
 
 
-  // ====================
+  adventureland:{
+    id:"adventureland",
+    name:"Adventureland",
+    type:"junction",
+    land:"Adventureland",
+    x:550,
+    y:500,
+    showLabel:true,
+    connections:[
+      {node:"hub"},
+      {node:"indianaJones"}
+    ]
+  },
+
+
+  frontierland:{
+    id:"frontierland",
+    name:"Frontierland",
+    type:"junction",
+    land:"Frontierland",
+    x:700,
+    y:500,
+    showLabel:true,
+    connections:[
+      {node:"hub"},
+      {node:"bigThunder"}
+    ]
+  },
+
+
+  galaxysEdge:{
+    id:"galaxysEdge",
+    name:"Galaxy's Edge",
+    type:"junction",
+    land:"Galaxy's Edge",
+    x:700,
+    y:250,
+    showLabel:true,
+    connections:[
+      {node:"hub"},
+      {node:"riseResistance"}
+    ]
+  },
+    // ====================
   // Rides
   // ====================
 
 
-  spaceMountain: {
-    id: "spaceMountain",
-    name: "Space Mountain",
-    type: "ride",
-    land: "Tomorrowland",
-    x: 650,
-    y: 150,
-    connections: [
-      { node: "tomorrowland" }
+  spaceMountain:{
+    id:"spaceMountain",
+    name:"Space Mountain",
+    type:"ride",
+    land:"Tomorrowland",
+    x:650,
+    y:150,
+    connections:[
+      {node:"tomorrowland"}
     ]
   },
 
@@ -250,132 +250,137 @@ fantasylandEast:{
   },
 
 
-  matterhorn: {
-    id: "matterhorn",
-    name: "Matterhorn Bobsleds",
-    type: "ride",
-    land: "Fantasyland",
-    x: 650,
-    y: 300,
-    connections: [
-      { node: "fantasylandHub" }
+  matterhorn:{
+    id:"matterhorn",
+    name:"Matterhorn Bobsleds",
+    type:"ride",
+    land:"Fantasyland",
+    x:650,
+    y:250,
+    connections:[
+      {node:"fantasylandHub"}
     ]
   },
 
 
-  indianaJones: {
-    id: "indianaJones",
-    name: "Indiana Jones Adventure",
-    type: "ride",
-    land: "Adventureland",
-    x: 650,
-    y: 550,
-    connections: [
-      { node: "adventureland" }
+  peterPan:{
+    id:"peterPan",
+    name:"Peter Pan's Flight",
+    type:"ride",
+    land:"Fantasyland",
+    x:780,
+    y:240,
+    connections:[
+      {node:"fantasylandWest"}
     ]
   },
 
 
-  bigThunder: {
-    id: "bigThunder",
-    name: "Big Thunder Mountain",
-    type: "ride",
-    land: "Frontierland",
-    x: 800,
-    y: 550,
-    connections: [
-      { node: "frontierland" }
+  mrToad:{
+    id:"mrToad",
+    name:"Mr. Toad's Wild Ride",
+    type:"ride",
+    land:"Fantasyland",
+    x:760,
+    y:360,
+    connections:[
+      {node:"fantasylandWest"}
     ]
   },
 
 
-  riseResistance: {
-    id: "riseResistance",
-    name: "Rise of the Resistance",
-    type: "ride",
-    land: "Galaxy's Edge",
-    x: 850,
-    y: 250,
-    connections: [
-      { node: "galaxysEdge" }
-    ]
-},
-
-peterPan:{
-  id:"peterPan",
-  name:"Peter Pan's Flight",
-  type:"ride",
-  land:"Fantasyland",
-  x:750,
-  y:280,
-  connections:[
-    {node:"fantasylandWest"}
-  ]
-},
-
-
-alice:{
-  id:"alice",
-  name:"Alice in Wonderland",
-  type:"ride",
-  land:"Fantasyland",
-  x:750,
-  y:420,
-  connections:[
-    {node:"fantasylandEast"}
-  ]
-},
-
-
-mrToad:{
-  id:"mrToad",
-  name:"Mr. Toad's Wild Ride",
-  type:"ride",
-  land:"Fantasyland",
-  x:750,
-  y:350,
-  connections:[
-    {node:"fantasylandWest"}
-  ]
-},
   pinocchio:{
-  id:"pinocchio",
-  name:"Pinocchio's Daring Journey",
-  type:"ride",
-  land:"Fantasyland",
-  x:800,
-  y:300,
-  connections:[
-    {node:"fantasylandWest"}
-  ]
-},
+    id:"pinocchio",
+    name:"Pinocchio's Daring Journey",
+    type:"ride",
+    land:"Fantasyland",
+    x:860,
+    y:280,
+    connections:[
+      {node:"fantasylandWest"}
+    ]
+  },
 
 
-smallWorld:{
-  id:"smallWorld",
-  name:"it's a small world",
-  type:"ride",
-  land:"Fantasyland",
-  x:850,
-  y:400,
-  connections:[
-    {node:"fantasylandEast"}
-  ]
-},
+  alice:{
+    id:"alice",
+    name:"Alice in Wonderland",
+    type:"ride",
+    land:"Fantasyland",
+    x:820,
+    y:420,
+    connections:[
+      {node:"fantasylandEast"}
+    ]
+  },
 
 
-dumbo:{
-  id:"dumbo",
-  name:"Dumbo the Flying Elephant",
-  type:"ride",
-  land:"Fantasyland",
-  x:800,
-  y:500,
-  connections:[
-    {node:"fantasylandEast"}
-  ]
-},
+  smallWorld:{
+    id:"smallWorld",
+    name:"it's a small world",
+    type:"ride",
+    land:"Fantasyland",
+    x:900,
+    y:400,
+    connections:[
+      {node:"fantasylandEast"}
+    ]
+  },
+
+
+  dumbo:{
+    id:"dumbo",
+    name:"Dumbo the Flying Elephant",
+    type:"ride",
+    land:"Fantasyland",
+    x:850,
+    y:520,
+    connections:[
+      {node:"fantasylandEast"}
+    ]
+  },
+
+
+  indianaJones:{
+    id:"indianaJones",
+    name:"Indiana Jones Adventure",
+    type:"ride",
+    land:"Adventureland",
+    x:650,
+    y:550,
+    connections:[
+      {node:"adventureland"}
+    ]
+  },
+
+
+  bigThunder:{
+    id:"bigThunder",
+    name:"Big Thunder Mountain",
+    type:"ride",
+    land:"Frontierland",
+    x:800,
+    y:550,
+    connections:[
+      {node:"frontierland"}
+    ]
+  },
+
+
+  riseResistance:{
+    id:"riseResistance",
+    name:"Rise of the Resistance",
+    type:"ride",
+    land:"Galaxy's Edge",
+    x:850,
+    y:250,
+    connections:[
+      {node:"galaxysEdge"}
+    ]
+  }
+
 };
+
 
 function checkNodeCollisions(){
 
