@@ -12,7 +12,7 @@ function joinQueue(id){
   if(!ride||ride.completed)return;
   queue.ride=id;
   queue.remaining=ride.currentWait;
-  console.log(
+  console.log();
   player.state="queued";
     "Joined queue:",
     ride.name,
