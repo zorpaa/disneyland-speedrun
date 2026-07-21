@@ -159,18 +159,32 @@ function drawNodes(){
       ctx.textAlign="left";
     }
     if(node.showLabel){
-      ctx.fillStyle="black";
-      ctx.font=(12*camera.zoom)+"px Arial";
-      ctx.textAlign="center";
-      ctx.fillText(
-        node.name,
-        pos.x,
-        pos.y-(35*camera.zoom)
-      );
-      ctx.textAlign="left";
-    }
-    ctx.shadowBlur=0;
-  } // end for loop
+
+  // text outline
+  ctx.font="bold "+(14*camera.zoom)+"px Arial";
+  ctx.textAlign="center";
+
+  ctx.strokeStyle="white";
+  ctx.lineWidth=4*camera.zoom;
+
+  ctx.strokeText(
+    node.name,
+    pos.x,
+    pos.y-(45*camera.zoom)
+  );
+
+  // actual text
+  ctx.fillStyle="black";
+
+  ctx.fillText(
+    node.name,
+    pos.x,
+    pos.y-(45*camera.zoom)
+  );
+
+  ctx.textAlign="left";
+
+}
 }
 
 function drawPlayer(){
