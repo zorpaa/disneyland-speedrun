@@ -141,6 +141,8 @@ function showNodeInfo(id,selected=false){
   }
 
   let ride=rides[id];
+  if(!ride)return;
+  let total=ride.currentWait+ride.duration;
 
   panel.style.display="block";
 
