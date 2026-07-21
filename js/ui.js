@@ -28,7 +28,13 @@ const landColors={
 };
 
 function drawParkMap(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+  drawBackground();
   drawConnections();
   drawRoute();
   drawNodes();
@@ -146,6 +152,32 @@ function drawPlayer(){
   ctx.fill();
 }
 
+function drawBackground(){
+  if(!parkMap.loaded)return;
+  let pos=worldToScreen(
+    parkMap.x,
+    parkMap.y
+  );
+
+  ctx.drawImage(
+    parkMap.image,
+    pos.x,
+    pos.y,
+    parkMap.width*camera.zoom,
+    parkMap.height*camera.zoom
+  );
+
+}
+
+function loadParkMap(){
+  parkMap.image=new Image();
+  parkMap.image.src="parkmap.png";
+  parkMap.image.onload=()=>{
+    parkMap.loaded=true;
+    drawParkMap();
+  };
+}
+
 canvas.addEventListener("click",handleMapClick);
 canvas.addEventListener("mousemove",handleHover);
 canvas.addEventListener("wheel",handleZoom);
@@ -153,6 +185,15 @@ canvas.addEventListener("mousedown",startDrag);
 canvas.addEventListener("mouseup",endDrag);
 canvas.addEventListener("mouseleave",endDrag);
 canvas.addEventListener("mousemove",dragCamera);
+
+const parkMap={
+  image:null,
+  loaded:false,
+  x:0,
+  y:0,
+  width:1000,
+  height:700
+};
 
 function zoomIn(){
   camera.zoom+=0.2;
@@ -366,3 +407,5 @@ function drawRoute(){
 
   ctx.stroke();
 }
+
+loadParkMap();
