@@ -159,6 +159,7 @@ let dragStartX=0;
 let dragStartY=0;
 let cameraStartX=0;
 let cameraStartY=0;
+let dragged=false;
 
 function handleZoom(event){
   event.preventDefault();
@@ -184,24 +185,40 @@ function handleZoom(event){
 
 function startDrag(event){
   dragging=true;
+  dragged=false;
   dragStartX=event.clientX;
   dragStartY=event.clientY;
   cameraStartX=camera.x;
   cameraStartY=camera.y;
+
 }
 function dragCamera(event){
+
   if(!dragging)return;
-  let dx=(event.clientX-dragStartX)/camera.zoom;
-  let dy=(event.clientY-dragStartY)/camera.zoom;
-  camera.x=cameraStartX-dx;
-  camera.y=cameraStartY-dy;
+
+
+  let dx=event.clientX-dragStartX;
+  let dy=event.clientY-dragStartY;
+
+
+  if(Math.abs(dx)>5 || Math.abs(dy)>5){
+    dragged=true;
+  }
+  if(!dragged)return;
+  camera.x=cameraStartX-(dx/camera.zoom);
+  camera.y=cameraStartY-(dy/camera.zoom);
   drawParkMap();
 }
 function endDrag(){
   dragging=false;
 }
-
 function handleMapClick(e){
+
+  if(dragged){
+  dragged=false;
+  return;
+}
+  
   let r=canvas.getBoundingClientRect();
   let x=(e.clientX-r.left)*(canvas.width/r.width);
   let y=(e.clientY-r.top)*(canvas.height/r.height);
