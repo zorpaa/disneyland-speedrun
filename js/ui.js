@@ -3,6 +3,19 @@ const ctx=canvas.getContext("2d");
 let hoveredNode=null;
 let activeRoute=[];
 let selectedNode=null;
+const camera={
+  x:0,
+  y:0,
+  zoom:1
+};
+function worldToScreen(x,y){
+
+  return {
+    x:(x-camera.x)*camera.zoom,
+    y:(y-camera.y)*camera.zoom
+  };
+
+}
 const landColors={
   "Entrance":"#555",
   "Main Street":"#f2c94c",
@@ -32,7 +45,7 @@ function drawConnections(){
       let t=nodes[c.node];
       if(!t)continue;
       ctx.beginPath();
-      ctx.moveTo(node.x,node.y);
+      ctx.moveTo(pos.x,pos.y);
       ctx.lineTo(t.x,t.y);
       ctx.stroke();
     }
@@ -46,12 +59,13 @@ function drawNodes(){
     ctx.beginPath();
 
     if(node.type==="ride"){
-      ctx.arc(node.x,node.y,20,0,Math.PI*2);
+      let pos=worldToScreen(pos.x,pos.y);
+      ctx.arc(pos.x,pos.y,20*camera.zoom,0,Math.PI*2);
     }else{
-      ctx.moveTo(node.x,node.y-20);
-      ctx.lineTo(node.x+20,node.y);
-      ctx.lineTo(node.x,node.y+20);
-      ctx.lineTo(node.x-20,node.y);
+      ctx.moveTo(pos.x,pos.y-20);
+      ctx.lineTo(pos.x+20,pos.y);
+      ctx.lineTo(pos.x,pos.y+20);
+      ctx.lineTo(pos.x-20,pos.y);
       ctx.closePath();
     }
 
@@ -70,12 +84,12 @@ ctx.fill();
       ctx.beginPath();
 
       if(node.type==="ride"){
-        ctx.arc(node.x,node.y,27,0,Math.PI*2);
+        ctx.arc(pos.x,pos.y,27,0,Math.PI*2);
       }else{
-        ctx.moveTo(node.x,node.y-27);
-        ctx.lineTo(node.x+27,node.y);
-        ctx.lineTo(node.x,node.y+27);
-        ctx.lineTo(node.x-27,node.y);
+        ctx.moveTo(pos.x,pos.y-27);
+        ctx.lineTo(pos.x+27,pos.y);
+        ctx.lineTo(pos.x,pos.y+27);
+        ctx.lineTo(pos.x-27,pos.y);
         ctx.closePath();
       }
 
@@ -83,7 +97,7 @@ ctx.fill();
   ctx.fillStyle="black";
   ctx.font="16px Arial";
   ctx.textAlign="center";
-  ctx.fillText("✓",node.x,node.y+6);
+  ctx.fillText("✓",pos.x,pos.y+6);
   ctx.textAlign="left";
 }
       
@@ -94,7 +108,7 @@ ctx.fill();
       ctx.fillStyle="black";
       ctx.font="12px Arial";
       ctx.textAlign="center";
-      ctx.fillText(node.name,node.x,node.y-35);
+      ctx.fillText(node.name,pos.x,pos.y-35);
       ctx.textAlign="left";
     }
   }
@@ -102,7 +116,8 @@ ctx.fill();
 
 function drawPlayer(){
   ctx.beginPath();
-  ctx.arc(player.x,player.y,10,0,Math.PI*2);
+  let pos=worldToScreen(player.x,player.y);
+  ctx.arc(pos.x,pos.y,10*camera.zoom,0,Math.PI*2);
   ctx.fillStyle="red";
   ctx.fill();
 }
