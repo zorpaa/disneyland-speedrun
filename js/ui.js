@@ -177,19 +177,6 @@ function drawBackground(){
 
 }
 
-const coordinateOffset={
-  x:0,
-  y:-3000
-};
-  
-  ctx.drawImage(
-    parkMap.image,
-    pos.x,
-    pos.y,
-    parkMap.width*camera.zoom,
-    parkMap.height*camera.zoom
-  );
-
 function loadParkMap(){
   parkMap.image=new Image();
   parkMap.image.src="parkmap.png";
