@@ -101,14 +101,12 @@ function selectNode(id){
   }
 
   showNodeInfo(id);
-
   let route=findPath(
     player.currentNode,
     id
   );
 
   console.log("Route:",route);
-
   if(!route||!route.path){
     console.error("No valid route");
     return;
@@ -137,14 +135,14 @@ function showNodeInfo(id){
   }
 
   let ride=rides[id];
-  let total=ride.wait+ride.duration;
+  let total=ride.currentWait+ride.duration;
   let finish=parkTime.current+total;
 
   panel.style.display="block";
 
   panel.innerHTML=
     "<b>"+ride.name+"</b><br>"+
-    "Wait: "+ride.wait+" min<br>"+
+    "Wait: "+ride.currentWait+" min<br>"+
     "Ride: "+ride.duration+" min<br>"+
     "Total: "+total+" min<br>"+
     "Done: "+formatTime(finish)+"<br>"+
