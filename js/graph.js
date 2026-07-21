@@ -160,8 +160,8 @@ autopia:{
   id:"autopia",
   name:"Autopia",
   type:"ride",
-  x:700,
-  y:260,
+  x:600,
+  y:240,
   connections:[
     {node:"tomorrowland"}
   ]
