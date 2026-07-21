@@ -1,127 +1,71 @@
-// ====================
-// Simulation System
-// ====================
+// Ride Simulation
 
-function advanceTime(minutes) {
+function startRide(rideID){
 
-  player.time += minutes;
+  let ride=rides[rideID];
 
-}
-
-
-// ====================
-// Arrival Handling
-// ====================
-
-function arriveAtDestination() {
-
-  if (!player.destination) {
+  if(!ride){
+    console.error("Missing ride:",rideID);
     return;
   }
 
 
-  const destination = player.destination;
-
-
-  console.log(
-    "Arrived:",
-    nodes[destination].name
-  );
-
-
-  player.currentNode = destination;
-
-
-  if (nodes[destination].type === "ride") {
-
-    completeRide(destination);
-
-  }
-
-
-  player.destination = null;
-
-  player.path = [];
-
-  player.pathIndex = 0;
-
-  player.moving = false;
-
-}
-
-
-// ====================
-// Ride Completion
-// ====================
-
-function completeRide(id) {
-
-  const ride = rides[id];
-
-
-  if (!ride || ride.completed) {
+  if(ride.completed){
     return;
   }
 
 
-  if (player.time >= park.closeTime) {
-
-    console.log(
-      "Park is closed. Cannot enter queue."
-    );
-
-    return;
-
-  }
+  addMinutes(ride.wait);
 
 
-  advanceTime(
-    ride.wait
-  );
+  addMinutes(ride.duration);
 
 
-  advanceTime(
-    ride.duration
-  );
+  ride.completed=true;
 
-
-  ride.completed = true;
-
-
-  player.completed.push(id);
+  player.completed.push(rideID);
 
 
   updateRideCounter();
 
 
-  console.log(
-    ride.name + " completed!"
-  );
-
-
-  if (checkWin()) {
-
-    victory();
-
+  if(parkIsClosed()){
+    console.log("Ride finished after closing");
   }
 
 }
 
 
-// ====================
-// Ride Counter
-// ====================
+// Check ride completion
 
-function updateRideCounter() {
+function allRidesComplete(){
 
-  const total =
-    Object.keys(rides).length;
+  for(let id in rides){
+
+    if(!rides[id].completed){
+      return false;
+    }
+
+  }
+
+  return true;
+
+}
 
 
-  document.getElementById("rides").innerText =
-    "Rides: " +
-    player.completed.length +
-    " / " +
-    total;
+// Park status
 
+function checkParkStatus(){
+
+  if(parkIsClosed()){
+
+    alert("Park is closed!");
+
+    return false;
+
+  }
+
+  return true;
+
+}
 }
