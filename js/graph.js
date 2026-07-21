@@ -76,7 +76,7 @@ const nodes = {
     y: 350,
     connections: [
       { node: "hub" },
-      { node: "matterhorn" }
+      { node: "fantasylandHub" }
     ]
   },
 
@@ -216,7 +216,7 @@ const nodes = {
     x: 650,
     y: 350,
     connections: [
-      { node: "fantasyland" }
+      { node: "fantasylandhub" }
     ]
   },
 
@@ -259,8 +259,45 @@ const nodes = {
     ]
   }
 
-};
+},
 
+peterPan:{
+  id:"peterPan",
+  name:"Peter Pan's Flight",
+  type:"ride",
+  land:"Fantasyland",
+  x:750,
+  y:280,
+  connections:[
+    {node:"fantasylandHub"}
+  ]
+},
+
+
+alice:{
+  id:"alice",
+  name:"Alice in Wonderland",
+  type:"ride",
+  land:"Fantasyland",
+  x:750,
+  y:350,
+  connections:[
+    {node:"fantasylandHub"}
+  ]
+},
+
+
+mrToad:{
+  id:"mrToad",
+  name:"Mr. Toad's Wild Ride",
+  type:"ride",
+  land:"Fantasyland",
+  x:750,
+  y:420,
+  connections:[
+    {node:"fantasylandHub"}
+  ]
+};
 
 function checkNodeCollisions(){
 
