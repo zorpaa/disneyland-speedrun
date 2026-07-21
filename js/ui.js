@@ -27,6 +27,15 @@ const landColors={
   "Galaxy's Edge":"#9966ff"
 };
 
+const parkMap={
+  image:null,
+  loaded:false,
+  x:0,
+  y:0,
+  width:3000,
+  height:3000
+};
+
 function drawParkMap(){
   ctx.clearRect(
     0,
@@ -216,15 +225,6 @@ canvas.addEventListener("mouseup",endDrag);
 canvas.addEventListener("mouseleave",endDrag);
 canvas.addEventListener("mousemove",dragCamera);
 canvas.addEventListener("click",showMapCoordinates);
-
-const parkMap={
-  image:null,
-  loaded:false,
-  x:0,
-  y:0,
-  width:3000,
-  height:3000
-};
 
 function zoomIn(){
   camera.zoom+=0.2;
