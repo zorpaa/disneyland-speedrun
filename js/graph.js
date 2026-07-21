@@ -2,13 +2,13 @@
 // Disneyland Node Graph
 // ====================
 
-
 const nodes = {
 
   entrance: {
     id: "entrance",
     name: "Main Entrance",
     type: "junction",
+    land: "Entrance",
     x: 100,
     y: 350,
     connections: [
@@ -21,6 +21,7 @@ const nodes = {
     id: "mainStreet",
     name: "Main Street USA",
     type: "junction",
+    land: "Main Street",
     x: 250,
     y: 350,
     connections: [
@@ -34,6 +35,7 @@ const nodes = {
     id: "hub",
     name: "Central Hub",
     type: "junction",
+    land: "Hub",
     x: 400,
     y: 350,
     connections: [
@@ -51,6 +53,7 @@ const nodes = {
     id:"tomorrowland",
     name:"Tomorrowland",
     type:"junction",
+    land:"Tomorrowland",
     x:550,
     y:200,
     connections:[
@@ -68,6 +71,7 @@ const nodes = {
     id: "fantasyland",
     name: "Fantasyland",
     type: "junction",
+    land: "Fantasyland",
     x: 550,
     y: 350,
     connections: [
@@ -81,6 +85,7 @@ const nodes = {
     id: "adventureland",
     name: "Adventureland",
     type: "junction",
+    land: "Adventureland",
     x: 550,
     y: 500,
     connections: [
@@ -94,6 +99,7 @@ const nodes = {
     id: "frontierland",
     name: "Frontierland",
     type: "junction",
+    land: "Frontierland",
     x: 700,
     y: 500,
     connections: [
@@ -107,6 +113,7 @@ const nodes = {
     id: "galaxysEdge",
     name: "Galaxy's Edge",
     type: "junction",
+    land: "Galaxy's Edge",
     x: 700,
     y: 250,
     connections: [
@@ -125,6 +132,7 @@ const nodes = {
     id: "spaceMountain",
     name: "Space Mountain",
     type: "ride",
+    land: "Tomorrowland",
     x: 650,
     y: 150,
     connections: [
@@ -132,57 +140,64 @@ const nodes = {
     ]
   },
 
+
   starTours:{
-  id:"starTours",
-  name:"Star Tours",
-  type:"ride",
-  x:700,
-  y:100,
-  connections:[
-    {node:"tomorrowland"}
-  ]
-},
+    id:"starTours",
+    name:"Star Tours",
+    type:"ride",
+    land:"Tomorrowland",
+    x:700,
+    y:100,
+    connections:[
+      {node:"tomorrowland"}
+    ]
+  },
 
 
-buzzLightyear:{
-  id:"buzzLightyear",
-  name:"Buzz Lightyear Astro Blasters",
-  type:"ride",
-  x:700,
-  y:180,
-  connections:[
-    {node:"tomorrowland"}
-  ]
-},
+  buzzLightyear:{
+    id:"buzzLightyear",
+    name:"Buzz Lightyear Astro Blasters",
+    type:"ride",
+    land:"Tomorrowland",
+    x:700,
+    y:180,
+    connections:[
+      {node:"tomorrowland"}
+    ]
+  },
 
 
-autopia:{
-  id:"autopia",
-  name:"Autopia",
-  type:"ride",
-  x:600,
-  y:240,
-  connections:[
-    {node:"tomorrowland"}
-  ]
-},
+  autopia:{
+    id:"autopia",
+    name:"Autopia",
+    type:"ride",
+    land:"Tomorrowland",
+    x:600,
+    y:240,
+    connections:[
+      {node:"tomorrowland"}
+    ]
+  },
 
 
-submarine:{
-  id:"submarine",
-  name:"Finding Nemo Submarine Voyage",
-  type:"ride",
-  x:800,
-  y:100,
-  connections:[
-    {node:"tomorrowland"}
-  ]
-},
+  submarine:{
+    id:"submarine",
+    name:"Finding Nemo Submarine Voyage",
+    type:"ride",
+    land:"Tomorrowland",
+    x:800,
+    y:100,
+    connections:[
+      {node:"tomorrowland"}
+    ]
+  },
+
 
   matterhorn: {
     id: "matterhorn",
     name: "Matterhorn Bobsleds",
     type: "ride",
+    land: "Fantasyland",
     x: 650,
     y: 350,
     connections: [
@@ -195,6 +210,7 @@ submarine:{
     id: "indianaJones",
     name: "Indiana Jones Adventure",
     type: "ride",
+    land: "Adventureland",
     x: 650,
     y: 550,
     connections: [
@@ -207,6 +223,7 @@ submarine:{
     id: "bigThunder",
     name: "Big Thunder Mountain",
     type: "ride",
+    land: "Frontierland",
     x: 800,
     y: 500,
     connections: [
@@ -219,6 +236,7 @@ submarine:{
     id: "riseResistance",
     name: "Rise of the Resistance",
     type: "ride",
+    land: "Galaxy's Edge",
     x: 850,
     y: 250,
     connections: [
@@ -227,6 +245,8 @@ submarine:{
   }
 
 };
+
+
 function checkNodeCollisions(){
 
   let ids=Object.keys(nodes);
