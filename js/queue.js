@@ -25,9 +25,12 @@ function updateQueue(){
   if(!queue.ride)return;
   if(queue.remaining>0){
     queue.remaining--;
+    parkTime.current++;
+    updateClock();
     updateQueueUI();
     return;
   }
+
   startRide(queue.ride);
 }
 
