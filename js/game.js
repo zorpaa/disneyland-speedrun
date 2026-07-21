@@ -28,6 +28,7 @@ function startGame(){
   updateClock();
   updateRideCounter();
   loop();
+  checkNodeCollisions();
 }
 
 function update(){
