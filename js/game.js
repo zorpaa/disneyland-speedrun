@@ -33,6 +33,7 @@ function startGame(){
 function update(){
   player.update();
   updateClock();
+  updateHUD();
   checkParkStatus();
 }
 
