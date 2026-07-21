@@ -96,8 +96,8 @@ function selectNode(id){
 
   console.log("Selected node:",id);
 
-  if(player.moving){
-    console.log("Player currently moving");
+  if(player.state!=="idle"){
+    console.log("Player unavailable:",player.state);
     return;
   }
   selectedNode=null;
