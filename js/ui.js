@@ -119,6 +119,7 @@ function selectNode(id){
     advanceTime(route.distance);
   }
 
+  activeRoute=route.path;
   player.startMovement(route.path);
 }
 
@@ -168,4 +169,23 @@ function handleHover(event){
   hoveredNode=null;
   let panel=document.getElementById("ridePanel");
   if(panel)panel.style.display="none";
+}
+
+function drawRoute(){
+
+  if(activeRoute.length<2)return;
+
+  ctx.strokeStyle="#2196f3";
+  ctx.lineWidth=5;
+  ctx.beginPath();
+
+  for(let i=0;i<activeRoute.length;i++){
+    let node=nodes[activeRoute[i]];
+    if(i===0)
+      ctx.moveTo(node.x,node.y);
+    else
+      ctx.lineTo(node.x,node.y);
+  }
+
+  ctx.stroke();
 }
