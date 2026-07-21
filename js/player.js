@@ -1,206 +1,98 @@
-// ====================
 // Player System
-// ====================
 
-class Player {
+class Player{
 
-  constructor() {
-
-    this.currentNode = "entrance";
-
-    this.x = 0;
-    this.y = 0;
-
-
-    // Movement speed in pixels per second
-
-    this.speed = 180;
-
-
-    // Park time in minutes
-
-    this.time = 8 * 60;
+constructor(){
+  this.currentNode="entrance";
+  this.x=nodes.entrance.x;
+  this.y=nodes.entrance.y;
+  this.speed=180;
+  this.completed=[];
+  this.path=[];
+  this.pathIndex=0;
+  this.moving=false;
+  this.destination=null;
+}
 
 
-    // Completed rides
+startMovement(path){
 
-    this.completed = [];
+  if(!path||path.length<2)return;
 
+  this.path=path;
+  this.pathIndex=1;
+  this.moving=true;
 
-    // Movement path
+  let distance=0;
 
-    this.path = [];
+  for(let i=0;i<path.length-1;i++){
 
-    this.pathIndex = 0;
+    let a=nodes[path[i]];
+    let b=nodes[path[i+1]];
 
-
-    // Movement state
-
-    this.moving = false;
-
-
-    // Final destination
-
-    this.destination = null;
-
+    distance+=Math.sqrt(
+      (b.x-a.x)**2+
+      (b.y-a.y)**2
+    );
   }
 
+  // Average guest walking speed
+  let minutes=Math.ceil(distance/250);
+
+  addMinutes(minutes);
+}
 
 
-  startMovement(path) {
+update(){
 
-  if (!path || path.length < 2) {
+  if(!this.moving)return;
+
+
+  if(this.pathIndex>=this.path.length){
+
+    this.moving=false;
+    arriveAtDestination();
     return;
+
   }
 
 
-  this.path = path;
+  let nextID=this.path[this.pathIndex];
+  let next=nodes[nextID];
 
 
-  console.log(
-    "Movement path:",
-    this.path
-  );
+  if(!next){
+
+    console.error("Missing node:",nextID);
+    this.moving=false;
+    return;
+
+  }
 
 
-  this.pathIndex = 1;
+  let dx=next.x-this.x;
+  let dy=next.y-this.y;
+  let distance=Math.sqrt(dx*dx+dy*dy);
 
-  this.moving = true;
+
+  if(distance<=this.speed/60){
+
+    this.x=next.x;
+    this.y=next.y;
+    this.currentNode=nextID;
+    this.pathIndex++;
+    return;
+
+  }
+
+
+  this.x+=(dx/distance)*(this.speed/60);
+  this.y+=(dy/distance)*(this.speed/60);
+
+}
 
 }
 
 
-
-  update() {
-
-
-    if (!this.moving) {
-
-      return;
-
-    }
-
-
-
-    // Check if movement is complete
-
-    if (
-      this.pathIndex >= this.path.length
-    ) {
-
-      this.moving = false;
-
-      arriveAtDestination();
-
-      return;
-
-    }
-
-
-
-    const nextNodeID =
-      this.path[this.pathIndex];
-
-
-    const nextNode =
-      nodes[nextNodeID];
-
-
-
-    // Safety check
-
-    if (!nextNode) {
-
-      console.error(
-        "Missing node:",
-        nextNodeID
-      );
-
-
-      this.moving = false;
-
-      this.path = [];
-
-      return;
-
-    }
-
-
-
-    const dx =
-      nextNode.x - this.x;
-
-
-    const dy =
-      nextNode.y - this.y;
-
-
-
-    const distance =
-      Math.sqrt(
-        dx * dx +
-        dy * dy
-      );
-
-
-
-    // Arrived at this node
-
-    if (
-      distance <= this.speed / 60
-    ) 
-    console.log(
-  "Reached node:",
-  nextNodeID
-);
-    {
-
-
-      this.x =
-        nextNode.x;
-
-
-      this.y =
-        nextNode.y;
-
-
-
-      this.currentNode = nextNodeID;
-
-console.log(
-  "Reached node:",
-  this.currentNode
-);
-
-
-
-      this.pathIndex++;
-
-
-      return;
-
-    }
-
-
-
-    // Move toward node
-
-    this.x +=
-      (dx / distance) *
-      (this.speed / 60);
-
-
-    this.y +=
-      (dy / distance) *
-      (this.speed / 60);
-
-
-  }
-
-}
-
-
-
-// Create player
-
+const player=new Player();
 const player = new Player();
