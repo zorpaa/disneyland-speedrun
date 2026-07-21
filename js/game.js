@@ -12,6 +12,7 @@ function update(){
 }
 
 function draw(){
+  console.log("drawing");
   drawParkMap();
 }
 
