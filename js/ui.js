@@ -88,7 +88,6 @@ function handleMapClick(event){
       showNodeInfo(id);
       break;
     }
-    }
   }
 }
 
