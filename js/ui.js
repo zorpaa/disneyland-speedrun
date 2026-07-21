@@ -20,7 +20,17 @@ function drawConnections() {
     for (const connection of node.connections) {
 
       const target = nodes[connection.node];
+      
+      if (!target) {
 
+  console.error(
+    "Missing connection target:",
+    connection.node
+  );
+
+  continue;
+
+}
 
       ctx.beginPath();
 
