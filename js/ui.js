@@ -77,8 +77,8 @@ function handleMapClick(e){
 }
 
 function selectNode(id){
-  if(player.state!=="idle"){
-    console.log("Player unavailable:",player.state);
+  if(player.moving){
+    console.log("Player currently moving");
     return;
   }
 
