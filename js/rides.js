@@ -45,6 +45,36 @@ riseResistance:{
   duration:18,
   currentWait:10,
   completed:false
-}
+},
 
-};
+starTours:{
+  name:"Star Tours",
+  maxWait:45,
+  popularity:0.8,
+  duration:7,
+  completed:false
+},
+
+buzzLightyear:{
+  name:"Buzz Lightyear Astro Blasters",
+  maxWait:35,
+  popularity:0.75,
+  duration:5,
+  completed:false
+},
+
+autopia:{
+  name:"Autopia",
+  maxWait:30,
+  popularity:0.5,
+  duration:5,
+  completed:false
+},
+
+submarine:{
+  name:"Finding Nemo Submarine Voyage",
+  maxWait:40,
+  popularity:0.65,
+  duration:12,
+  completed:false
+},
