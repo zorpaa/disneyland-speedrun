@@ -159,6 +159,11 @@ function drawBackground(){
     parkMap.y-parkMap.height
   );
 
+const coordinateOffset={
+  x:0,
+  y:-3000
+};
+  
   ctx.drawImage(
     parkMap.image,
     pos.x,
@@ -183,11 +188,12 @@ function showMapCoordinates(event){
   let screenX=(event.clientX-rect.left)*(canvas.width/rect.width);
   let screenY=(event.clientY-rect.top)*(canvas.height/rect.height);
   let worldX=Math.round(
-    screenX/camera.zoom+camera.x
-  );
-  let worldY=Math.round(
-    parkMap.height - (screenY/camera.zoom + camera.y)
-  );
+  screenX/camera.zoom+camera.x+coordinateOffset.x
+);
+
+let worldY=Math.round(
+  screenY/camera.zoom+camera.y+coordinateOffset.y
+);
   console.log(
     "Map Coordinates:",
     worldX,
