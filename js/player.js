@@ -49,24 +49,25 @@ class Player {
 
   startMovement(path) {
 
-    if (!path || path.length < 2) {
-
-      console.log(
-        "No movement required"
-      );
-
-      return;
-
-    }
-
-
-    this.path = path;
-
-    this.pathIndex = 1;
-
-    this.moving = true;
-
+  if (!path || path.length < 2) {
+    return;
   }
+
+
+  this.path = path;
+
+
+  console.log(
+    "Movement path:",
+    this.path
+  );
+
+
+  this.pathIndex = 1;
+
+  this.moving = true;
+
+}
 
 
 
