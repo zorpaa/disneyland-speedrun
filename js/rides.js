@@ -52,6 +52,7 @@ starTours:{
   maxWait:45,
   popularity:0.8,
   duration:7,
+  currentWait:0,
   completed:false
 },
 
@@ -60,6 +61,7 @@ buzzLightyear:{
   maxWait:35,
   popularity:0.75,
   duration:5,
+  currentWait:0,
   completed:false
 },
 
@@ -68,6 +70,7 @@ autopia:{
   maxWait:30,
   popularity:0.5,
   duration:5,
+  currentWait:0,
   completed:false
 },
 
@@ -76,6 +79,7 @@ submarine:{
   maxWait:40,
   popularity:0.65,
   duration:12,
+  currentWait:10,
   completed:false
 },
 };
