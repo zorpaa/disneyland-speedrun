@@ -162,11 +162,14 @@ function drawPlayer(){
 }
 
 function drawBackground(){
+
   if(!parkMap.loaded)return;
+
   let pos=worldToScreen(
-    0,
-    parkMap.height
+    parkMap.x,
+    parkMap.y
   );
+
   ctx.drawImage(
     parkMap.image,
     pos.x,
