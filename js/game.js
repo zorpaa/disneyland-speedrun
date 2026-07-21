@@ -1,8 +1,8 @@
 // Main Game Loop
 
 function startGame(){
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight-60;
+canvas.width=900;
+canvas.height=600;
   
   startPark();
   updateClock();
