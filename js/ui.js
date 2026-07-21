@@ -72,20 +72,18 @@ canvas.addEventListener("mousemove",handleHover);
 function handleMapClick(event){
 
   const rect=canvas.getBoundingClientRect();
-
   const mouseX=(event.clientX-rect.left)*(canvas.width/rect.width);
   const mouseY=(event.clientY-rect.top)*(canvas.height/rect.height);
 
   for(let id in nodes){
     let node=nodes[id];
-
     let distance=Math.sqrt(
       (mouseX-node.x)**2+
       (mouseY-node.y)**2
     );
 
     if(distance<25){
-      showNodeInfo(id);
+      showNodeInfo(id,true);
       break;
     }
   }
@@ -175,13 +173,11 @@ function handleHover(event){
     );
     if(distance<25){
       hoveredNode=id;
-      showNodeInfo(id);
+      showNodeInfo(id,false);
       return;
     }
   }
   hoveredNode=null;
-  let panel=document.getElementById("ridePanel");
-  if(panel)panel.style.display="none";
 }
 
 function drawRoute(){
