@@ -164,12 +164,12 @@ function showNodeInfo(id,selected=false){
 
   let walkTime=getWalkingTime(route.path);
 
-  let route=findPath(
+  let walkDistance=findPath(
   player.currentNode,
   id
-);
+).distance;
 
-let walkTime=route.distance;
+let walkTime=walkDistance;
 
 let total=
   walkTime+
