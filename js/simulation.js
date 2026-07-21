@@ -1,56 +1,89 @@
 // ====================
-// Ride Simulation
+// Simulation System
 // ====================
 
 function advanceTime(minutes) {
+
   player.time += minutes;
+
 }
 
 
-// ====================
-// Complete Ride
-// ====================
+// Called when player reaches destination
 
-function completeRide(rideId) {
-  const ride = rides[rideId];
+function arriveAtDestination() {
 
-  if (!ride) {
-    return;
-  }
-
-  if (ride.completed) {
+  if (!player.destination) {
     return;
   }
 
 
-  advanceTime(ride.wait);
-  advanceTime(ride.duration);
+  const node =
+    nodes[player.destination];
+
+
+  console.log(
+    "Arrived:",
+    node.name
+  );
+
+
+  if (node.type === "ride") {
+
+    completeRide(
+      player.destination
+    );
+
+  }
+
+
+  player.destination = null;
+
+}
+
+
+
+function completeRide(id) {
+
+  const ride = rides[id];
+
+
+  if (!ride || ride.completed) {
+    return;
+  }
+
+
+  advanceTime(
+    ride.wait +
+    ride.duration
+  );
+
 
   ride.completed = true;
 
-  player.completed.push(rideId);
+
+  player.completed.push(id);
 
 
   updateRideCounter();
 
 
   console.log(
-    `${ride.name} completed!`
+    ride.name,
+    "completed"
   );
+
 }
 
 
-// ====================
-// Ride Counter
-// ====================
 
 function updateRideCounter() {
-  const total = Object.keys(rides).length;
 
-  const completed =
-    player.completed.length;
+  const total =
+    Object.keys(rides).length;
 
 
   document.getElementById("rides").innerText =
-    `Rides: ${completed} / ${total}`;
+    `Rides: ${player.completed.length} / ${total}`;
+
 }
