@@ -39,11 +39,11 @@ function startRide(id){
   let ride=rides[id];
   if(!ride)return;
   queue.riding=true;
+  player.state="riding";
   console.log("Riding:",ride.name);
   completeRide(id);
   queue.ride=null;
   queue.riding=false;
-  player.state="riding";
   updateQueueUI();
 }
 
