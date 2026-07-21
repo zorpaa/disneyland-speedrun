@@ -227,3 +227,37 @@ submarine:{
   }
 
 };
+function checkNodeCollisions(){
+
+  let ids=Object.keys(nodes);
+
+  for(let i=0;i<ids.length;i++){
+
+    for(let j=i+1;j<ids.length;j++){
+
+      let a=nodes[ids[i]];
+      let b=nodes[ids[j]];
+
+      let distance=Math.sqrt(
+        (a.x-b.x)**2+
+        (a.y-b.y)**2
+      );
+
+      if(distance<50){
+
+        console.warn(
+          "Node overlap:",
+          a.name,
+          "and",
+          b.name,
+          "Distance:",
+          Math.round(distance)
+        );
+
+      }
+
+    }
+
+  }
+
+}
