@@ -67,3 +67,16 @@ function checkParkStatus(){
   return true;
 
 }
+function updateRideCounter(){
+
+  const counter=document.getElementById("rideCounter");
+
+  if(!counter)return;
+
+  let completed=player.completed.length;
+  let total=Object.keys(rides).length;
+
+  counter.innerText=
+    "Rides: "+completed+" / "+total;
+
+}
