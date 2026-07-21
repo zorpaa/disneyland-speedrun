@@ -109,5 +109,32 @@ mrToad:{
   completed:false,
   currentWait:0
 },
-  
+  pinocchio:{
+  name:"Pinocchio's Daring Journey",
+  maxWait:45,
+  popularity:0.9,
+  duration:3,
+  completed:false,
+  currentWait:0
+},
+
+
+smallWorld:{
+  name:"it's a small world",
+  maxWait:40,
+  popularity:0.75,
+  duration:12,
+  completed:false,
+  currentWait:0
+},
+
+
+dumbo:{
+  name:"Dumbo the Flying Elephant",
+  maxWait:60,
+  popularity:1.2,
+  duration:2,
+  completed:false,
+  currentWait:0
+},
 };
