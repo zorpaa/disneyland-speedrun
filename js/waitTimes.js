@@ -29,7 +29,9 @@ function updateRideWaits(){
   for(let id in rides){
     let ride=rides[id];
     if(!ride.completed){
-      ride.currentWait=calculateWait(ride);
+      let wait=calculateWait(ride);
+      wait*=crowdMultiplier;
+      ride.currentWait=Math.round(wait);
     }
   }
 }
