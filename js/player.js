@@ -4,6 +4,7 @@ constructor(){
   this.currentNode="entrance";
   this.x=nodes.entrance.x;
   this.y=nodes.entrance.y;
+  this.state="idle";
   this.speed=180;
   this.completed=[];
   this.path=[];
@@ -17,6 +18,7 @@ startMovement(path){
   this.path=path;
   this.pathIndex=1;
   this.moving=true;
+  this.state="walking";
   let distance=0;
   for(let i=0;i<path.length-1;i++){
     let a=nodes[path[i]];
