@@ -104,8 +104,12 @@ function loop() {
 // Start Game
 // ====================
 
-player.x = nodes[player.currentNode].x;
-player.y = nodes[player.currentNode].y;
+player.x =
+nodes[player.currentNode].x;
+
+player.y =
+nodes[player.currentNode].y;
+
 
 updateRideCounter();
 
