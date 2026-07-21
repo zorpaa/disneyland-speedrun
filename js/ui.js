@@ -185,6 +185,10 @@ function selectNode(id) {
 
   player.destination = id;
 
+  console.log(
+  "Starting route:",
+  route.path
+);
 
   player.startMovement(
     route.path
