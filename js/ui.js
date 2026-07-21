@@ -155,9 +155,18 @@ function drawPlayer(){
 function drawBackground(){
   if(!parkMap.loaded)return;
   let pos=worldToScreen(
-    parkMap.x,
-    parkMap.y-parkMap.height
+    0,
+    parkMap.height
   );
+  ctx.drawImage(
+    parkMap.image,
+    pos.x,
+    pos.y,
+    parkMap.width*camera.zoom,
+    -parkMap.height*camera.zoom
+  );
+
+}
 
 const coordinateOffset={
   x:0,
@@ -188,11 +197,11 @@ function showMapCoordinates(event){
   let screenX=(event.clientX-rect.left)*(canvas.width/rect.width);
   let screenY=(event.clientY-rect.top)*(canvas.height/rect.height);
   let worldX=Math.round(
-  screenX/camera.zoom+camera.x+coordinateOffset.x
+  screenX/camera.zoom+camera.x
 );
 
 let worldY=Math.round(
-  screenY/camera.zoom+camera.y+coordinateOffset.y
+  screenY/camera.zoom+camera.y
 );
   console.log(
     "Map Coordinates:",
