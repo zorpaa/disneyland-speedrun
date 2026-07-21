@@ -154,6 +154,25 @@ canvas.addEventListener("mouseup",endDrag);
 canvas.addEventListener("mouseleave",endDrag);
 canvas.addEventListener("mousemove",dragCamera);
 
+function zoomIn(){
+  camera.zoom+=0.2;
+  if(camera.zoom>3)
+    camera.zoom=3;
+  drawParkMap();
+}
+function zoomOut(){
+  camera.zoom-=0.2;
+  if(camera.zoom<0.5)
+    camera.zoom=0.5;
+  drawParkMap();
+}
+function resetCamera(){
+  camera.x=0;
+  camera.y=0;
+  camera.zoom=1;
+  drawParkMap();
+}
+
 let dragging=false;
 let dragStartX=0;
 let dragStartY=0;
