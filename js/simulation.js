@@ -54,7 +54,6 @@ function allRidesComplete(){
 
 
 // Park status
-
 function checkParkStatus(){
 
   if(parkIsClosed()){
@@ -67,5 +66,4 @@ function checkParkStatus(){
 
   return true;
 
-}
 }
