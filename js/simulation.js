@@ -35,16 +35,6 @@ function completeRide(id){
   }
 }
 
-  advanceTime(ride.currentWait);
-  advanceTime(ride.duration);
-  ride.completed=true;
-  player.completed.push(id);
-  updateRideCounter();
-  console.log(ride.name+" completed!");
-  if(checkWin()){
-    victory();
-  }
-
 function allRidesComplete(){
   for(let id in rides){
     if(!rides[id].completed)return false;
