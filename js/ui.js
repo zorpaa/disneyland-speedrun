@@ -96,6 +96,7 @@ function selectNode(id){
   if(player.moving){
     console.log("Player currently moving");
     return;
+    showNodeInfo(id);
   }
 
   let route=findPath(
@@ -117,4 +118,26 @@ function selectNode(id){
   }
 
   player.startMovement(route.path);
+}
+function showNodeInfo(id){
+
+  let panel=document.getElementById("ridePanel");
+  let node=nodes[id];
+
+  if(!panel||!node)return;
+
+  if(node.type!=="ride"){
+    panel.style.display="none";
+    return;
+  }
+
+  let ride=rides[id];
+
+  panel.style.display="block";
+
+  panel.innerHTML=
+    "<b>"+ride.name+"</b><br>"+
+    "Wait: "+ride.wait+" min<br>"+
+    "Ride: "+ride.duration+" min<br>"+
+    (ride.completed?"Completed":"Available");
 }
