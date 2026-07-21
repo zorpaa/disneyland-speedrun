@@ -127,10 +127,12 @@ fantasylandEast:{
   y:400,
   showLabel:true,
   connections:[
-    {node:"fantasylandHub"},
-    {node:"alice"},
-    {node:"fantasylandWest"}
-  ]
+  {node:"fantasylandHub"},
+  {node:"alice"},
+  {node:"smallWorld"},
+  {node:"dumbo"},
+  {node:"fantasylandWest"}
+]
 },
   
   adventureland: {
@@ -334,6 +336,43 @@ mrToad:{
   y:350,
   connections:[
     {node:"fantasylandWest"}
+  ]
+},
+  pinocchio:{
+  id:"pinocchio",
+  name:"Pinocchio's Daring Journey",
+  type:"ride",
+  land:"Fantasyland",
+  x:800,
+  y:300,
+  connections:[
+    {node:"fantasylandWest"}
+  ]
+},
+
+
+smallWorld:{
+  id:"smallWorld",
+  name:"it's a small world",
+  type:"ride",
+  land:"Fantasyland",
+  x:850,
+  y:400,
+  connections:[
+    {node:"fantasylandEast"}
+  ]
+},
+
+
+dumbo:{
+  id:"dumbo",
+  name:"Dumbo the Flying Elephant",
+  type:"ride",
+  land:"Fantasyland",
+  x:800,
+  y:500,
+  connections:[
+    {node:"fantasylandEast"}
   ]
 },
 };
