@@ -307,7 +307,7 @@ alice:{
   type:"ride",
   land:"Fantasyland",
   x:750,
-  y:350,
+  y:420,
   connections:[
     {node:"fantasylandEast"}
   ]
@@ -320,7 +320,7 @@ mrToad:{
   type:"ride",
   land:"Fantasyland",
   x:750,
-  y:420,
+  y:350,
   connections:[
     {node:"fantasylandWest"}
   ]
