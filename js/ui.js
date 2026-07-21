@@ -100,7 +100,10 @@ function selectNode(id){
     console.log("Player currently moving");
     return;
   }
+  selectedNode=null;
 
+  let panel=document.getElementById("ridePanel");
+  if(panel)panel.style.display="none";
   showNodeInfo(id);
   let route=findPath(
     player.currentNode,
