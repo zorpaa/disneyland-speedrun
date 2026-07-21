@@ -20,6 +20,7 @@ function updateClock(){
 
 function startGame(){
   resize();
+  checkNodeCollisions();
   startPark();
 
   player.x=nodes[player.currentNode].x;
@@ -28,7 +29,6 @@ function startGame(){
   updateClock();
   updateRideCounter();
   loop();
-  checkNodeCollisions();
 }
 
 function update(){
