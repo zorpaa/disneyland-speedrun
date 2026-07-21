@@ -85,8 +85,9 @@ function handleMapClick(event){
     );
 
     if(distance<25){
-      selectNode(id);
+      showNodeInfo(id);
       break;
+    }
     }
   }
 }
@@ -123,30 +124,30 @@ function selectNode(id){
 }
 
 function showNodeInfo(id){
-
   let panel=document.getElementById("ridePanel");
   let node=nodes[id];
-
   if(!panel||!node)return;
-
   if(node.type!=="ride"){
     panel.style.display="none";
     return;
   }
-
   let ride=rides[id];
-  let total=ride.currentWait+ride.duration;
+  let route=findPath(
+    player.currentNode,
+    id
+  );
+  let walkTime=route.distance;
+  let total=walkTime+ride.currentWait+ride.duration;
   let finish=parkTime.current+total;
-
   panel.style.display="block";
-
   panel.innerHTML=
-    "<b>"+ride.name+"</b><br>"+
+    "<b>"+ride.name+"</b><br><br>"+
     "Wait: "+ride.currentWait+" min<br>"+
     "Ride: "+ride.duration+" min<br>"+
+    "Walk: "+walkTime+" min<br><br>"+
     "Total: "+total+" min<br>"+
-    "Done: "+formatTime(finish)+"<br>"+
-    (ride.completed?"Completed":"Available");
+    "Done: "+formatTime(finish)+"<br><br>"+
+    "<button onclick=\"selectNode('"+id+"')\">Go To Ride</button>";
 }
 
 function handleHover(event){
