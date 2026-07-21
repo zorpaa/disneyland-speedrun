@@ -53,10 +53,49 @@ function completeRide(id) {
   }
 
 
+  // Queue entry happens now
+  // Must be before closing
+
+
+  if (player.time >= park.closeTime) {
+
+    console.log(
+      "Park closed. Cannot enter queue."
+    );
+
+    return;
+
+  }
+
+
   advanceTime(
     ride.wait +
     ride.duration
   );
+
+
+  ride.completed = true;
+
+
+  player.completed.push(id);
+
+
+  updateRideCounter();
+
+
+  console.log(
+    ride.name,
+    "completed"
+  );
+
+
+  if (checkWin()) {
+
+    victory();
+
+  }
+
+}
 
 
   ride.completed = true;
