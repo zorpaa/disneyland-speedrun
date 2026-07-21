@@ -328,12 +328,4 @@ function selectNode(id) {
   player.startMovement(
     route.path
   );
-
-
-
-  advanceTime(
-    route.distance
-  );
-
-
 }
