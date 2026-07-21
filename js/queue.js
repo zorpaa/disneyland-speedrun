@@ -13,6 +13,7 @@ function joinQueue(id){
   queue.ride=id;
   queue.remaining=ride.currentWait;
   console.log(
+  player.state="queued";
     "Joined queue:",
     ride.name,
     queue.remaining+" min"
@@ -42,6 +43,7 @@ function startRide(id){
   completeRide(id);
   queue.ride=null;
   queue.riding=false;
+  player.state="riding";
   updateQueueUI();
 }
 
