@@ -597,9 +597,6 @@ bigThunder:{
   land:"Frontierland",
   x:1150,
   y:1350,
-  connections:[
-    {node:"frontierHub"}
-  ]
 },
 
 
@@ -614,9 +611,6 @@ riseResistance:{
   land:"Galaxy's Edge",
   x:450,
   y:700,
-  connections:[
-    {node:"galaxysEdgeHub"}
-  ]
 },
 
 
@@ -626,6 +620,24 @@ riseResistance:{
 
 };
 
+// ====================
+// Connection Helper
+// ====================
+
+function connect(a,b){
+
+  nodes[a].connections ??= [];
+  nodes[b].connections ??= [];
+
+  nodes[a].connections.push({
+    node:b
+  });
+
+  nodes[b].connections.push({
+    node:a
+  });
+
+}
 
 // ====================
 // Collision Checker
