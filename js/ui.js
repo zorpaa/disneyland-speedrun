@@ -173,6 +173,30 @@ function drawNodes(){
   } // end for loop
 }
 
+function drawPlayer(){
+
+  ctx.beginPath();
+
+  let pos=worldToScreen(
+    player.x,
+    player.y
+  );
+
+  ctx.arc(
+    pos.x,
+    pos.y,
+    10*camera.zoom,
+    0,
+    Math.PI*2
+  );
+
+  ctx.fillStyle="red";
+  ctx.fill();
+
+  ctx.shadowBlur=0;
+
+}
+
 function drawBackground(){
 
   if(!parkMap.loaded)return;
