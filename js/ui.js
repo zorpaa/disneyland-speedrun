@@ -181,8 +181,6 @@ const coordinateOffset={
     parkMap.height*camera.zoom
   );
 
-}
-
 function loadParkMap(){
   parkMap.image=new Image();
   parkMap.image.src="parkmap.png";
