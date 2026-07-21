@@ -1,51 +1,63 @@
-// Ride Simulation
+// Simulation System
 
-function startRide(rideID){
+function advanceTime(minutes){
+  parkTime.current+=minutes;
+  updateClock();
+}
 
-  let ride=rides[rideID];
+function arriveAtDestination(){
 
-  if(!ride){
-    console.error("Missing ride:",rideID);
-    return;
+  if(!player.destination)return;
+
+  const destination=player.destination;
+
+  console.log("Arrived:",nodes[destination].name);
+
+  player.currentNode=destination;
+
+  if(nodes[destination].type==="ride"){
+    completeRide(destination);
   }
 
+  player.destination=null;
+  player.path=[];
+  player.pathIndex=0;
+  player.moving=false;
+}
 
-  if(ride.completed){
-    return;
+
+function completeRide(id){
+
+  const ride=rides[id];
+
+  if(!ride||ride.completed)return;
+
+  if(parkIsClosed()){
+    console.log("Entered queue before closing.");
   }
 
-
-  addMinutes(ride.wait);
-
-
-  addMinutes(ride.duration);
-
+  advanceTime(ride.wait);
+  advanceTime(ride.duration);
 
   ride.completed=true;
 
-  player.completed.push(rideID);
-
+  player.completed.push(id);
 
   updateRideCounter();
 
+  console.log(ride.name+" completed!");
 
-  if(parkIsClosed()){
-    console.log("Ride finished after closing");
+  if(checkWin()){
+    victory();
   }
 
 }
 
 
-// Check ride completion
-
 function allRidesComplete(){
 
   for(let id in rides){
-
-    if(!rides[id].completed){
-      return false;
-    }
-
+    if(!rides[id].completed)return false;
   }
 
   return true;
@@ -53,7 +65,6 @@ function allRidesComplete(){
 }
 
 
-// Park status
 function checkParkStatus(){
 
   if(parkIsClosed()){
@@ -67,16 +78,18 @@ function checkParkStatus(){
   return true;
 
 }
+
+
 function updateRideCounter(){
 
-  let counter=document.getElementById("rides");
+  const counter=document.getElementById("rides");
 
   if(!counter)return;
 
-  let total=Object.keys(rides).length;
-  let completed=player.completed.length;
-
   counter.innerText=
-    "Rides: "+completed+" / "+total;
+    "Rides: "+
+    player.completed.length+
+    " / "+
+    Object.keys(rides).length;
 
 }
