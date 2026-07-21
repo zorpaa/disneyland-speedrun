@@ -69,7 +69,7 @@ function checkParkStatus(){
 }
 function updateRideCounter(){
 
-  let counter=document.getElementById("rideCounter");
+  let counter=document.getElementById("rides");
 
   if(!counter)return;
 
