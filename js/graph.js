@@ -98,8 +98,8 @@ const nodes = {
     ]
   },
 
-  galaxyEdge: {
-    id: "galaxyEdge",
+  galaxysEdge: {
+    id: "galaxysEdge",
     name: "Galaxy's Edge",
     type: "land",
     x: 650,
