@@ -60,7 +60,9 @@ function drawNodes(){
 
     ctx.fillStyle="black";
     ctx.font="12px Arial";
-    ctx.fillText(node.name,node.x-30,node.y-25);
+    ctx.textAlign="center";
+    ctx.fillText(node.name,node.x,node.y-30);
+    ctx.textAlign="left";
   }
 }
 
