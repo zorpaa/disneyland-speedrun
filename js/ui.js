@@ -172,7 +172,7 @@ function drawBackground(){
     pos.x,
     pos.y,
     parkMap.width*camera.zoom,
-    -parkMap.height*camera.zoom
+    parkMap.height*camera.zoom
   );
 
 }
