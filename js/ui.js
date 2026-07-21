@@ -106,6 +106,8 @@ function drawNodes(){
     ctx.shadowColor = "white";
     ctx.shadowBlur = 8;
 
+    ctx.fill();
+
     if(hoveredNode===id){
 
       ctx.strokeStyle="white";
