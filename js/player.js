@@ -147,7 +147,12 @@ class Player {
 
     if (
       distance <= this.speed / 60
-    ) {
+    ) 
+    console.log(
+  "Reached node:",
+  nextNodeID
+);
+    {
 
 
       this.x =
