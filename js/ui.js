@@ -25,7 +25,8 @@ function drawParkMap() {
     canvas.width,
     canvas.height
   );
-
+  ctx.fillStyle="blue";
+  ctx.fillRect(10,10,50,50);
 
   drawConnections();
 
