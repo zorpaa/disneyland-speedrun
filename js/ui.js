@@ -125,6 +125,8 @@ function showNodeInfo(id){
   }
 
   let ride=rides[id];
+  let total=ride.wait+ride.duration;
+  let finish=parkTime.current+total;
 
   panel.style.display="block";
 
@@ -132,9 +134,11 @@ function showNodeInfo(id){
     "<b>"+ride.name+"</b><br>"+
     "Wait: "+ride.wait+" min<br>"+
     "Ride: "+ride.duration+" min<br>"+
-    "Total: "+(ride.wait+ride.duration)+" min<br>"+
+    "Total: "+total+" min<br>"+
+    "Done: "+formatTime(finish)+"<br>"+
     (ride.completed?"Completed":"Available");
 }
+
 function handleHover(event){
 
   const rect=canvas.getBoundingClientRect();
