@@ -82,4 +82,32 @@ submarine:{
   currentWait:10,
   completed:false
 },
+
+  peterPan:{
+  name:"Peter Pan's Flight",
+  maxWait:90,
+  popularity:1.35,
+  duration:3,
+  completed:false,
+  currentWait:0
+},
+
+alice:{
+  name:"Alice in Wonderland",
+  maxWait:45,
+  popularity:0.8,
+  duration:4,
+  completed:false,
+  currentWait:0
+},
+
+mrToad:{
+  name:"Mr. Toad's Wild Ride",
+  maxWait:35,
+  popularity:0.7,
+  duration:3,
+  completed:false,
+  currentWait:0
+},
+  
 };
