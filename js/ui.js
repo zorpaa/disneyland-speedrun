@@ -58,12 +58,13 @@ function drawNodes(){
       ctx.stroke();
     }
 
-    ctx.fillStyle="black";
-    ctx.font="12px Arial";
-    ctx.textAlign="center";
-    ctx.fillText(node.name,node.x,node.y-30);
-    ctx.textAlign="left";
-  }
+    if(node.type==="ride"||node.showLabel){
+  ctx.fillStyle="black";
+  ctx.font="12px Arial";
+  ctx.textAlign="center";
+  ctx.fillText(node.name,node.x,node.y-30);
+  ctx.textAlign="left";
+}
 }
 
 function drawPlayer(){
