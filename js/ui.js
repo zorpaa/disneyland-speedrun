@@ -246,11 +246,11 @@ ctx.fillRect(
 
 function loadParkMap(){
   parkMap.image=new Image();
-  parkMap.image.src="parkmap.png";
   parkMap.image.onload=()=>{
     parkMap.loaded=true;
-    fitMap();
+    resetCamera();
   };
+  parkMap.image.src="parkmap.png";
 }
 
 function showMapCoordinates(event){
@@ -506,6 +506,11 @@ function drawRoute(){
   ctx.stroke();
 }
 
-window.onload=()=>{
+window.addEventListener("load",()=>{
   loadParkMap();
+  setTimeout(()=>{
+    resetCamera();
+  },200);
+}
+                        
 };
