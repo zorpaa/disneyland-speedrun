@@ -434,7 +434,7 @@ dumbo:{
 
 
 // ====================
-// Adventureland / Frontierland
+// Adventureland / Frontierland / NOS Square
 // ====================
 
 indianaJones:{
@@ -442,8 +442,8 @@ indianaJones:{
   name:"Indiana Jones Adventure",
   type:"ride",
   land:"Adventureland",
-  x:900,
-  y:2050,
+  x:110,
+  y:2100,
 },
 
 
@@ -456,7 +456,15 @@ bigThunder:{
   y:1350,
 },
 
-
+jungleCruise:{
+  id:"jungleCruise",
+  name:"Jungle Cruise",
+  type:"ride",
+  land:"Adventureland",
+    x:1400,
+    y:2020,
+},
+  
 // ====================
 // Galaxy's Edge Rides
 // ====================
@@ -539,7 +547,7 @@ connect("adventureland","frontierlandEntrance");
 connect("adventurelandHub","newOrleansSquare");
 connect("newOrleansSquare","nosHub");
 connect("nosHub","bayouCountry");
-connect("nosHub","galaxysEdgeWest");
+connect("bayouCountry","galaxysEdgeWest");
 
 // ====================
 // Frontierland
@@ -583,9 +591,10 @@ connect("matterhornNorth","alice");
 connect("smallWorldJunction","smallWorld");
 connect("fantasylandEast","dumbo");
 
-// Adventureland / Frontierland
+// Adventureland / Frontierland / NOS Square
 connect("adventurelandHub","indianaJones");
 connect("frontierHub","bigThunder");
+connect("adventuerlandhub","jungleCruise");
 
 // Galaxy's Edge
 connect("galaxysEdgeHub","riseResistance");
