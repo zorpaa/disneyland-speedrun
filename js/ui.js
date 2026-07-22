@@ -511,6 +511,4 @@ window.addEventListener("load",()=>{
   setTimeout(()=>{
     resetCamera();
   },200);
-}
-                        
-};
+});
