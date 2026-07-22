@@ -8,6 +8,9 @@ const camera={
   y:0,
   zoom:1
 };
+const CAMERA_MAX_ZOOM = 3;
+const CAMERA_MIN_ZOOM = 0.15;
+
 function worldToScreen(x,y){
 
   return {
@@ -245,7 +248,7 @@ function loadParkMap(){
   parkMap.image.src="parkmap.png";
   parkMap.image.onload=()=>{
     parkMap.loaded=true;
-    drawParkMap();
+    fitMap();
   };
 }
 
@@ -278,20 +281,29 @@ canvas.addEventListener("click",showMapCoordinates);
 
 function zoomIn(){
   camera.zoom+=0.2;
-  if(camera.zoom>3)
-    camera.zoom=3;
+  if(camera.zoom<CAMERA_MIN_ZOOM)
+    camera.zoom=CAMERA_MIN_ZOOM;
   drawParkMap();
 }
 function zoomOut(){
   camera.zoom-=0.2;
-  if(camera.zoom<0.5)
-    camera.zoom=0.5;
+  if(camera.zoom>CAMERA_MAX_ZOOM)
+    camera.zoom=CAMERA_MAX_ZOOM;
   drawParkMap();
 }
 function resetCamera(){
-  camera.x=0;
-  camera.y=0;
-  camera.zoom=1;
+  fitMap();
+}
+
+function fitMap(){
+
+  let zoomX = canvas.width / parkMap.width;
+  let zoomY = canvas.height / parkMap.height;
+  camera.zoom = Math.min(zoomX, zoomY);
+  camera.zoom = Math.max(camera.zoom, CAMERA_MIN_ZOOM);
+  camera.zoom = Math.min(camera.zoom, CAMERA_MAX_ZOOM);
+  camera.x = parkMap.x - ((canvas.width / camera.zoom) - parkMap.width) / 2;
+  camera.y = parkMap.y - ((canvas.height / camera.zoom) - parkMap.height) / 2;
   drawParkMap();
 }
 
