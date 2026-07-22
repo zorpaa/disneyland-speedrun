@@ -17,9 +17,6 @@ const nodes = {
     x:1700,
     y:2500,
     showLabel:true,
-    connections:[
-      {node:"mainStreet"}
-    ]
   },
 
 
@@ -31,10 +28,6 @@ const nodes = {
     x:1700,
     y:2000,
     showLabel:true,
-    connections:[
-      {node:"entrance"},
-      {node:"hub"}
-    ]
   },
 
 
@@ -46,13 +39,6 @@ const nodes = {
     x:1700,
     y:1600,
     showLabel:true,
-    connections:[
-      {node:"mainStreet"},
-      {node:"fantasyland"},
-      {node:"tomorrowlandEntrance"},
-      {node:"adventureland"},
-      {node:"frontierlandEntrance"}
-    ]
   },
 
 
@@ -69,10 +55,6 @@ const nodes = {
     x:1700,
     y:1350,
     showLabel:true,
-    connections:[
-      {node:"hub"},
-      {node:"fantasylandHub"}
-    ]
   },
 
 
@@ -84,12 +66,6 @@ const nodes = {
     x:1700,
     y:1050,
     showLabel:true,
-    connections:[
-      {node:"fantasyland"},
-      {node:"fantasylandWest"},
-      {node:"fantasylandEast"},
-      {node:"matterhornSouth"}
-    ]
   },
 
 
@@ -101,9 +77,6 @@ const nodes = {
     x:1550,
     y:1050,
     showLabel:true,
-    connections:[
-      {node:"fantasylandHub"}
-    ]
   },
 
 
@@ -115,11 +88,6 @@ const nodes = {
     x:1900,
     y:1050,
     showLabel:true,
-    connections:[
-      {node:"fantasylandHub"},
-      {node:"smallWorldJunction"},
-      {node:"matterhornNorth"}
-    ]
   },
 
 
@@ -131,11 +99,6 @@ const nodes = {
     x:1900,
     y:1400,
     showLabel:true,
-    connections:[
-      {node:"fantasylandHub"},
-      {node:"matterhornNorth"},
-      {node:"tomorrowlandEntrance"}
-    ]
   },
 
 
@@ -147,11 +110,6 @@ const nodes = {
     x:2000,
     y:1100,
     showLabel:true,
-    connections:[
-      {node:"matterhornSouth"},
-      {node:"fantasylandEast"},
-      {node:"smallWorldJunction"}
-    ]
   },
 
 
@@ -163,11 +121,6 @@ const nodes = {
     x:2000,
     y:850,
     showLabel:true,
-    connections:[
-      {node:"fantasylandEast"},
-      {node:"matterhornNorth"},
-      {node:"toonTown"}
-    ]
   },
 
 
@@ -184,11 +137,6 @@ const nodes = {
     x:1850,
     y:1700,
     showLabel:true,
-    connections:[
-      {node:"hub"},
-      {node:"tomorrowland"},
-      {node:"matterhornSouth"}
-    ]
   },
 
 
@@ -200,9 +148,6 @@ const nodes = {
     x:2300,
     y:1650,
     showLabel:true,
-    connections:[
-      {node:"tomorrowlandEntrance"}
-    ]
   },
 
 
@@ -219,11 +164,6 @@ const nodes = {
     x:1500,
     y:1800,
     showLabel:true,
-    connections:[
-      {node:"hub"},
-      {node:"adventurelandHub"},
-      {node:"frontierlandEntrance"}
-    ]
   },
 
 
@@ -235,10 +175,6 @@ const nodes = {
     x:1200,
     y:1900,
     showLabel:true,
-    connections:[
-      {node:"adventureland"},
-      {node:"newOrleansSquare"}
-    ]
   },
 
 
@@ -250,11 +186,6 @@ const nodes = {
     x:1050,
     y:1900,
     showLabel:true,
-    connections:[
-      {node:"adventurelandHub"},
-      {node:"hauntedMansionPath"},
-      {node:"bayouCountry"}
-    ]
   },
 
 
@@ -266,10 +197,6 @@ const nodes = {
     x:750,
     y:1740,
     showLabel:true,
-    connections:[
-      {node:"newOrleansSquare"},
-      {node:"galaxysEdgeWest"}
-    ]
   },
 
 
@@ -281,9 +208,6 @@ const nodes = {
     x:650,
     y:1700,
     showLabel:true,
-    connections:[
-      {node:"newOrleansSquare"}
-    ]
   },
     // ====================
   // Frontierland
@@ -298,11 +222,6 @@ const nodes = {
     x:1450,
     y:1650,
     showLabel:true,
-    connections:[
-      {node:"hub"},
-      {node:"adventureland"},
-      {node:"frontierHub"}
-    ]
   },
 
 
@@ -314,10 +233,6 @@ const nodes = {
     x:1150,
     y:1480,
     showLabel:true,
-    connections:[
-      {node:"frontierlandEntrance"},
-      {node:"galaxysEdgeEast"}
-    ]
   },
 
 
@@ -334,10 +249,6 @@ const nodes = {
     x:280,
     y:1050,
     showLabel:true,
-    connections:[
-      {node:"hauntedMansionPath"},
-      {node:"galaxysEdgeHub"}
-    ]
   },
 
 
@@ -349,10 +260,6 @@ const nodes = {
     x:650,
     y:800,
     showLabel:true,
-    connections:[
-      {node:"galaxysEdgeWest"},
-      {node:"galaxysEdgeEast"}
-    ]
   },
 
 
@@ -364,10 +271,6 @@ const nodes = {
     x:1000,
     y:1000,
     showLabel:true,
-    connections:[
-      {node:"galaxysEdgeHub"},
-      {node:"frontierHub"}
-    ]
   },
 
 
@@ -384,10 +287,6 @@ const nodes = {
     x:1900,
     y:500,
     showLabel:true,
-    connections:[
-      {node:"smallWorldJunction"},
-      {node:"toonTownHub"}
-    ]
   },
 
 
@@ -399,9 +298,6 @@ const nodes = {
     x:1770,
     y:350,
     showLabel:true,
-    connections:[
-      {node:"toonTown"}
-    ]
   },
   
 // ====================
@@ -420,9 +316,6 @@ spaceMountain:{
   land:"Tomorrowland",
   x:2450,
   y:1450,
-  connections:[
-    {node:"tomorrowland"}
-  ]
 },
 
 
@@ -433,9 +326,6 @@ starTours:{
   land:"Tomorrowland",
   x:2500,
   y:1350,
-  connections:[
-    {node:"tomorrowland"}
-  ]
 },
 
 
@@ -446,9 +336,6 @@ buzzLightyear:{
   land:"Tomorrowland",
   x:2400,
   y:1600,
-  connections:[
-    {node:"tomorrowland"}
-  ]
 },
 
 
@@ -459,9 +346,6 @@ autopia:{
   land:"Tomorrowland",
   x:2600,
   y:1700,
-  connections:[
-    {node:"tomorrowland"}
-  ]
 },
 
 
@@ -472,9 +356,6 @@ submarine:{
   land:"Tomorrowland",
   x:2100,
   y:1450,
-  connections:[
-    {node:"tomorrowlandEntrance"}
-  ]
 },
 
 
@@ -489,9 +370,6 @@ matterhorn:{
   land:"Fantasyland",
   x:2050,
   y:1300,
-  connections:[
-    {node:"matterhornNorth"}
-  ]
 },
 
 
@@ -502,9 +380,6 @@ peterPan:{
   land:"Fantasyland",
   x:1500,
   y:950,
-  connections:[
-    {node:"fantasylandWest"}
-  ]
 },
 
 
@@ -515,9 +390,6 @@ mrToad:{
   land:"Fantasyland",
   x:1550,
   y:1150,
-  connections:[
-    {node:"fantasylandWest"}
-  ]
 },
 
 
@@ -528,9 +400,6 @@ pinocchio:{
   land:"Fantasyland",
   x:1600,
   y:1000,
-  connections:[
-    {node:"fantasylandWest"}
-  ]
 },
 
 
@@ -541,9 +410,6 @@ alice:{
   land:"Fantasyland",
   x:2000,
   y:1200,
-  connections:[
-    {node:"matterhornNorth"}
-  ]
 },
 
 
@@ -554,9 +420,6 @@ smallWorld:{
   land:"Fantasyland",
   x:2100,
   y:800,
-  connections:[
-    {node:"smallWorldJunction"}
-  ]
 },
 
 
@@ -567,9 +430,6 @@ dumbo:{
   land:"Fantasyland",
   x:1800,
   y:1200,
-  connections:[
-    {node:"fantasylandEast"}
-  ]
 },
 
 
@@ -584,9 +444,6 @@ indianaJones:{
   land:"Adventureland",
   x:900,
   y:2050,
-  connections:[
-    {node:"adventurelandHub"}
-  ]
 },
 
 
