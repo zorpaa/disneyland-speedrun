@@ -1,6 +1,11 @@
 // Ride Database
+
 const crowdMultiplier=Number(sessionStorage.getItem("crowdMultiplier"))||1;
 const rides={
+
+// ====================
+// Tomorrowland
+// ====================
 
 spaceMountain:{
   name:"Space Mountain",
@@ -8,42 +13,6 @@ spaceMountain:{
   popularity:1.20,
   duration:5,
   currentWait:5,
-  completed:false
-},
-
-matterhorn:{
-  name:"Matterhorn Bobsleds",
-  maxWait:60,
-  popularity:0.85,
-  duration:4,
-  currentWait:5,
-  completed:false
-},
-
-indianaJones:{
-  name:"Indiana Jones Adventure",
-  maxWait:90,
-  popularity:1.15,
-  duration:5,
-  currentWait:5,
-  completed:false
-},
-
-bigThunder:{
-  name:"Big Thunder Mountain",
-  maxWait:70,
-  popularity:0.95,
-  duration:4,
-  currentWait:5,
-  completed:false
-},
-
-riseResistance:{
-  name:"Rise of the Resistance",
-  maxWait:120,
-  popularity:1.35,
-  duration:18,
-  currentWait:10,
   completed:false
 },
 
@@ -83,13 +52,27 @@ submarine:{
   completed:false
 },
 
-  peterPan:{
+
+// ====================
+// Fantasyland
+// ====================
+
+matterhorn:{
+  name:"Matterhorn Bobsleds",
+  maxWait:60,
+  popularity:0.85,
+  duration:4,
+  currentWait:5,
+  completed:false
+},
+
+peterPan:{
   name:"Peter Pan's Flight",
   maxWait:90,
   popularity:1.35,
   duration:3,
-  completed:false,
-  currentWait:0
+  currentWait:0,
+  completed:false
 },
 
 alice:{
@@ -97,8 +80,8 @@ alice:{
   maxWait:45,
   popularity:0.8,
   duration:4,
-  completed:false,
-  currentWait:0
+  currentWait:0,
+  completed:false
 },
 
 mrToad:{
@@ -106,35 +89,89 @@ mrToad:{
   maxWait:35,
   popularity:0.7,
   duration:3,
-  completed:false,
-  currentWait:0
+  currentWait:0,
+  completed:false
 },
-  pinocchio:{
+
+pinocchio:{
   name:"Pinocchio's Daring Journey",
   maxWait:45,
   popularity:0.9,
   duration:3,
-  completed:false,
-  currentWait:0
+  currentWait:0,
+  completed:false
 },
-
 
 smallWorld:{
   name:"it's a small world",
   maxWait:40,
   popularity:0.75,
   duration:12,
-  completed:false,
-  currentWait:0
+  currentWait:0,
+  completed:false
 },
-
 
 dumbo:{
   name:"Dumbo the Flying Elephant",
   maxWait:60,
   popularity:1.2,
   duration:2,
-  completed:false,
-  currentWait:0
+  currentWait:0,
+  completed:false
 },
+
+
+// ====================
+// Adventureland
+// ====================
+
+indianaJones:{
+  name:"Indiana Jones Adventure",
+  maxWait:90,
+  popularity:1.15,
+  duration:5,
+  currentWait:5,
+  completed:false
+},
+
+
+// ====================
+// Frontierland
+// ====================
+
+bigThunder:{
+  name:"Big Thunder Mountain",
+  maxWait:70,
+  popularity:0.95,
+  duration:4,
+  currentWait:5,
+  completed:false
+},
+
+
+// ====================
+// Galaxy's Edge
+// ====================
+
+riseResistance:{
+  name:"Rise of the Resistance",
+  maxWait:120,
+  popularity:1.35,
+  duration:18,
+  currentWait:10,
+  completed:false
+},
+
+
+// ====================
+// New Orleans Square / Bayou Country
+// ====================
+
+
+// Future:
+// pirates
+// hauntedMansion
+// tiana
+
+
 };
