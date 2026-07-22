@@ -172,7 +172,7 @@ const nodes = {
     name:"Adventureland Hub",
     type:"junction",
     land:"Adventureland",
-    x:1200,
+    x:1340,
     y:1900,
     showLabel:true,
   },
@@ -189,13 +189,13 @@ const nodes = {
   },
 
 
-  hauntedMansionPath:{
-    id:"hauntedMansionPath",
-    name:"Haunted Mansion Path",
+  nosHub:{
+    id:"nosHub",
+    name:"New Orleans Square Hub",
     type:"junction",
     land:"New Orleans Square",
-    x:750,
-    y:1740,
+    x:850,
+    y:1900,
     showLabel:true,
   },
 
@@ -205,8 +205,8 @@ const nodes = {
     name:"Bayou Country Entrance",
     type:"junction",
     land:"Bayou Country",
-    x:650,
-    y:1700,
+    x:600,
+    y:1500,
     showLabel:true,
   },
     // ====================
@@ -537,9 +537,9 @@ connect("hub","adventureland");
 connect("adventureland","adventurelandHub");
 connect("adventureland","frontierlandEntrance");
 connect("adventurelandHub","newOrleansSquare");
-connect("newOrleansSquare","hauntedMansionPath");
-connect("newOrleansSquare","bayouCountry");
-connect("hauntedMansionPath","galaxysEdgeWest");
+connect("newOrleansSquare","nosHub");
+connect("nosHub","bayouCountry");
+connect("nosHub","galaxysEdgeWest");
 
 // ====================
 // Frontierland
