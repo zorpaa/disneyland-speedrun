@@ -3,6 +3,7 @@ const ctx=canvas.getContext("2d");
 let hoveredNode=null;
 let activeRoute=[];
 let selectedNode=null;
+let fitZoom = 1;
 const camera={
   x:0,
   y:0,
@@ -287,6 +288,8 @@ function zoomIn(){
 }
 function zoomOut(){
   camera.zoom-=0.2;
+  if(camera.zoom<fitZoom)
+    camera.zoom=fitZoom;
   if(camera.zoom>CAMERA_MAX_ZOOM)
     camera.zoom=CAMERA_MAX_ZOOM;
   drawParkMap();
@@ -296,14 +299,13 @@ function resetCamera(){
 }
 
 function fitMap(){
-
-  let zoomX = canvas.width / parkMap.width;
-  let zoomY = canvas.height / parkMap.height;
-  camera.zoom = Math.min(zoomX, zoomY);
-  camera.zoom = Math.max(camera.zoom, CAMERA_MIN_ZOOM);
-  camera.zoom = Math.min(camera.zoom, CAMERA_MAX_ZOOM);
-  camera.x = parkMap.x - ((canvas.width / camera.zoom) - parkMap.width) / 2;
-  camera.y = parkMap.y - ((canvas.height / camera.zoom) - parkMap.height) / 2;
+  fitZoom=Math.min(
+    canvas.width/parkMap.width,
+    canvas.height/parkMap.height
+  );
+  camera.zoom=fitZoom;
+  camera.x=parkMap.x-((canvas.width/camera.zoom)-parkMap.width)/2;
+  camera.y=parkMap.y-((canvas.height/camera.zoom)-parkMap.height)/2;
   drawParkMap();
 }
 
@@ -327,10 +329,10 @@ function handleZoom(event){
   }else{
     camera.zoom-=zoomAmount;
   }
-  if(camera.zoom<0.5)
-    camera.zoom=0.5;
-  if(camera.zoom>3)
-    camera.zoom=3;
+  if(camera.zoom<fitZoom)
+    camera.zoom=fitZoom;
+  if(camera.zoom>CAMERA_MAX_ZOOM)
+    camera.zoom=CAMERA_MAX_ZOOM;
   camera.x=worldX-(mouseX/camera.zoom);
   camera.y=worldY-(mouseY/camera.zoom);
   drawParkMap();
