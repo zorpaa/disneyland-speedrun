@@ -134,6 +134,14 @@ indianaJones:{
   completed:false
 },
 
+jungleCruise:{
+  name:"Jungle Cruise",
+  maxWait:60,
+  popularity:0.95,
+  duration:10,
+  completed:false,
+  currentWait:0
+},
 
 // ====================
 // Frontierland
@@ -167,7 +175,43 @@ riseResistance:{
 // New Orleans Square / Bayou Country
 // ====================
 
+pirates:{
+  name:"Pirates of the Caribbean",
+  maxWait:45,
+  popularity:1.0,
+  duration:15,
+  completed:false,
+  currentWait:0
+},
 
+hauntedMansion:{
+  name:"Haunted Mansion",
+  maxWait:45,
+  popularity:1.0,
+  duration:9,
+  completed:false,
+  currentWait:0
+},
+
+tianas:{
+  name:"Tiana's Bayou Adventure",
+  maxWait:120,
+  popularity:1.25,
+  duration:10,
+  completed:false,
+  currentWait:0
+},
+
+
+winniePooh:{
+  name:"The Many Adventures of Winnie the Pooh",
+  maxWait:35,
+  popularity:0.7,
+  duration:5,
+  completed:false,
+  currentWait:0
+},
+  
 // Future:
 // pirates
 // hauntedMansion
