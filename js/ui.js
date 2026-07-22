@@ -299,13 +299,31 @@ function resetCamera(){
 }
 
 function fitMap(){
+  let minX=Infinity;
+  let minY=Infinity;
+  let maxX=-Infinity;
+  let maxY=-Infinity;
+  for(let id in nodes){
+    let node=nodes[id];
+    minX=Math.min(minX,node.x);
+    minY=Math.min(minY,node.y);
+    maxX=Math.max(maxX,node.x);
+    maxY=Math.max(maxY,node.y);
+  }
+  const padding=200;
+  minX-=padding;
+  minY-=padding;
+  maxX+=padding;
+  maxY+=padding;
+  let graphWidth=maxX-minX;
+  let graphHeight=maxY-minY;
   fitZoom=Math.min(
-    canvas.width/parkMap.width,
-    canvas.height/parkMap.height
+    canvas.width/graphWidth,
+    canvas.height/graphHeight
   );
   camera.zoom=fitZoom;
-  camera.x=parkMap.x-((canvas.width/camera.zoom)-parkMap.width)/2;
-  camera.y=parkMap.y-((canvas.height/camera.zoom)-parkMap.height)/2;
+  camera.x=minX-((canvas.width/camera.zoom)-graphWidth)/2;
+  camera.y=minY-((canvas.height/camera.zoom)-graphHeight)/2;
   drawParkMap();
 }
 
