@@ -434,7 +434,7 @@ dumbo:{
 
 
 // ====================
-// Adventureland / Frontierland / NOS Square
+// Adventureland / Frontierland / NOS Square / Bayou Country
 // ====================
 
 indianaJones:{
@@ -461,8 +461,49 @@ jungleCruise:{
   name:"Jungle Cruise",
   type:"ride",
   land:"Adventureland",
-    x:1400,
-    y:2020,
+  x:1400,
+  y:2000,
+  showLabel:true
+},
+
+pirates:{
+  id:"pirates",
+  name:"Pirates of the Caribbean",
+  type:"ride",
+  land:"New Orleans Square",
+  x:1100,
+  y:1990,
+  showLabel:true
+},
+
+hauntedMansion:{
+  id:"hauntedMansion",
+  name:"Haunted Mansion",
+  type:"ride",
+  land:"New Orleans Square",
+  x:650,
+  y:1800,
+  showLabel:true
+},
+
+tianas:{
+  id:"tianas",
+  name:"Tiana's Bayou Adventure",
+  type:"ride",
+  land:"Bayou Country",
+  x:500,
+  y:1600,
+  showLabel:true
+},
+
+winniePooh:{
+  id:"winniePooh",
+  name:"The Many Adventures of Winnie the Pooh",
+  type:"ride",
+  land:"Bayou Country",
+  x:310,
+  y:1500,
+  showLabel:true
 },
   
 // ====================
