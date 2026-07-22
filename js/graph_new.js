@@ -497,6 +497,100 @@ function connect(a,b){
 }
 
 // ====================
+// Graph Connections
+// ====================
+
+// ====================
+// Main Park Spine
+// ====================
+
+connect("entrance","mainStreet");
+connect("mainStreet","hub");
+
+// ====================
+// Fantasyland
+// ====================
+
+connect("hub","fantasyland");
+connect("fantasyland","fantasylandHub");
+connect("fantasylandHub","fantasylandWest");
+connect("fantasylandHub","fantasylandEast");
+connect("fantasylandHub","matterhornSouth");
+connect("fantasylandEast","smallWorldJunction");
+connect("fantasylandEast","matterhornNorth");
+connect("matterhornSouth","matterhornNorth");
+connect("matterhornSouth","tomorrowlandEntrance");
+connect("matterhornNorth","smallWorldJunction");
+
+// ====================
+// Tomorrowland
+// ====================
+
+connect("hub","tomorrowlandEntrance");
+connect("tomorrowlandEntrance","tomorrowland");
+
+// ====================
+// Adventureland / New Orleans Square
+// ====================
+
+connect("hub","adventureland");
+connect("adventureland","adventurelandHub");
+connect("adventureland","frontierlandEntrance");
+connect("adventurelandHub","newOrleansSquare");
+connect("newOrleansSquare","hauntedMansionPath");
+connect("newOrleansSquare","bayouCountry");
+connect("hauntedMansionPath","galaxysEdgeWest");
+
+// ====================
+// Frontierland
+// ====================
+
+connect("hub","frontierlandEntrance");
+connect("frontierlandEntrance","frontierHub");
+connect("frontierHub","galaxysEdgeEast");
+
+// ====================
+// Galaxy's Edge
+// ====================
+
+connect("galaxysEdgeWest","galaxysEdgeHub");
+connect("galaxysEdgeHub","galaxysEdgeEast");
+
+// ====================
+// Toontown
+// ====================
+
+connect("smallWorldJunction","toonTown");
+connect("toonTown","toonTownHub");
+
+// ====================
+// Ride Connections
+// ====================
+
+// Tomorrowland
+connect("tomorrowland","spaceMountain");
+connect("tomorrowland","starTours");
+connect("tomorrowland","buzzLightyear");
+connect("tomorrowland","autopia");
+connect("tomorrowlandEntrance","submarine");
+
+// Fantasyland
+connect("matterhornNorth","matterhorn");
+connect("fantasylandWest","peterPan");
+connect("fantasylandWest","mrToad");
+connect("fantasylandWest","pinocchio");
+connect("matterhornNorth","alice");
+connect("smallWorldJunction","smallWorld");
+connect("fantasylandEast","dumbo");
+
+// Adventureland / Frontierland
+connect("adventurelandHub","indianaJones");
+connect("frontierHub","bigThunder");
+
+// Galaxy's Edge
+connect("galaxysEdgeHub","riseResistance");
+
+// ====================
 // Collision Checker
 // ====================
 
