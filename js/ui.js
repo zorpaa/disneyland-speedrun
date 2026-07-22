@@ -506,4 +506,6 @@ function drawRoute(){
   ctx.stroke();
 }
 
-loadParkMap();
+window.onload=()=>{
+  loadParkMap();
+};
