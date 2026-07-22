@@ -635,7 +635,11 @@ connect("fantasylandEast","dumbo");
 // Adventureland / Frontierland / NOS Square
 connect("adventurelandHub","indianaJones");
 connect("frontierHub","bigThunder");
-connect("adventuerlandhub","jungleCruise");
+connect("adventurelandhub","jungleCruise");
+connect("nosHub","hauntedMansion");
+connect("newOrleansSquare","pirates");
+connect("bayouCountry","tianas");
+connect("bayouCountry","winniePooh");
 
 // Galaxy's Edge
 connect("galaxysEdgeHub","riseResistance");
