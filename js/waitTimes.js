@@ -1,29 +1,32 @@
 // Dynamic Wait Time System
 function getCrowdLevel(){
   let t=parkTime.current;
-  // Rope drop
-  if(t<540)
-    return 0;
-  // 9-10 AM buildup
-  if(t<600)
-    return 0.25;
-  // 10-12
-  if(t<720)
-    return 0.55;
-  // 12-2
-  if(t<840)
-    return 0.80;
-  // 2-5 peak
-  if(t<1020)
-    return 1;
-  // 5-7
-  if(t<1140)
+  // 8:00 - 10:00 buildup
+  if(t<600){
+    return (t-480)/120*0.35;
+  }
+  // 10:00 - 12:00
+  if(t<720){
+    return 0.35+(t-600)/120*0.30;
+  }
+  // 12:00 - 2:00
+  if(t<840){
+    return 0.65+(t-720)/120*0.20;
+  }
+  // 2:00 - 5:00 peak
+  if(t<1020){
     return 0.85;
-  // 7-9
-  if(t<1260)
-    return 0.65;
-  // close
-  return 0.35;
+  }
+  // 5:00 - 7:00 decline
+  if(t<1140){
+    return 0.85-(t-1020)/120*0.20;
+  }
+  // 7:00 - 9:00
+  if(t<1260){
+    return 0.65-(t-1140)/120*0.20;
+  }
+  // Closing hours
+  return 0.45;
 }
 function calculateWait(ride){
   let crowd=getCrowdLevel();
