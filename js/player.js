@@ -65,14 +65,6 @@ update(){
 
 }
 const player=new Player();
-function arriveAtDestination(){
-  let node=nodes[player.currentNode];
-  if(!node)return;
-  if(node.type==="ride"){
-    showNodeInfo(node.id,true);
-  }
-}
-
 function getWalkingTime(path){
   let distance=0;
   for(let i=0;i<path.length-1;i++){
