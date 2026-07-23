@@ -442,7 +442,7 @@ indianaJones:{
   name:"Indiana Jones Adventure",
   type:"ride",
   land:"Adventureland",
-  x:110,
+  x:1100,
   y:2100,
 },
 
