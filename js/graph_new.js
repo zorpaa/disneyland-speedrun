@@ -64,7 +64,7 @@ const nodes = {
     type:"junction",
     land:"Fantasyland",
     x:1700,
-    y:1050,
+    y:1150,
     showLabel:true,
   },
 
@@ -378,8 +378,8 @@ peterPan:{
   name:"Peter Pan's Flight",
   type:"ride",
   land:"Fantasyland",
-  x:1500,
-  y:950,
+  x:1740,
+  y:1210,
 },
 
 
@@ -388,8 +388,8 @@ mrToad:{
   name:"Mr. Toad's Wild Ride",
   type:"ride",
   land:"Fantasyland",
-  x:1550,
-  y:1150,
+  x:1800,
+  y:1140,
 },
 
 
@@ -398,8 +398,8 @@ pinocchio:{
   name:"Pinocchio's Daring Journey",
   type:"ride",
   land:"Fantasyland",
-  x:1600,
-  y:1000,
+  x:1630,
+  y:1160,
 },
 
 
@@ -408,8 +408,8 @@ alice:{
   name:"Alice in Wonderland",
   type:"ride",
   land:"Fantasyland",
-  x:2000,
-  y:1200,
+  x:1900,
+  y:1180,
 },
 
 
@@ -418,8 +418,8 @@ smallWorld:{
   name:"it's a small world",
   type:"ride",
   land:"Fantasyland",
-  x:2100,
-  y:800,
+  x:2080,
+  y:700,
 },
 
 
@@ -428,8 +428,8 @@ dumbo:{
   name:"Dumbo the Flying Elephant",
   type:"ride",
   land:"Fantasyland",
-  x:1800,
-  y:1200,
+  x:1720,
+  y:1010,
 },
 
 
