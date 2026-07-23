@@ -1,50 +1,79 @@
-const crowd=document.getElementById("crowd");
-const forecast=document.getElementById("forecast");
+// ====================
+// Advanced Settings Toggle
+// ====================
 
-function updateForecast(){
+const advancedToggle=document.getElementById("advancedToggle");
+const advancedSettings=document.getElementById("advancedSettings");
 
-  let text="";
+if(advancedToggle&&advancedSettings){
 
-  switch(crowd.value){
+  advancedToggle.addEventListener("click",()=>{
 
-    case ".75":
-      text="Today's Forecast<br><br>Quiet Crowd Day";
-      break;
+    const open=advancedSettings.style.display==="block";
 
-    case "1":
-      text="Today's Forecast<br><br>Average Crowd Day";
-      break;
+    advancedSettings.style.display=open?"none":"block";
 
-    case "1.25":
-      text="Today's Forecast<br><br>Busy Crowd Day";
-      break;
+    advancedToggle.textContent=
+      (open?"►":"▼")+" Advanced Settings";
 
-    case "1.5":
-      text="Today's Forecast<br><br>Holiday Crowd";
-      break;
-
-  }
-
-  forecast.innerHTML=text;
+  });
 
 }
 
-crowd.onchange=updateForecast;
+// ====================
+// Start Game
+// ====================
 
-updateForecast();
+const startButton=document.getElementById("startGame");
 
-document.getElementById("startGame").onclick=()=>{
+if(startButton){
 
-  sessionStorage.setItem(
-    "crowdMultiplier",
-    document.getElementById("crowd").value
-  );
+  startButton.addEventListener("click",()=>{
 
-  sessionStorage.setItem(
-    "park",
-    document.getElementById("park").value
-  );
+    // Existing settings
+    sessionStorage.setItem(
+      "crowdMultiplier",
+      document.getElementById("crowd").value
+    );
 
-  window.location="game.html";
+    // New settings
+    sessionStorage.setItem(
+      "season",
+      document.getElementById("season").value
+    );
 
-};
+    sessionStorage.setItem(
+      "bathroomEnabled",
+      document.getElementById("bathroom").checked
+    );
+
+    sessionStorage.setItem(
+      "foodEnabled",
+      document.getElementById("food").checked
+    );
+
+    sessionStorage.setItem(
+      "happinessEnabled",
+      document.getElementById("happiness").checked
+    );
+
+    sessionStorage.setItem(
+      "fatigueEnabled",
+      document.getElementById("fatigue").checked
+    );
+
+    sessionStorage.setItem(
+      "showRideLabels",
+      document.getElementById("rideLabels").checked
+    );
+
+    sessionStorage.setItem(
+      "showJunctionLabels",
+      document.getElementById("junctionLabels").checked
+    );
+
+    window.location.href="game.html";
+
+  });
+
+}
