@@ -1,9 +1,7 @@
 const canvas=document.getElementById("gameCanvas");
 const ctx=canvas.getContext("2d");
-const showRideLabels =
-  sessionStorage.getItem("showRideLabels") !== "false";
-const showJunctionLabels =
-  sessionStorage.getItem("showJunctionLabels") !== "false";
+const showRideLabels=settings.showRideLabels;
+const showJunctionLabels=settings.showJunctionLabels;
 let hoveredNode=null;
 let activeRoute=[];
 let selectedNode=null;
