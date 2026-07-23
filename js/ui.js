@@ -544,3 +544,14 @@ function returnToMenu(){
   sessionStorage.clear();
   window.location.href="index.html";
 }
+
+console.log("UI loaded");
+function togglePauseMenu(){
+  console.log("Menu clicked");
+  const menu=document.getElementById("pauseMenu");
+  if(menu.style.display==="block"){
+    menu.style.display="none";
+  }else{
+    menu.style.display="block";
+  }
+}
