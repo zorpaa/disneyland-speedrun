@@ -14,8 +14,13 @@ function arriveAtDestination(){
   console.log("Arrived:",nodes[destination].name);
   player.currentNode=destination;
   if(nodes[destination].type==="ride"){
-    joinQueue(destination);
+    showNodeInfo(destination,true);
   }
+  player.destination=null;
+  player.path=[];
+  player.pathIndex=0;
+  player.moving=false;
+}
 
   player.destination=null;
   player.path=[];
