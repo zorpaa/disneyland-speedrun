@@ -531,18 +531,18 @@ riseResistance:{
 // ====================
 
 function connect(a,b){
-
+  if(!nodes[a]){
+    console.error("Missing node:",a);
+    return;
+  }
+  if(!nodes[b]){
+    console.error("Missing node:",b);
+    return;
+  }
   nodes[a].connections ??= [];
   nodes[b].connections ??= [];
-
-  nodes[a].connections.push({
-    node:b
-  });
-
-  nodes[b].connections.push({
-    node:a
-  });
-
+  nodes[a].connections.push({node:b});
+  nodes[b].connections.push({node:a});
 }
 
 // ====================
