@@ -22,12 +22,6 @@ function arriveAtDestination(){
   player.moving=false;
 }
 
-  player.destination=null;
-  player.path=[];
-  player.pathIndex=0;
-  player.moving=false;
-}
-
 function completeRide(id){
   const ride=rides[id];
   if(!ride||ride.completed)return;
