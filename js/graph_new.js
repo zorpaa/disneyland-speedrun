@@ -334,8 +334,8 @@ starTours:{
   name:"Star Tours",
   type:"ride",
   land:"Tomorrowland",
-  x:2500,
-  y:1350,
+  x:2050,
+  y:1730,
   showLabel:true,
 },
 
@@ -644,6 +644,7 @@ connect("toonTown","toonTownHub");
 // Tomorrowland
 connect("tomorrowland","spaceMountain");
 connect("tomorrowland","starTours");
+connect("tomorrowlandEntrace","starTours");
 connect("tomorrowland","buzzLightyear");
 connect("tomorrowland","autopia");
 connect("tomorrowland","submarine");
