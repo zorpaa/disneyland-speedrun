@@ -378,8 +378,8 @@ peterPan:{
   name:"Peter Pan's Flight",
   type:"ride",
   land:"Fantasyland",
-  x:1740,
-  y:1210,
+  x:1780,
+  y:1280,
 },
 
 
@@ -564,7 +564,6 @@ connect("hub","fantasyland");
 connect("fantasyland","fantasylandHub");
 connect("fantasylandHub","fantasylandWest");
 connect("fantasylandHub","fantasylandEast");
-connect("fantasylandHub","matterhornSouth");
 connect("fantasylandEast","smallWorldJunction");
 connect("fantasylandEast","matterhornNorth");
 connect("matterhornSouth","matterhornNorth");
@@ -625,12 +624,14 @@ connect("tomorrowlandEntrance","submarine");
 
 // Fantasyland
 connect("matterhornNorth","matterhorn");
-connect("fantasylandWest","peterPan");
-connect("fantasylandWest","mrToad");
+connect("fantasylandEast","peterPan");
+connect("fantasyland","peterPan");
+connect("fantasylandHub","mrToad");
+connect("fantasylandEast","mrToad");
 connect("fantasylandWest","pinocchio");
 connect("matterhornNorth","alice");
 connect("smallWorldJunction","smallWorld");
-connect("fantasylandEast","dumbo");
+connect("fantasylandHub","dumbo");
 
 // Adventureland / Frontierland / NOS Square
 connect("adventurelandHub","indianaJones");
