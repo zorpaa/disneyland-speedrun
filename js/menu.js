@@ -11,6 +11,11 @@ if(advancedToggle&&advancedSettings){
       (open?"►":"▼")+" Advanced Settings";
   });
 }
+
+console.log("menu.js loaded");
+console.log("window.settingsConfig =", window.settingsConfig);
+console.log("typeof settingsConfig =", typeof settingsConfig);
+
 // ====================
 // Start Game
 // ====================
