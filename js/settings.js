@@ -1,24 +1,35 @@
 // ====================
-// Game Settings
+// Load Settings
 // ====================
 
-const settings={
+const settings={};
 
-  // Gameplay
-  crowdMultiplier:Number(sessionStorage.getItem("crowdMultiplier"))||1,
-  season:sessionStorage.getItem("season")||"summer",
 
-  // Needs
-  bathroom:sessionStorage.getItem("bathroomEnabled")==="true",
-  food:sessionStorage.getItem("foodEnabled")==="true",
-  happiness:sessionStorage.getItem("happinessEnabled")==="true",
-  fatigue:sessionStorage.getItem("fatigueEnabled")==="true",
+for(let category in settingsConfig){
+  for(let option of settingsConfig[category]){
 
-  // Map
-  showRideLabels:
-    sessionStorage.getItem("showRideLabels")!=="false",
-  showJunctionLabels:
-    sessionStorage.getItem("showJunctionLabels")!=="false",
-  nodeSize:Number(sessionStorage.getItem("nodeSize"))||40,
-  textSize:Number(sessionStorage.getItem("textSize"))||14
-};
+    let stored=
+      sessionStorage.getItem(option.id);
+
+
+    if(stored===null){
+      settings[option.id]=option.default;
+
+    }
+    else{
+
+      if(option.type==="checkbox"){
+        settings[option.id]=stored==="true";
+
+      }
+      else if(option.type==="number"){
+        settings[option.id]=Number(stored);
+
+      }
+      else{
+        settings[option.id]=stored;
+
+      }
+    }
+  }
+}
