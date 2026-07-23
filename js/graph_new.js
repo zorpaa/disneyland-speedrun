@@ -593,6 +593,7 @@ connect("fantasylandEast","matterhornNorth");
 connect("matterhornSouth","matterhornNorth");
 connect("matterhornSouth","tomorrowlandEntrance");
 connect("matterhornNorth","smallWorldJunction");
+connect("matterhornSouth","hub");
 
 // ====================
 // Tomorrowland
