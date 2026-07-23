@@ -16,10 +16,14 @@
     <div id="location">Location: Main Entrance</div>
     <div id="status">Park Open</div>
     <div id="mapControls">
-      <button onclick="zoomIn()">+</button>
-      <button onclick="zoomOut()">−</button>
-      <button onclick="resetCamera()">Reset</button>
-    </div>
+  <button onclick="zoomIn()">+</button>
+  <button onclick="zoomOut()">−</button>
+  <button onclick="resetCamera()">Reset</button>
+
+  <button id="menuButton" onclick="togglePauseMenu()">
+    Menu
+  </button>
+</div>
   </div>
 
   <canvas id="gameCanvas"></canvas>
@@ -30,6 +34,20 @@
 <div id="queuePanel">
   No queue
 </div>
+
+<div id="pauseMenu">
+  <h3>Game Menu</h3>
+  <button onclick="togglePauseMenu()">
+    Resume
+  </button>
+  <button onclick="restartRun()">
+    Restart Run
+  </button>
+  <button onclick="returnToMenu()">
+    Return to Menu
+  </button>
+</div>
+  
   <script src="js/settings.js"></script>
   <script src="js/graph_new.js"></script>
   <script src="js/rides.js"></script>
