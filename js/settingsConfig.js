@@ -3,23 +3,24 @@
 // ====================
 
 console.log("settingsConfig loaded");
-const settingsConfig={
+const settingsConfig = {
 
-  gameplay:[
+  season:"summer",
 
-    {
-      id:"crowd",
-      type:"select",
-      name:"Crowd Level",
-      default:"1"
-    },
-    {
-      id:"season",
-      type:"select",
-      name:"Time of Year",
-      default:"summer"
-    }
-  ],
+  bathroom:true,
+  food:true,
+  happiness:true,
+  fatigue:true,
+
+  map:{
+    nodeSize:40,
+    textSize:14,
+    nodeColor:"#00e5ff",
+    pathColor:"#888",
+    textVisible:true
+  }
+
+};
 
   needs:[
 
