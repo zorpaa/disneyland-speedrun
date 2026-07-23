@@ -398,7 +398,7 @@ pinocchio:{
   name:"Pinocchio's Daring Journey",
   type:"ride",
   land:"Fantasyland",
-  x:1630,
+  x:1520,
   y:1160,
 },
 
