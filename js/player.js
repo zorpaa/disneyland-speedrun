@@ -1,7 +1,7 @@
 // Player System
 class Player{
 constructor(){
-  this.currentNode="entrance";
+  this.currentNode="hub";
   this.x=nodes.entrance.x;
   this.y=nodes.entrance.y;
   this.state="idle";
