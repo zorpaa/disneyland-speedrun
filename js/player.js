@@ -69,7 +69,7 @@ function arriveAtDestination(){
   let node=nodes[player.currentNode];
   if(!node)return;
   if(node.type==="ride"){
-    startRide(node.id);
+    showNodeInfo(node.id,true);
   }
 }
 
