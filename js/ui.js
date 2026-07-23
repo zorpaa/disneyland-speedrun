@@ -1,9 +1,9 @@
 const canvas=document.getElementById("gameCanvas");
 const ctx=canvas.getContext("2d");
-const NODE_SIZE=settings.nodeSize;
-const TEXT_SIZE=settings.textSize;
-const showRideLabels=settings.showRideLabels;
-const showJunctionLabels=settings.showJunctionLabels;
+const NODE_SIZE = settings.map.nodeSize;
+const TEXT_SIZE = settings.map.textSize;
+const showRideLabels = settings.map.showRideLabels;
+const showJunctionLabels = settings.map.showJunctionLabels;
 let hoveredNode=null;
 let activeRoute=[];
 let selectedNode=null;
