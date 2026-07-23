@@ -760,7 +760,7 @@ connect("fantasyland","snowWhite");
 connect("fantasylandHub","snowWhite");
 connect("fantasylandWest","caseyJr");
 connect("smallWorldJunction","storybookBoats");
-connect("fantasylandEast","storybooksBoats");
+connect("fantasylandEast","storybookBoats");
 connect("fantasylandHub","madTeaParty");
 connect("fantasylandEast","madTeaParty");
 
@@ -783,7 +783,7 @@ connect("galaxysEdgeEast","smugglersRun");
 
 connect("toonTownHub","gadgetCoaster");
 connect("toonTownHub","runawayRailway");
-connect("toonTownEntrance","rogerRabbit");
+connect("toonTown","rogerRabbit");
 
 // ====================
 // Collision Checker
