@@ -77,8 +77,7 @@ function getWalkingTime(path){
     );
   }
   return Math.ceil(distance/(player.speed*60));
-}
-
+  
 getWalkingSpeed(){
   let base=this.speed;
   if(!settings.fatigueEnabled)
@@ -90,4 +89,5 @@ getWalkingSpeed(){
   if(needs.fatigue >= 25)
     return base*0.75;
   return base*0.5;
+}
 }
