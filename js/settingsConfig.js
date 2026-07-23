@@ -3,8 +3,8 @@
 // ====================
 
 console.log("settingsConfig loaded");
-
-const settingsConfig = {
+console.log("Config exists:", window.settingsConfig);
+window.settingsConfig = {
 
   season:{
     id:"season",
