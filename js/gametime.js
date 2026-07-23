@@ -1,5 +1,4 @@
 // Park Clock System
-console.log("GAME TIME LOADED");
 const parkTime={
   open:480,
   close:1440,
@@ -27,10 +26,7 @@ function parkIsClosed(){
   return parkTime.current>=parkTime.close;
 }
 function updateClock(){
-  console.log("NEW UPDATE CLOCK RUNNING");
-
   let clock=document.getElementById("clock");
-
   if(clock){
     clock.innerText=getTimeString();
   }
