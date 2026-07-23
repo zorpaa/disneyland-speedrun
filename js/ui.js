@@ -522,3 +522,25 @@ window.addEventListener("load",()=>{
     resetCamera();
   },200);
 });
+
+function togglePauseMenu(){
+  const menu=document.getElementById("pauseMenu");
+  if(menu.style.display==="block"){
+    menu.style.display="none";
+  }else{
+    menu.style.display="block";
+  }
+}
+
+function restartRun(){
+  if(!confirm("Restart this run?"))
+    return;
+  location.reload();
+}
+
+function returnToMenu(){
+  if(!confirm("Return to the main menu?"))
+    return;
+  sessionStorage.clear();
+  window.location.href="index.html";
+}
