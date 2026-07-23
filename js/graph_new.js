@@ -601,7 +601,7 @@ connect("matterhornNorth","smallWorldJunction");
 connect("hub","tomorrowlandEntrance");
 connect("tomorrowlandEntrance","tomorrowland");
 connect("tomorrowland","tomorrowlandNorth");
-connect("tommorrowlandNorth","matterhornSouth");
+connect("tomorrowlandNorth","matterhornSouth");
 
 // ====================
 // Adventureland / New Orleans Square
@@ -648,6 +648,7 @@ connect("tomorrowland","buzzLightyear");
 connect("tomorrowland","autopia");
 connect("tomorrowland","submarine");
 connect("tomorrowlandNorth","submarine");
+connect("tomorrowlandEntrance","buzzLightyear");
 
 // Fantasyland
 connect("matterhornNorth","matterhorn");
