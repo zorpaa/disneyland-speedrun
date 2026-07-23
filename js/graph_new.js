@@ -713,6 +713,8 @@ connect("bayouCountry","galaxysEdgeWest");
 connect("hub","frontierlandEntrance");
 connect("frontierlandEntrance","frontierHub");
 connect("frontierHub","galaxysEdgeEast");
+connect("frontierHub","southFrontierland");
+connect("newOrleansSquare","southFrontierland");
 
 // ====================
 // Galaxy's Edge
@@ -720,6 +722,7 @@ connect("frontierHub","galaxysEdgeEast");
 
 connect("galaxysEdgeWest","galaxysEdgeHub");
 connect("galaxysEdgeHub","galaxysEdgeEast");
+connect("galaxysEdgeEast","fantasylandWest");
 
 // ====================
 // Toontown
@@ -744,14 +747,22 @@ connect("tomorrowlandEntrance","buzzLightyear");
 
 // Fantasyland
 connect("matterhornNorth","matterhorn");
-connect("fantasylandEast","peterPan");
+connect("fantasylandHub","peterPan");
 connect("fantasyland","peterPan");
 connect("fantasylandHub","mrToad");
 connect("fantasylandEast","mrToad");
 connect("fantasylandWest","pinocchio");
+connect("fantasylandHub","pinocchio");
 connect("matterhornNorth","alice");
 connect("smallWorldJunction","smallWorld");
 connect("fantasylandHub","dumbo");
+connect("fantasyland","snowWhite");
+connect("fantasylandHub","snowWhite");
+connect("fantasylandWest","caseyJr");
+connect("smallWorldJunction","storybookBoats");
+connect("fantasylandEast","storybooksBoats");
+connect("fantasylandHub","madTeaParty");
+connect("fantasylandEast","madTeaParty");
 
 // Adventureland / Frontierland / NOS Square
 connect("adventurelandHub","indianaJones");
@@ -764,6 +775,15 @@ connect("bayouCountry","winniePooh");
 
 // Galaxy's Edge
 connect("galaxysEdgeHub","riseResistance");
+connect("galaxysEdgeWest","riseResistance");
+connect("galaxysEdgeHub","smugglersRun");
+connect("galaxysEdgeEast","smugglersRun");
+
+// Toontown
+
+connect("toonTownHub","gadgetCoaster");
+connect("toonTownHub","runawayRailway");
+connect("toonTownEntrance","rogerRabbit");
 
 // ====================
 // Collision Checker
