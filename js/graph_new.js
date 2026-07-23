@@ -314,8 +314,8 @@ spaceMountain:{
   name:"Space Mountain",
   type:"ride",
   land:"Tomorrowland",
-  x:2450,
-  y:1450,
+  x:2200,
+  y:2050,
 },
 
 
@@ -334,7 +334,7 @@ buzzLightyear:{
   name:"Buzz Lightyear Astro Blasters",
   type:"ride",
   land:"Tomorrowland",
-  x:2400,
+  x:2050,
   y:1600,
 },
 
@@ -344,8 +344,8 @@ autopia:{
   name:"Autopia",
   type:"ride",
   land:"Tomorrowland",
-  x:2600,
-  y:1700,
+  x:2500,
+  y:1500,
 },
 
 
@@ -354,8 +354,8 @@ submarine:{
   name:"Finding Nemo Submarine Voyage",
   type:"ride",
   land:"Tomorrowland",
-  x:2100,
-  y:1450,
+  x:2420,
+  y:1380,
 },
 
 
