@@ -90,4 +90,3 @@ getWalkingSpeed(){
     return base*0.75;
   return base*0.5;
 }
-}
