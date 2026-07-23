@@ -1,5 +1,9 @@
 const canvas=document.getElementById("gameCanvas");
 const ctx=canvas.getContext("2d");
+const showRideLabels =
+  sessionStorage.getItem("showRideLabels") !== "false";
+const showJunctionLabels =
+  sessionStorage.getItem("showJunctionLabels") !== "false";
 let hoveredNode=null;
 let activeRoute=[];
 let selectedNode=null;
@@ -168,7 +172,13 @@ function drawNodes(){
       ctx.textAlign="left";
     }
     // Labels
-    if(node.showLabel){
+    if(
+      node.showLabel &&
+      (
+        (node.type==="ride" && showRideLabels) ||
+        (node.type==="junction" && showJunctionLabels)
+      )
+    ){
       ctx.font="bold "+(14*camera.zoom)+"px Arial";
       ctx.textAlign="center";
       // White border
