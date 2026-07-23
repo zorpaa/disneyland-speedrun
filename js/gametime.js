@@ -7,6 +7,7 @@ const parkTime={
 function addMinutes(minutes){
   if(isNaN(minutes))return;
   parkTime.current += minutes;
+  updateNeeds(minutes);
   updateQueue();
   updateRideWaits();
   updateClock();
