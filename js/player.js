@@ -52,15 +52,16 @@ update(){
   let dx=next.x-this.x;
   let dy=next.y-this.y;
   let distance=Math.sqrt(dx*dx+dy*dy);
-  if(distance<=this.speed/60){
+  let currentSpeed=this.getWalkingSpeed();
+  if(distance<=currentSpeed/60){
     this.x=next.x;
     this.y=next.y;
     this.currentNode=nextID;
     this.pathIndex++;
     return;
   }
-  this.x+=(dx/distance)*(this.speed/60);
-  this.y+=(dy/distance)*(this.speed/60);
+  this.x+=(dx/distance)*(currentSpeed/60);
+  this.y+=(dy/distance)*(currentSpeed/60);
 }
 
 }
