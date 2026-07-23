@@ -524,7 +524,9 @@ window.addEventListener("load",()=>{
 });
 
 function togglePauseMenu(){
+  console.log("Menu clicked");
   const menu=document.getElementById("pauseMenu");
+  console.log("Pause menu element:",menu);
   if(menu.style.display==="block"){
     menu.style.display="none";
   }else{
