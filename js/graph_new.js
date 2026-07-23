@@ -37,7 +37,7 @@ const nodes = {
     type:"junction",
     land:"Hub",
     x:1700,
-    y:1500,
+    y:1700,
     showLabel:true,
   },
 
