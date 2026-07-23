@@ -3,6 +3,7 @@
 function advanceTime(minutes){
   if(isNaN(minutes))return;
   parkTime.current += minutes;
+  updateNeeds(minutes);
   updateQueue();
   updateRideWaits();
   updateClock();
