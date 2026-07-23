@@ -1,6 +1,6 @@
 // Ride Database
 
-const crowdMultiplier=Number(sessionStorage.getItem("crowdMultiplier"))||1;
+const crowdMultiplier=settings.crowdMultiplier;
 const rides={
 
 // ====================
