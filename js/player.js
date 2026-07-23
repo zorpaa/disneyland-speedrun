@@ -2,8 +2,8 @@
 class Player{
 constructor(){
   this.currentNode="hub";
-  this.x=nodes.entrance.x;
-  this.y=nodes.entrance.y;
+  this.x=nodes.hub.x;
+  this.y=nodes.hub.y;
   this.state="idle";
   this.speed=180;
   this.completed=[];
@@ -12,7 +12,6 @@ constructor(){
   this.moving=false;
   this.destination=null;
 }
-
 startMovement(path){
   if(!path||path.length<2)return;
   this.path=path;
@@ -28,13 +27,9 @@ startMovement(path){
       (b.y-a.y)**2
     );
   }
-
-  // Average guest walking speed
   let minutes=Math.ceil(distance/250);
-
   addMinutes(minutes);
 }
-
 update(){
   if(!this.moving)return;
   if(this.pathIndex>=this.path.length){
@@ -51,7 +46,10 @@ update(){
   }
   let dx=next.x-this.x;
   let dy=next.y-this.y;
-  let distance=Math.sqrt(dx*dx+dy*dy);
+  let distance=Math.sqrt(
+    dx*dx+
+    dy*dy
+  );
   let currentSpeed=this.getWalkingSpeed();
   if(distance<=currentSpeed/60){
     this.x=next.x;
@@ -63,7 +61,18 @@ update(){
   this.x+=(dx/distance)*(currentSpeed/60);
   this.y+=(dy/distance)*(currentSpeed/60);
 }
-
+getWalkingSpeed(){
+  let base=this.speed;
+  if(!settings.fatigueEnabled)
+    return base;
+  if(needs.fatigue>=75)
+    return base;
+  if(needs.fatigue>=50)
+    return base*0.9;
+  if(needs.fatigue>=25)
+    return base*0.75;
+  return base*0.5;
+}
 }
 const player=new Player();
 function getWalkingTime(path){
@@ -77,16 +86,4 @@ function getWalkingTime(path){
     );
   }
   return Math.ceil(distance/(player.speed*60));
-  
-getWalkingSpeed(){
-  let base=this.speed;
-  if(!settings.fatigueEnabled)
-    return base;
-  if(needs.fatigue >= 75)
-    return base;
-  if(needs.fatigue >= 50)
-    return base*0.9;
-  if(needs.fatigue >= 25)
-    return base*0.75;
-  return base*0.5;
 }
