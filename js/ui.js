@@ -1,5 +1,7 @@
 const canvas=document.getElementById("gameCanvas");
 const ctx=canvas.getContext("2d");
+const NODE_SIZE=settings.nodeSize;
+const TEXT_SIZE=settings.textSize;
 const showRideLabels=settings.showRideLabels;
 const showJunctionLabels=settings.showJunctionLabels;
 let hoveredNode=null;
@@ -90,25 +92,25 @@ function drawNodes(){
       ctx.arc(
         pos.x,
         pos.y,
-        40*camera.zoom,
+        NODE_SIZE*camera.zoom,
         0,
         Math.PI*2
       );
     }else{
       ctx.moveTo(
         pos.x,
-        pos.y-(40*camera.zoom)
+        pos.y-(NODE_SIZE*camera.zoom)
       );
       ctx.lineTo(
-        pos.x+(40*camera.zoom),
+        pos.x+(NODE_SIZE*camera.zoom),
         pos.y
       );
       ctx.lineTo(
         pos.x,
-        pos.y+(40*camera.zoom)
+        pos.y+(NODE_SIZE*camera.zoom)
       );
       ctx.lineTo(
-        pos.x-(40*camera.zoom),
+        pos.x-(NODE_SIZE*camera.zoom),
         pos.y
       );
       ctx.closePath();
@@ -132,25 +134,25 @@ function drawNodes(){
         ctx.arc(
           pos.x,
           pos.y,
-          55*camera.zoom,
+          (NODE_SIZE+15)*camera.zoom,
           0,
           Math.PI*2
         );
       }else{
         ctx.moveTo(
           pos.x,
-          pos.y-(55*camera.zoom)
+          pos.y-(NODE_SIZE+15)*camera.zoom
         );
         ctx.lineTo(
-          pos.x+(55*camera.zoom),
+          pos.x+(NODE_SIZE+15)*camera.zoom,
           pos.y
         );
         ctx.lineTo(
           pos.x,
-          pos.y+(55*camera.zoom)
+          pos.y+(NODE_SIZE+15)*camera.zoom
         );
         ctx.lineTo(
-          pos.x-(55*camera.zoom),
+          pos.x-(NODE_SIZE+15)*camera.zoom,
           pos.y
         );
         ctx.closePath();
@@ -177,22 +179,22 @@ function drawNodes(){
         (node.type==="junction" && showJunctionLabels)
       )
     ){
-      ctx.font="bold "+(14*camera.zoom)+"px Arial";
+      ctx.font="bold "+(TEXT_SIZE*camera.zoom)+"px Arial";
       ctx.textAlign="center";
       // White border
       ctx.strokeStyle="white";
-      ctx.lineWidth=4*camera.zoom;
+      ctx.lineWidth=(TEXT_SIZE/3)*camera.zoom;
       ctx.strokeText(
         node.name,
         pos.x,
-        pos.y-(55*camera.zoom)
+        pos.y-(NODE_SIZE+15)*camera.zoom
       );
       // Black text
       ctx.fillStyle="black";
       ctx.fillText(
         node.name,
         pos.x,
-        pos.y-(55*camera.zoom)
+        pos.y-(NODE_SIZE+15)*camera.zoom
       );
       ctx.textAlign="left";
     }
