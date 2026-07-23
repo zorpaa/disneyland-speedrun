@@ -446,11 +446,8 @@ function showNodeInfo(id,selected=false){
   let panel=document.getElementById("ridePanel");
   let node=nodes[id];
   let ride=rides[id];
-
   if(!panel||!node||!ride)return;
-
   panel.style.display="block";
-
   if(!selected){
     panel.innerHTML=
     "<b>"+ride.name+"</b><br><br>"+
@@ -458,19 +455,15 @@ function showNodeInfo(id,selected=false){
     "Ride: "+ride.duration+" min";
     return;
   }
-
   selectedNode=id;
-
   let route=findPath(player.currentNode,id);
   let walkTime=route.distance;
-
+  let atRide = player.currentNode===id;
   let total=
     walkTime+
     ride.currentWait+
     ride.duration;
-
   let finish=parkTime.current+total;
-
   panel.innerHTML=
     "<b>"+ride.name+"</b><br><br>"+
     "Wait: "+ride.currentWait+" min<br>"+
@@ -478,10 +471,12 @@ function showNodeInfo(id,selected=false){
     "Walk: "+walkTime+" min<br><br>"+
     "Total: "+total+" min<br>"+
     "Done: "+formatTime(finish)+"<br><br>"+
-    atRide ?
-    "<button onclick=\"queueRide('"+id+"')\">Ride</button>"
-    :
-    "<button onclick=\"selectNode('"+id+"')\">Go To Ride</button>";
+    (
+      atRide ?
+      "<button onclick=\"queueRide('"+id+"')\">Ride</button>"
+      :
+      "<button onclick=\"selectNode('"+id+"')\">Go To Ride</button>"
+    );
 }
 
 function handleHover(e){
