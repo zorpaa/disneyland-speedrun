@@ -3,24 +3,10 @@
 // ====================
 
 console.log("settingsConfig loaded");
+
 const settingsConfig = {
 
   season:"summer",
-
-  bathroom:true,
-  food:true,
-  happiness:true,
-  fatigue:true,
-
-  map:{
-    nodeSize:40,
-    textSize:14,
-    nodeColor:"#00e5ff",
-    pathColor:"#888",
-    textVisible:true
-  }
-
-};
 
   needs:[
 
@@ -44,14 +30,17 @@ const settingsConfig = {
       name:"Happiness",
       default:true
     },
+
     {
       id:"fatigue",
       type:"checkbox",
       name:"Fatigue",
       default:true
     }
+
   ],
-  
+
+
   map:[
 
     {
@@ -81,5 +70,7 @@ const settingsConfig = {
       name:"Text Size",
       default:14
     }
+
   ]
+
 };
