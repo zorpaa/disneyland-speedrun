@@ -167,7 +167,7 @@ const nodes = {
   },
 
 
-  adventurelandHub:{
+  :{
     id:"adventurelandHub",
     name:"Adventureland Hub",
     type:"junction",
@@ -583,9 +583,9 @@ connect("tomorrowlandEntrance","tomorrowland");
 // ====================
 
 connect("hub","adventureland");
-connect("adventureland","adventurelandHub");
+connect("adventureland","");
 connect("adventureland","frontierlandEntrance");
-connect("adventurelandHub","newOrleansSquare");
+connect("","newOrleansSquare");
 connect("newOrleansSquare","nosHub");
 connect("nosHub","bayouCountry");
 connect("bayouCountry","galaxysEdgeWest");
@@ -635,7 +635,7 @@ connect("fantasylandEast","dumbo");
 // Adventureland / Frontierland / NOS Square
 connect("adventurelandHub","indianaJones");
 connect("frontierHub","bigThunder");
-connect("adventurelandhub","jungleCruise");
+connect("adventurelandHub","jungleCruise");
 connect("nosHub","hauntedMansion");
 connect("newOrleansSquare","pirates");
 connect("bayouCountry","tianas");
