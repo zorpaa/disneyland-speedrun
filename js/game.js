@@ -13,11 +13,6 @@ function formatTime(minutes){
   return `${h}:${String(m).padStart(2,"0")} ${s}`;
 }
 
-function updateClock(){
-  let c=document.getElementById("clock");
-  if(c)c.innerText=formatTime(parkTime.current);
-}
-
 function startGame(){
   resize();
   checkNodeCollisions();
