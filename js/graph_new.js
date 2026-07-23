@@ -244,7 +244,15 @@ const nodes = {
     showLabel:true,
   },
 
-
+southFrontierland:{
+  name:"South Frontierland",
+  x:1160,
+  y:1640,
+  type:"junction",
+  land:"Frontierland",
+  showLabel:true
+},
+  
   // ====================
   // Galaxy's Edge
   // ====================
@@ -297,7 +305,6 @@ const nodes = {
     y:500,
     showLabel:true,
   },
-
 
   toonTownHub:{
     id:"toonTownHub",
@@ -453,6 +460,41 @@ dumbo:{
   showLabel:true,
 },
 
+snowWhite:{
+  name:"Snow White's Enchanted Wish",
+  x:1570,
+  y:1260,
+  type:"ride",
+  land:"Fantasyland",
+  showLabel:true
+},
+
+caseyJr:{
+  name:"Casey Jr. Circus Train",
+  x:1580,
+  y:930,
+  type:"ride",
+  land:"Fantasyland",
+  showLabel:true
+},
+
+storybookBoats:{
+  name:"Storybook Land Canal Boats",
+  x:1900,
+  y:960,
+  type:"ride",
+  land:"Fantasyland",
+  showLabel:true
+},
+
+madTeaParty:{
+  name:"Mad Tea Party",
+  x:1820,
+  y:1200,
+  type:"ride",
+  land:"Fantasyland",
+  showLabel:true
+},
 
 // ====================
 // Adventureland / Frontierland / NOS Square / Bayou Country
@@ -528,6 +570,15 @@ winniePooh:{
   y:1500,
   showLabel:true
 },
+
+markTwain:{
+  name:"Mark Twain Riverboat",
+  x:1090,
+  y:1680,
+  type:"ride",
+  land:"Frontierland",
+  showLabel:true
+},
   
 // ====================
 // Galaxy's Edge Rides
@@ -543,6 +594,45 @@ riseResistance:{
   showLabel:true,
 },
 
+smugglersRun:{
+  name:"Millennium Falcon: Smugglers Run",
+  x:900,
+  y:550,
+  type:"ride",
+  land:"Galaxy's Edge",
+  showLabel:true
+},
+  
+// ====================
+// Mickey's Toontown
+// ====================
+
+rogerRabbit:{
+  name:"Roger Rabbit's Car Toon Spin",
+  x:2000,
+  y:400,
+  type:"ride",
+  land:"Toontown",
+  showLabel:true
+},
+
+runawayRailway:{
+  name:"Mickey & Minnie's Runaway Railway",
+  x:1900,
+  y:300,
+  type:"ride",
+  land:"Toontown",
+  showLabel:true
+},
+
+gadgetCoaster:{
+  name:"Chip 'n' Dale's GADGETcoaster",
+  x:1550,
+  y:400,
+  type:"ride",
+  land:"Toontown",
+  showLabel:true
+},
 
 // ====================
 // Finish Nodes
