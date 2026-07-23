@@ -644,7 +644,7 @@ connect("toonTown","toonTownHub");
 // Tomorrowland
 connect("tomorrowland","spaceMountain");
 connect("tomorrowland","starTours");
-connect("tomorrowlandEntrace","starTours");
+connect("tomorrowlandEntrance","starTours");
 connect("tomorrowland","buzzLightyear");
 connect("tomorrowland","autopia");
 connect("tomorrowland","submarine");
