@@ -167,7 +167,7 @@ const nodes = {
   },
 
 
-  :{
+  adventurelandHub:{
     id:"adventurelandHub",
     name:"Adventureland Hub",
     type:"junction",
