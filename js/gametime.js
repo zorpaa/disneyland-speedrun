@@ -34,9 +34,11 @@ function parkIsClosed(){
   return parkTime.current>=parkTime.close;
 }
 function updateClock(){
+  console.log("NEW UPDATE CLOCK RUNNING");
+
   let clock=document.getElementById("clock");
+
   if(clock){
     clock.innerText=getTimeString();
-    console.log("Clock updated:",getTimeString());
   }
 }
