@@ -427,6 +427,21 @@ function selectNode(id){
   player.startMovement(route.path);
 }
 
+function queueRide(id){
+  let ride=rides[id];
+  if(!ride)return;
+  joinQueue(id);
+  let panel=document.getElementById("ridePanel");
+  if(panel){
+    panel.innerHTML=
+      "<b>"+ride.name+"</b><br><br>"+
+      "Joined Queue!<br><br>"+
+      "Wait: "+
+      ride.currentWait+
+      " minutes";
+  }
+}
+
 function showNodeInfo(id,selected=false){
   let panel=document.getElementById("ridePanel");
   let node=nodes[id];
@@ -463,6 +478,9 @@ function showNodeInfo(id,selected=false){
     "Walk: "+walkTime+" min<br><br>"+
     "Total: "+total+" min<br>"+
     "Done: "+formatTime(finish)+"<br><br>"+
+    atRide ?
+    "<button onclick=\"queueRide('"+id+"')\">Ride</button>"
+    :
     "<button onclick=\"selectNode('"+id+"')\">Go To Ride</button>";
 }
 
