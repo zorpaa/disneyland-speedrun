@@ -647,7 +647,7 @@ connect("tomorrowland","starTours");
 connect("tomorrowland","buzzLightyear");
 connect("tomorrowland","autopia");
 connect("tomorrowland","submarine");
-connect("tomorrowlandNorth","submarine">;
+connect("tomorrowlandNorth","submarine");
 
 // Fantasyland
 connect("matterhornNorth","matterhorn");
