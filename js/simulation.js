@@ -26,8 +26,8 @@ function arriveAtDestination(){
 function completeRide(id){
   const ride=rides[id];
   if(!ride||ride.completed)return;
-  advanceTime(ride.duration);
   ride.completed=true;
+  advanceTime(ride.duration);
   player.completed.push(id);
   player.state="idle";
   updateRideCounter();
