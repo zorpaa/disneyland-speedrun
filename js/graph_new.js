@@ -583,9 +583,9 @@ connect("tomorrowlandEntrance","tomorrowland");
 // ====================
 
 connect("hub","adventureland");
-connect("adventureland","");
+connect("adventureland","adventurelandHub");
 connect("adventureland","frontierlandEntrance");
-connect("","newOrleansSquare");
+connect("adventurelandHub","newOrleansSquare");
 connect("newOrleansSquare","nosHub");
 connect("nosHub","bayouCountry");
 connect("bayouCountry","galaxysEdgeWest");
