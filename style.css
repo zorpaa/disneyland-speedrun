@@ -166,9 +166,9 @@ canvas{
   background:white;
   border:2px solid #333;
   border-radius:5px;
+}
 
-  #pauseMenu{
-
+#pauseMenu{
   position:absolute;
   top:120px;
   left:20px;
@@ -179,7 +179,6 @@ canvas{
   border-radius:8px;
   display:none;
   z-index:500;
-
 }
 
 #pauseMenu h3{
@@ -188,10 +187,8 @@ canvas{
 }
 
 #pauseMenu button{
-
   width:100%;
   padding:10px;
   margin-bottom:8px;
   cursor:pointer;
-}
 }
