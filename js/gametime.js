@@ -37,5 +37,6 @@ function updateClock(){
   let clock=document.getElementById("clock");
   if(clock){
     clock.innerText=getTimeString();
+    console.log("Clock updated:",getTimeString());
   }
 }
