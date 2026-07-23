@@ -121,6 +121,41 @@ dumbo:{
   completed:false
 },
 
+snowWhite:{
+  name:"Snow White's Enchanted Wish",
+  maxWait:40,
+  popularity:0.75,
+  duration:3,
+  currentWait:0,
+  completed:false
+},
+
+caseyJr:{
+  name:"Casey Jr. Circus Train",
+  maxWait:45,
+  popularity:0.80,
+  duration:4,
+  currentWait:0,
+  completed:false
+},
+
+storybookBoats:{
+  name:"Storybook Land Canal Boats",
+  maxWait:35,
+  popularity:0.70,
+  duration:7,
+  currentWait:0,
+  completed:false
+},
+
+madTeaParty:{
+  name:"Mad Tea Party",
+  maxWait:35,
+  popularity:0.70,
+  duration:3,
+  currentWait:0,
+  completed:false
+},
 
 // ====================
 // Adventureland
@@ -157,7 +192,46 @@ bigThunder:{
   completed:false
 },
 
+markTwain:{
+  name:"Mark Twain Riverboat",
+  maxWait:20,
+  popularity:0.40,
+  duration:15,
+  currentWait:0,
+  completed:false
+},
 
+// ====================
+// Mickey's Toontown
+// ====================
+
+rogerRabbit:{
+  name:"Roger Rabbit's Car Toon Spin",
+  maxWait:60,
+  popularity:0.95,
+  duration:5,
+  currentWait:0,
+  completed:false
+},
+
+runawayRailway:{
+  name:"Mickey & Minnie's Runaway Railway",
+  maxWait:90,
+  popularity:1.25,
+  duration:5,
+  currentWait:0,
+  completed:false
+},
+
+gadgetCoaster:{
+  name:"Chip 'n' Dale's GADGETcoaster",
+  maxWait:35,
+  popularity:0.60,
+  duration:2,
+  currentWait:0,
+  completed:false
+},
+  
 // ====================
 // Galaxy's Edge
 // ====================
@@ -171,6 +245,14 @@ riseResistance:{
   completed:false
 },
 
+smugglersRun:{
+  name:"Millennium Falcon: Smugglers Run",
+  maxWait:75,
+  popularity:1.05,
+  duration:7,
+  currentWait:0,
+  completed:false
+}, 
 
 // ====================
 // New Orleans Square / Bayou Country
