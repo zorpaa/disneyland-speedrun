@@ -2,6 +2,7 @@
 // Settings Configuration
 // ====================
 
+console.log("settingsConfig loaded");
 const settingsConfig={
 
   gameplay:[
