@@ -150,7 +150,16 @@ const nodes = {
     showLabel:true,
   },
 
-
+  tomorrowlandNorth:{
+    id:"tomorrowlandNorth",
+    name:"North Tomorrowland",
+    type:"junction",
+    land:"Tomorrowland",
+    x:2270,
+    y:1440,
+    showlabel:true,
+  },
+  
   // ====================
   // Adventureland / NOS
   // ====================
@@ -316,6 +325,7 @@ spaceMountain:{
   land:"Tomorrowland",
   x:2200,
   y:2050,
+  showLabel:true,
 },
 
 
@@ -326,6 +336,7 @@ starTours:{
   land:"Tomorrowland",
   x:2500,
   y:1350,
+  showLabel:true,
 },
 
 
@@ -336,6 +347,7 @@ buzzLightyear:{
   land:"Tomorrowland",
   x:2050,
   y:1600,
+  showLabel:true,
 },
 
 
@@ -346,6 +358,7 @@ autopia:{
   land:"Tomorrowland",
   x:2500,
   y:1500,
+  showLabel:true,
 },
 
 
@@ -356,6 +369,7 @@ submarine:{
   land:"Tomorrowland",
   x:2420,
   y:1380,
+  showLabel:true,
 },
 
 
@@ -370,6 +384,7 @@ matterhorn:{
   land:"Fantasyland",
   x:2050,
   y:1300,
+  showLabel:true,
 },
 
 
@@ -380,6 +395,7 @@ peterPan:{
   land:"Fantasyland",
   x:1780,
   y:1280,
+  showLabel:true,
 },
 
 
@@ -390,6 +406,7 @@ mrToad:{
   land:"Fantasyland",
   x:1800,
   y:1140,
+  showLabel:true,
 },
 
 
@@ -400,6 +417,7 @@ pinocchio:{
   land:"Fantasyland",
   x:1520,
   y:1160,
+  showLabel:true,
 },
 
 
@@ -410,6 +428,7 @@ alice:{
   land:"Fantasyland",
   x:1900,
   y:1180,
+  showLabel:true,
 },
 
 
@@ -420,6 +439,7 @@ smallWorld:{
   land:"Fantasyland",
   x:2080,
   y:700,
+  showLabel:true,
 },
 
 
@@ -430,6 +450,7 @@ dumbo:{
   land:"Fantasyland",
   x:1720,
   y:1010,
+  showLabel:true,
 },
 
 
@@ -444,6 +465,7 @@ indianaJones:{
   land:"Adventureland",
   x:1100,
   y:2100,
+  showLabel:true,
 },
 
 
@@ -454,6 +476,7 @@ bigThunder:{
   land:"Frontierland",
   x:1150,
   y:1350,
+  showLabel:true,
 },
 
 jungleCruise:{
@@ -517,6 +540,7 @@ riseResistance:{
   land:"Galaxy's Edge",
   x:450,
   y:700,
+  showLabel:true,
 },
 
 
@@ -576,6 +600,8 @@ connect("matterhornNorth","smallWorldJunction");
 
 connect("hub","tomorrowlandEntrance");
 connect("tomorrowlandEntrance","tomorrowland");
+connect("tomorrowland","tomorrowlandNorth");
+connect("tommorrowlandNorth","matterhornSouth");
 
 // ====================
 // Adventureland / New Orleans Square
@@ -620,7 +646,8 @@ connect("tomorrowland","spaceMountain");
 connect("tomorrowland","starTours");
 connect("tomorrowland","buzzLightyear");
 connect("tomorrowland","autopia");
-connect("tomorrowlandEntrance","submarine");
+connect("tomorrowland","submarine");
+connect("tomorrowlandNorth","submarine">;
 
 // Fantasyland
 connect("matterhornNorth","matterhorn");
