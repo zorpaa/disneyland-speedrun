@@ -152,22 +152,46 @@ canvas{
   position:absolute;
   left:20px;
   top:90px;
-
   display:flex;
   flex-direction:column;
   gap:5px;
-
   z-index:200;
 }
 
 #mapControls button{
   width:45px;
   height:35px;
-
   font-size:20px;
   cursor:pointer;
-
   background:white;
   border:2px solid #333;
   border-radius:5px;
+
+  #pauseMenu{
+
+  position:absolute;
+  top:120px;
+  left:20px;
+  width:220px;
+  padding:15px;
+  background:white;
+  border:2px solid #333;
+  border-radius:8px;
+  display:none;
+  z-index:500;
+
+}
+
+#pauseMenu h3{
+  margin-bottom:15px;
+  text-align:center;
+}
+
+#pauseMenu button{
+
+  width:100%;
+  padding:10px;
+  margin-bottom:8px;
+  cursor:pointer;
+}
 }
