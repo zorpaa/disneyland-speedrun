@@ -152,7 +152,7 @@ const nodes = {
 
   tomorrowlandNorth:{
     id:"tomorrowlandNorth",
-    name:"North Tomorrowland",
+    name:"Tomorrowland North",
     type:"junction",
     land:"Tomorrowland",
     x:2270,
