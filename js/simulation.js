@@ -4,6 +4,7 @@ function advanceTime(minutes){
   if(isNaN(minutes))return;
   parkTime.current += minutes;
   updateNeeds(minutes);
+  updateNeedsHUD();
   updateQueue();
   updateRideWaits();
   updateClock();
@@ -76,4 +77,14 @@ function updateHUD(){
     loc.innerText="Location: "+nodes[player.currentNode].name;
   if(status)
     status.innerText=parkIsClosed()?"Park Closed":"Park Open";
+}
+
+function updateNeedsHUD(){
+  let panel=document.getElementById("needs");
+  if(!panel)return;
+  panel.innerHTML=
+    "🚻 "+Math.round(needs.bathroom)+"% "+
+    "🍔 "+Math.round(needs.food)+"% "+
+    "😊 "+Math.round(needs.happiness)+"% "+
+    "😴 "+Math.round(needs.fatigue)+"%";
 }
