@@ -1,5 +1,5 @@
 // Park Clock System
-
+console.log("GAME TIME LOADED");
 const parkTime={
   open:480,
   close:1440,
