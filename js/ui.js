@@ -549,8 +549,8 @@ function returnToMenu(){
 
 console.log("UI loaded");
 function togglePauseMenu(){
-  console.log("Menu clicked");
   const menu=document.getElementById("pauseMenu");
+  console.log(menu);
   if(menu.style.display==="block"){
     menu.style.display="none";
   }else{
