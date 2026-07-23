@@ -7,56 +7,87 @@
 </head>
 
 <body>
+  
 <div id="menu">
-
-  <h1>Disneyland Speedrun</h1>
-
-  <div id="version">v0.3 Alpha</div>
-
-  <hr>
-
+<h1>Disneyland Speedrun</h1>
+<div id="version">Version 0.3 Alpha</div>
+<div class="card">
+  <h2>Game Setup</h2>
   <div class="option">
     <label>Park</label>
     <select id="park">
       <option>Disneyland</option>
     </select>
   </div>
-
   <div class="option">
-    <label>Crowd Level</label>
+    <label>Day Type</label>
     <select id="crowd">
-      <option value=".75">Quiet</option>
-      <option value="1" selected>Average</option>
-      <option value="1.25">Busy</option>
+      <option value=".75">Quiet Day</option>
+      <option value="1" selected>Average Day</option>
+      <option value="1.25">Busy Day</option>
       <option value="1.5">Holiday</option>
     </select>
   </div>
-
+  <div class="option">
+    <label>Time of Year</label>
+    <select id="season">
+      <option selected>Summer</option>
+      <option>Spring</option>
+      <option>Halloween</option>
+      <option>Holiday</option>
+    </select>
+  </div>
   <div class="option">
     <label>Difficulty</label>
     <select disabled>
       <option>Coming Soon</option>
     </select>
   </div>
-
   <div class="option">
     <label>Starting Time</label>
     <select disabled>
       <option>8:00 AM</option>
     </select>
   </div>
-
-  <hr>
-
+</div>
+<div class="card">
+  <h2 id="advancedToggle">
+    ► Advanced Settings
+  </h2>
+  <div id="advancedSettings" style="display:none;">
+    <h3>Needs</h3>
+    <label><input type="checkbox" id="bathroom"> Bathroom</label><br>
+    <label><input type="checkbox" id="food"> Food</label><br>
+    <label><input type="checkbox" id="happiness"> Happiness</label><br>
+    <label><input type="checkbox" id="fatigue"> Fatigue</label>
+    <h3>Map</h3>
+    <label>
+      <input
+        type="checkbox"
+        id="rideLabels"
+        checked
+      >
+      Ride Labels
+    </label><br>
+    <label>
+      <input
+        type="checkbox"
+        id="junctionLabels"
+        checked
+      >
+      Junction Labels
+    </label>
+  </div>
+</div>
+<div class="card">
+  <h2>Today's Forecast</h2>
   <div id="forecast">
-    Today's Forecast<br><br>
     Average Crowd Day
   </div>
-
-  <button id="startGame">
-    Start Run
-  </button>
-
+</div>
+<button id="startGame">
+  Start Run
+</button>
 </div>
 
 <script src="js/menu.js"></script>
