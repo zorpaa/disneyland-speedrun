@@ -6,10 +6,15 @@ console.log("settingsConfig loaded");
 
 const settingsConfig = {
 
-  season:"summer",
+  season:{
+    id:"season",
+    type:"select",
+    name:"Time of Year",
+    default:"summer"
+  },
+
 
   needs:[
-
     {
       id:"bathroom",
       type:"checkbox",
@@ -37,12 +42,10 @@ const settingsConfig = {
       name:"Fatigue",
       default:true
     }
-
   ],
 
 
   map:[
-
     {
       id:"showRideLabels",
       type:"checkbox",
@@ -70,7 +73,6 @@ const settingsConfig = {
       name:"Text Size",
       default:14
     }
-
   ]
 
 };
