@@ -84,14 +84,32 @@ function updateHUD(){
     loc.innerText="Location: "+nodes[player.currentNode].name;
   if(status)
     status.innerText=parkIsClosed()?"Park Closed":"Park Open";
+  
 }
-
 function updateNeedsHUD(){
   let panel=document.getElementById("needs");
   if(!panel)return;
-  panel.innerHTML=
-    "🚻 "+Math.round(needs.bathroom)+"% "+
-    "🍔 "+Math.round(needs.food)+"% "+
-    "😊 "+Math.round(needs.happiness)+"% "+
-    "😴 "+Math.round(needs.fatigue)+"%";
+  let text="";
+  if(settings.bathroomEnabled){
+    text+=
+      "🚻 "+Math.round(needs.bathroom)+"% ";
+  }
+  if(settings.foodEnabled){
+    text+=
+      "🍔 "+Math.round(needs.food)+"% ";
+  }
+  if(settings.happinessEnabled){
+    text+=
+      "😊 "+Math.round(needs.happiness)+"% ";
+  }
+  if(settings.fatigueEnabled){
+    text+=
+      "😴 "+Math.round(needs.fatigue)+"% ";
+  }
+  panel.innerHTML=text;
+  if(text===""){
+    panel.style.display="none";
+  }else{
+    panel.style.display="block";
+  }
 }
