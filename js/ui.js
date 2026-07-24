@@ -592,20 +592,21 @@ function togglePauseMenu(){
   }
 }
 
-function showFoodInfo(id){
+function showFoodInfo(id,selected=false){
   let panel=document.getElementById("ridePanel");
   let food=foods[id];
   if(!panel||!food)return;
-
   panel.style.display="block";
-
+  if(selected){
+    selectedNode=id;
+  }
   panel.innerHTML=
     "<b>"+food.name+"</b><br><br>"+
     "Meal Time: "+food.duration+" min<br>"+
     "🍔 +"+food.foodRestore+"<br>"+
     "😊 +"+food.happinessRestore+"<br>"+
     "😴 +"+food.fatigueRestore+"<br><br>"+
-    "<button onclick=\"eatAtLocation('"+id+"')\">Eat</button>";
+    "<button onclick=\"selectNode('"+id+"')\">Go Eat</button>";
 }
 
 function eatAtLocation(id){
