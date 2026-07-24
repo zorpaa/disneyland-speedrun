@@ -159,7 +159,7 @@ connect("toonTown","rogerRabbit");
 // ====================
 
 connect("jollyHoliday","mainStreet");
-connect("jollyHoliday","adventurelandEntrance");
+connect("jollyHoliday","adventureland");
 
 // ====================
 // Collision Checker
