@@ -155,6 +155,13 @@ connect("toonTownHub","runawayRailway");
 connect("toonTown","rogerRabbit");
 
 // ====================
+// Restaurant Connects
+// ====================
+
+connect("jollyHoliday","mainStreet");
+connect("jollyHoliday","adventurelandEntrance");
+
+// ====================
 // Collision Checker
 // ====================
 
