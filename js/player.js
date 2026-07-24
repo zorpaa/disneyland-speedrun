@@ -27,7 +27,12 @@ startMovement(path){
       (b.y-a.y)**2
     );
   }
-  let minutes=Math.ceil(distance/250);
+  let walkingSpeed=this.getWalkingSpeed();
+
+  let minutes=Math.ceil(
+    distance / walkingSpeed
+  );
+
   addMinutes(minutes);
 }
 update(){
