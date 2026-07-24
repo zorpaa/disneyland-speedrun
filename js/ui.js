@@ -394,10 +394,20 @@ function handleMapClick(e){
   let y=screenY/camera.zoom+camera.y;
 
   for(let id in nodes){
-    let n=nodes[id];
-    if(Math.hypot(x-n.x,y-n.y)<45){
-      selectedNode=null;
-      n.type==="ride"?showNodeInfo(id,true):selectNode(id);
+  let n=nodes[id];
+
+  if(Math.hypot(x-n.x,y-n.y)<45){
+
+    selectedNode=null;
+
+      if(n.type==="ride"){
+        showNodeInfo(id,true);
+      }else if(n.type==="food"){
+        showFoodInfo(id);
+      }else{
+        selectNode(id);
+      }
+
       break;
     }
   }
@@ -569,4 +579,38 @@ function togglePauseMenu(){
   }else{
     menu.style.display="block";
   }
+}
+
+function showFoodInfo(id){
+  let panel=document.getElementById("ridePanel");
+  let food=foods[id];
+  if(!panel||!food)return;
+
+  panel.style.display="block";
+
+  panel.innerHTML=
+    "<b>"+food.name+"</b><br><br>"+
+    "Meal Time: "+food.duration+" min<br>"+
+    "🍔 +"+food.foodRestore+"<br>"+
+    "😊 +"+food.happinessRestore+"<br>"+
+    "😴 +"+food.fatigueRestore+"<br><br>"+
+    "<button onclick=\"eatAtLocation('"+id+"')\">Eat</button>";
+}
+
+function eatAtLocation(id){
+  let food=foods[id];
+  if(!food)return;
+
+  advanceTime(food.duration,true);
+
+  if(settings.foodEnabled)
+    needs.food=Math.min(100,needs.food+food.foodRestore);
+
+  if(settings.happinessEnabled)
+    needs.happiness=Math.min(100,needs.happiness+food.happinessRestore);
+
+  if(settings.fatigueEnabled)
+    needs.fatigue=Math.min(100,needs.fatigue+food.fatigueRestore);
+
+  updateNeedsHUD();
 }
