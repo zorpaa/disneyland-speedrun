@@ -88,29 +88,40 @@ function drawNodes(){
     let pos=worldToScreen(node.x,node.y);
     ctx.beginPath();
     // Node shape
+
+    let size=NODE_SIZE;
+
+    if(node.type==="junction")
+      size=NODE_SIZE;
+
+    else if(node.type==="food")
+      size=NODE_SIZE*0.65;
+
+    else if(node.type==="ride")
+      size=NODE_SIZE;
     if(node.type==="ride"){
       ctx.arc(
         pos.x,
         pos.y,
-        NODE_SIZE*camera.zoom,
+        size*camera.zoom,
         0,
         Math.PI*2
       );
     }else{
       ctx.moveTo(
         pos.x,
-        pos.y-(NODE_SIZE*camera.zoom)
+        pos.y-(size*camera.zoom)
       );
       ctx.lineTo(
-        pos.x+(NODE_SIZE*camera.zoom),
+        pos.x+(size*camera.zoom),
         pos.y
       );
       ctx.lineTo(
         pos.x,
-        pos.y+(NODE_SIZE*camera.zoom)
+        pos.y+(size*camera.zoom)
       );
       ctx.lineTo(
-        pos.x-(NODE_SIZE*camera.zoom),
+        pos.x-(size*camera.zoom),
         pos.y
       );
       ctx.closePath();
@@ -134,25 +145,25 @@ function drawNodes(){
         ctx.arc(
           pos.x,
           pos.y,
-          (NODE_SIZE+15)*camera.zoom,
+          (size+15)*camera.zoom,
           0,
           Math.PI*2
         );
       }else{
         ctx.moveTo(
           pos.x,
-          pos.y-(NODE_SIZE+15)*camera.zoom
+          pos.y-(size+15)*camera.zoom
         );
         ctx.lineTo(
-          pos.x+(NODE_SIZE+15)*camera.zoom,
+          pos.x+(size+15)*camera.zoom,
           pos.y
         );
         ctx.lineTo(
           pos.x,
-          pos.y+(NODE_SIZE+15)*camera.zoom
+          pos.y+(size+15)*camera.zoom
         );
         ctx.lineTo(
-          pos.x-(NODE_SIZE+15)*camera.zoom,
+          pos.x-(size+15)*camera.zoom,
           pos.y
         );
         ctx.closePath();
@@ -187,14 +198,14 @@ function drawNodes(){
       ctx.strokeText(
         node.name,
         pos.x,
-        pos.y-(NODE_SIZE+15)*camera.zoom
+        pos.y-(size+15)*camera.zoom
       );
       // Black text
       ctx.fillStyle="black";
       ctx.fillText(
         node.name,
         pos.x,
-        pos.y-(NODE_SIZE+15)*camera.zoom
+        pos.y-(size+15)*camera.zoom
       );
       ctx.textAlign="left";
     }
