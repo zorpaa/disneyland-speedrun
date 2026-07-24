@@ -29,14 +29,13 @@ function completeRide(id){
   const ride=rides[id];
   if(!ride||ride.completed)return;
   ride.completed=true;
-  advanceTime(ride.duration);
-  // Riding restores energy
-  if(settings.fatigueEnabled){
-    needs.fatigue += ride.duration;
-    if(needs.fatigue > 100)
-      needs.fatigue = 100;
-    updateNeedsHUD();
-  }
+    advanceTime(ride.duration,true);
+    if(settings.fatigueEnabled){
+      needs.fatigue+=ride.duration;
+      if(needs.fatigue>100)
+        needs.fatigue=100;
+      updateNeedsHUD();
+    }
   player.completed.push(id);
   player.state="idle";
   updateRideCounter();
