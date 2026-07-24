@@ -1,6 +1,6 @@
 // Simulation System
 
-function advanceTime(minutes){
+function advanceTime(minutes,resting=false){
   if(isNaN(minutes))return;
   parkTime.current += minutes;
   updateNeeds(minutes);
