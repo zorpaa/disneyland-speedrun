@@ -3,12 +3,10 @@
 // New Map Layout - Chunk 1
 // ====================
 
-const nodes = {
-
-// ====================
-// Finish Nodes
-// ====================
-
+const nodes={
+  ...junctionNodes,
+  ...rideNodes,
+  ...foodNodes
 };
 
 // ====================
