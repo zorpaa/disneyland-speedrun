@@ -620,20 +620,14 @@ function showFoodInfo(id,arrived=false){
 }
 
 function eatAtLocation(id){
-  console.log("Eating at",id);
+  console.log("Eating:",id);
   let food=foods[id];
+  console.log("Food data:",food);
   if(!food)return;
-
-  advanceTime(food.duration,true);
-
-  if(settings.foodEnabled)
-    needs.food=Math.min(100,needs.food+food.foodRestore);
-
-  if(settings.happinessEnabled)
-    needs.happiness=Math.min(100,needs.happiness+food.happinessRestore);
-
-  if(settings.fatigueEnabled)
-    needs.fatigue=Math.min(100,needs.fatigue+food.fatigueRestore);
-
+  advanceTime(food.duration);
+  console.log("Time after eating:",parkTime.current);
+  needs.food=Math.min(100,needs.food+food.foodRestore);
+  needs.happiness=Math.min(100,needs.happiness+food.happinessRestore);
+  needs.fatigue=Math.min(100,needs.fatigue+food.fatigueRestore);
   updateNeedsHUD();
 }
