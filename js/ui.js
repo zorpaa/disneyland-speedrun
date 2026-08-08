@@ -596,8 +596,10 @@ function showFoodInfo(id,arrived=false){
   let panel=document.getElementById("ridePanel");
   let food=foods[id];
   if(!panel||!food)return;
+
   panel.style.display="block";
   selectedNode=id;
+
   if(arrived){
     panel.innerHTML=
       "<b>"+food.name+"</b><br><br>"+
@@ -606,12 +608,15 @@ function showFoodInfo(id,arrived=false){
       "😊 +"+food.happinessRestore+"<br>"+
       "😴 +"+food.fatigueRestore+"<br><br>"+
       "<button id=\"eatButton\">Eat</button>";
+
     document.getElementById("eatButton").onclick=()=>{
       eatAtLocation(id);
     };
+
     return;
   }
-panel.innerHTML=
+
+  panel.innerHTML=
   "<b>"+food.name+"</b><br><br>"+
   "Meal Time: "+food.duration+" min<br>"+
   "🍔 +"+food.foodRestore+"<br>"+
@@ -625,6 +630,7 @@ button.addEventListener("click",function(){
   console.log("EAT BUTTON CLICKED");
   eatAtLocation(id);
 });
+}
 
 function eatAtLocation(id){
   console.log("Eating:",id);
