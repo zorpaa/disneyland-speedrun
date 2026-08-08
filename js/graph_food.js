@@ -128,3 +128,5 @@ const foodNodes={
   }
   
 };
+
+Object.assign(nodes,foodNodes);
