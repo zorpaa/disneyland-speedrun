@@ -616,31 +616,42 @@ function showFoodInfo(id,arrived=false){
     return;
   }
 
-  panel.innerHTML=
+panel.innerHTML=
   "<b>"+food.name+"</b><br><br>"+
-  "Meal Time: "+food.duration+" min<br>"+
   "🍔 +"+food.foodRestore+"<br>"+
   "😊 +"+food.happinessRestore+"<br>"+
   "😴 +"+food.fatigueRestore+"<br><br>"+
-  "<button id=\"eatButton\">Eat</button>";
+  "<button id=\"shortEat\">Short</button> "+
+  "<button id=\"slightEat\">Slight</button> "+
+  "<button id=\"normalEat\">Normal</button>";
 
-let button=document.getElementById("eatButton");
+document.getElementById("shortEat").onclick=()=>{
+  eatAtLocation(id,0.1);
+};
 
-button.addEventListener("click",function(){
-  console.log("EAT BUTTON CLICKED");
-  eatAtLocation(id);
-});
+document.getElementById("slightEat").onclick=()=>{
+  eatAtLocation(id,0.5);
+};
+
+document.getElementById("normalEat").onclick=()=>{
+  eatAtLocation(id,1);
+};
 }
 
-function eatAtLocation(id){
-  console.log("Eating:",id);
+function eatAtLocation(id,multiplier=1){
   let food=foods[id];
-  console.log("Food data:",food);
   if(!food)return;
-  advanceTime(food.duration);
-  console.log("Time after eating:",parkTime.current);
-  needs.food=Math.min(100,needs.food+food.foodRestore);
-  needs.happiness=Math.min(100,needs.happiness+food.happinessRestore);
-  needs.fatigue=Math.min(100,needs.fatigue+food.fatigueRestore);
+  let duration=Math.max(1,Math.round(food.duration*multiplier));
+  advanceTime(duration);
+  if(settings.foodEnabled)
+    needs.food=Math.min(100,needs.food+food.foodRestore*multiplier);
+  if(settings.happinessEnabled)
+    needs.happiness=Math.min(100,needs.happiness+food.happinessRestore*multiplier);
+  if(settings.fatigueEnabled)
+    needs.fatigue=Math.min(100,needs.fatigue+food.fatigueRestore*multiplier);
   updateNeedsHUD();
 }
+
+eatAtLocation("jollyHoliday",0.1);
+eatAtLocation("jollyHoliday",0.5);
+eatAtLocation("jollyHoliday",1);
