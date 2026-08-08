@@ -596,27 +596,28 @@ function showFoodInfo(id,arrived=false){
   let panel=document.getElementById("ridePanel");
   let food=foods[id];
   if(!panel||!food)return;
-
   panel.style.display="block";
   selectedNode=id;
-
-  if(!arrived){
+  if(arrived){
     panel.innerHTML=
       "<b>"+food.name+"</b><br><br>"+
       "Meal Time: "+food.duration+" min<br>"+
       "🍔 +"+food.foodRestore+"<br>"+
       "😊 +"+food.happinessRestore+"<br>"+
       "😴 +"+food.fatigueRestore+"<br><br>"+
-      "<button onclick=\"selectNode('"+id+"')\">Go Eat</button>";
-  }else{
-    panel.innerHTML=
-      "<b>"+food.name+"</b><br><br>"+
-      "Meal Time: "+food.duration+" min<br>"+
-      "🍔 +"+food.foodRestore+"<br>"+
-      "😊 +"+food.happinessRestore+"<br>"+
-      "😴 +"+food.fatigueRestore+"<br><br>"+
-      "<button onclick=\"eatAtLocation('"+id+"')\">Eat</button>";
+      "<button id=\"eatButton\">Eat</button>";
+    document.getElementById("eatButton").onclick=()=>{
+      eatAtLocation(id);
+    };
+    return;
   }
+  panel.innerHTML=
+    "<b>"+food.name+"</b><br><br>"+
+    "Meal Time: "+food.duration+" min<br>"+
+    "🍔 +"+food.foodRestore+"<br>"+
+    "😊 +"+food.happinessRestore+"<br>"+
+    "😴 +"+food.fatigueRestore+"<br><br>"+
+    "<button onclick=\"selectNode('"+id+"')\">Go Eat</button>";
 }
 
 function eatAtLocation(id){
