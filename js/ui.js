@@ -611,14 +611,20 @@ function showFoodInfo(id,arrived=false){
     };
     return;
   }
-  panel.innerHTML=
-    "<b>"+food.name+"</b><br><br>"+
-    "Meal Time: "+food.duration+" min<br>"+
-    "🍔 +"+food.foodRestore+"<br>"+
-    "😊 +"+food.happinessRestore+"<br>"+
-    "😴 +"+food.fatigueRestore+"<br><br>"+
-    "<button onclick=\"selectNode('"+id+"')\">Go Eat</button>";
-}
+panel.innerHTML=
+  "<b>"+food.name+"</b><br><br>"+
+  "Meal Time: "+food.duration+" min<br>"+
+  "🍔 +"+food.foodRestore+"<br>"+
+  "😊 +"+food.happinessRestore+"<br>"+
+  "😴 +"+food.fatigueRestore+"<br><br>"+
+  "<button id=\"eatButton\">Eat</button>";
+
+let button=document.getElementById("eatButton");
+
+button.addEventListener("click",function(){
+  console.log("EAT BUTTON CLICKED");
+  eatAtLocation(id);
+});
 
 function eatAtLocation(id){
   console.log("Eating:",id);
