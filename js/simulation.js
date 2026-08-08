@@ -14,10 +14,13 @@ function advanceTime(minutes,resting=false){
 function arriveAtDestination(){
   if(!player.destination)return;
   const destination=player.destination;
-  console.log("Arrived:",nodes[destination].name);
+  const node=nodes[destination];
+  console.log("Arrived:",node.name);
   player.currentNode=destination;
-  if(nodes[destination].type==="ride"){
-    showNodeInfo(destination,true);
+  if(node.type==="ride"){
+    joinQueue(destination);
+  }else if(node.type==="food"){
+    showFoodInfo(destination,true);
   }
   player.destination=null;
   player.path=[];
